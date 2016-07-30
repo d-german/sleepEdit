@@ -1,0 +1,101 @@
+<SmartAssemblyProject ProjectID="{aa1671be-c08d-43eb-9680-5b5f38694bd3}" Version="2.0">
+    <MainAssemblyFileName>.\bin\Release\sleepEdit.exe</MainAssemblyFileName>
+    <FriendlyName>sleepEdit</FriendlyName>
+    <CompanyName>[Unknown Company]</CompanyName>
+    <Configuration Name="Release">
+        <ApplicationName>sleepEdit</ApplicationName>
+        <Destination DestinationFileName="..\..\..\..\..\sleepEdit\sleepEdit.exe" />
+        <Assemblies>
+            <Assembly AssemblyName="Protocols, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="0">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" />
+                    <ResourcesCompression Compress="1" />
+                </Merging>
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="RichTextBoxPrintCtrl, Culture=neutral, PublicKeyToken=null">
+                <Merging />
+                <Embedding Compress="1" Embed="1" />
+            </Assembly>
+            <Assembly AssemblyName="NetSpell.SpellChecker, Culture=neutral, PublicKeyToken=318b389f0db66e46">
+                <Merging />
+                <Embedding Compress="1" Embed="1" GAC="1" />
+            </Assembly>
+            <Assembly AssemblyName="RespirationsComment, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="0">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" />
+                </Merging>
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="PrelimInterDataManager, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="0">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" />
+                </Merging>
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="TSTbodyPosComment, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="0">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" />
+                </Merging>
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="SleepArch, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="0">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" />
+                </Merging>
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="sleepEdit, Culture=neutral, PublicKeyToken=null">
+                <Merging>
+                    <ResourcesCompression Compress="1" />
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation Obfuscate="0">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" />
+                </Merging>
+            </Assembly>
+        </Assemblies>
+        <Options>
+            <Obfuscation FieldsNameMangling="2" NameMangling="2" />
+            <ExceptionReporting ReportExceptions="1" />
+            <StrongNameSigning KeyFileName=".\sleepEdit_TemporaryKey.pfx" Password="I7iHsEcVrrRs3rCDuNAKlDzHRXHT69g9DlN8+20BnDI=" Sign="1" />
+            <OtherProtections AddIncorrectMetadata="1" SuppressIldasm="1" />
+            <StringsEncoding Encode="0" />
+            <OtherOptimizations SealClasses="1" />
+            <Debugging />
+        </Options>
+    </Configuration>
+</SmartAssemblyProject>

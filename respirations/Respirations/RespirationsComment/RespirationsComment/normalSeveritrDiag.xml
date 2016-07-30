@@ -1,0 +1,37 @@
+<?xml version='1.0'?>
+<NormalSeverityDiag>
+  <Result id="0" >
+    <Effect>true</Effect>
+    <plurality>Zero</plurality>
+    <value>
+      Overall respirations are within normal limits.
+    </value>
+  </Result>
+  <Result id="1">
+    <Effect>true</Effect>
+    <plurality>Single</plurality>
+    <value>Overall respirations are within normal limits with 1 event per hour of sleep.</value>
+  </Result>
+  <Result id="2">
+    <Effect>true</Effect>
+    <plurality>Multiple</plurality>
+    <value>Overall respirations are within normal limits with [RDI] events per hour of sleep.</value>
+  </Result>
+  <Result id="3">
+    <Effect>false</Effect>
+    <plurality>Zero</plurality>
+    <value>Respirations are within normal limits.</value>
+  </Result>
+  <Result id="4">
+    <Effect>false</Effect>
+    <plurality>Single</plurality>
+    <value>Respirations are within normal limits with 1 or less events per hour of sleep.</value>
+  </Result>
+  <Result id="5">
+    <Effect>false</Effect>
+    <plurality>Multiple</plurality>
+    <value>Respirations are within normal limits with [RDI] events per hour of sleep.</value>
+  </Result>
+</NormalSeverityDiag>
+
+

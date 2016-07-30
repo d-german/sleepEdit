@@ -1,0 +1,13 @@
+﻿<?xmlversion="1.0"encoding="utf-8" ?>
+<a:parentelement  xmlns:a="SchemaA.xsd"xmlns:b="SchemaB.xsd">
+  <a:childelement>
+    <b:element>
+      <a:parentelement>
+        <a:childelement>
+          <b:element>
+          </b:element>
+        </a:childelement>
+      </a:parentelement>
+    </b:element>
+  </a:childelement>
+  </a:parentelement>

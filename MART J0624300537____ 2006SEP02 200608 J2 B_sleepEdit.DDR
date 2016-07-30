@@ -1,0 +1,300 @@
+PARAMETERS
+Include_Wake 1 0 3 
+Use_End_Event 0 1 3 
+Use_Fractional 0 2 3 
+Use_TIB_Index 0 3 3 
+Onset_Definition 2 4 3 
+Respiratory_O2_Lag_Time 15 5 3 
+Include_Field_Name 0 6 3 
+END_PARAMETERS
+TABLES
+TABLE
+NX=3
+NY=7
+Minutes
+%TST
+Stage Wake
+ 71.0
+18.5
+Stage 1
+ 90.0
+23.4
+Stage 2
+227.0
+59.1
+Slow Wave
+  0.0
+ 0.0
+Stage REM
+ 67.0
+17.4
+WASO
+ 63.5
+16.5
+END_TABLE
+TABLE
+NX=2
+NY=7
+Latencies (min)
+Sleep Onset
+    7.6
+Stage 1
+    7.6
+Stage 2
+   21.6
+Stage 3
+    -
+Stage 4
+    -
+Stage REM
+XNULL
+END_TABLE
+TABLE
+NX=7
+NY=3
+Number of Events 
+During REM
+During NREM
+Index
+Index REM
+Index NREM
+Total Arousals
+133
+15
+116
+20.8
+13.4
+22.0
+Arousals w/Resp. Events
+ 13
+ 7
+  6
+ 2.0
+ 6.3
+ 1.1
+END_TABLE
+TABLE
+NX=3
+NY=5
+Total # of Movements
+Movement Index
+Periodic Movements
+20
+3.1
+Periodic w/arousal
+11
+1.7
+Isolated
+ 0
+0.0
+Isolated w/arousal
+ 0
+0.0
+END_TABLE
+TABLE
+NX=11
+NY=2
+Total Duration(min)
+Sleep Time (min)
+Total REM (min)
+Total NREM (min)
+Apnea Index
+A+H Index
+REM A+H Index
+Baseline SpO2
+Low SpO2
+SpO2 at 88% or below (min)
+TX=0
+455.1
+384.0
+67.0
+317.0
+0.2
+2.3
+8.1
+94.8
+87.0
+0.0
+END_TABLE
+TABLE
+NX=12
+NY=2
+# Obstr. Apnea
+Max Duration OSA
+Mean Duration OSA
+# Central Apnea
+Max Duration CSA
+Mean Duration CSA
+# Mixed Apnea
+Max Duration MSA
+Mean Duration MSA
+# Hypop.
+# of A&H in Stage 1
+TX=0
+0
+-
+-
+0
+-
+-
+1
+41.1
+41.1
+14
+1
+END_TABLE
+TABLE
+NX=11
+NY=2
+Supine Sleep (min)
+Supine Index
+Lateral Sleep (min)
+Lateral Index
+Sleep on Left Side (min)
+Left Side Index
+Sleep on Right Side (min)
+Right Side Index
+Prone Sleep (min)
+Prone Index
+TX=0
+122.3
+6.9
+233.7
+0.3
+73.5
+0.0
+160.2
+0.4
+28.0
+0.0
+END_TABLE
+TABLE
+NX=11
+NY=2
+NREM A+H Index
+REM A+H Index
+Supine-NREM Index
+Supine-REM Index
+Lateral-NREM Index
+Lateral-REM Index
+Number Events Supine
+Number Events Left Side
+Number of Events Right Side
+Number of Events Prone
+TX=0
+1.1
+8.1
+3.8
+18.2
+0.0
+1.5
+14
+0
+1
+0
+END_TABLE
+END_TABLES
+TAGIDS
+[TESTFACILITY]
+ St. Lukes South Sleep Disorders Center
+[PATIENT]
+Angel Martinez
+[SDATE]
+9/2/2006
+[REFERREDBY]
+Wientzen, Arthur
+[BIRTHDATE]
+11/1/1950
+[SEX]
+Male
+[PATIENTS_DOCTOR]
+  -
+[TESTID]
+1452910
+[AGE]
+ 55
+[AGEUNITS]
+Years
+[BMINDEX]
+ 22.5
+[PATIENTS_PATIENTID]
+J0624300537
+[HEIGHT]
+ 69
+[WEIGHT]
+149
+[FILENAME]
+Mart J0624300537____ 2006SEP02 200608 J2 b.EEG
+[TECHNICIAN]
+  A. Arnold, RPSGT
+[TESTS_DOCTOR]
+Apnea/CPAP Polysomnogram
+[ACTIVATION]
+  D. German, RPSGT
+[TESTLOCATION]
+Polysomnogram
+[MEDICATION]
+Lipitor, MVI, ASA
+[START]
+10:23:19 PM
+[LOFF]
+10:26:40 PM
+[TIB]
+455.1
+[END]
+6:01:54 AM
+[LON]
+6:01:54 AM
+[TST]
+384.0
+[SEFF]
+ 84.4
+[LATR]
+ 86.0
+[NAW]
+ 42
+[TESTS_TEXTCOMBO1]
+  -
+[TESTS_TEXTCOMBO2]
+  -
+[#INCLUDEDEFAULT]
+C:\PROGRA~1\SLEEPS~1\DEFAULT.JPG
+[PATIENT]
+Angel Martinez
+[PATIENTS_PATIENTID]
+J0624300537
+[SDATE]
+9/2/2006
+[PATIENT]
+Angel Martinez
+[PATIENTS_PATIENTID]
+J0624300537
+[SDATE]
+9/2/2006
+[PATIENT]
+Angel Martinez
+[PATIENTS_PATIENTID]
+J0624300537
+[SDATE]
+9/2/2006
+END_TAGIDS
+TXVALUES
+NTX=2
+0
+-1
+END_TXVALUES
+HOURVALUES
+NTX=9
+9/2/2006 10:23:19 PM
+9/2/2006 11:23:19 PM
+9/3/2006 12:23:19 AM
+9/3/2006 1:23:19 AM
+9/3/2006 2:23:19 AM
+9/3/2006 3:23:19 AM
+9/3/2006 4:23:19 AM
+9/3/2006 5:23:19 AM
+END_HOURVALUES
+SEGMENTVALUES
+NTX=2
+No segments defined!
+END_SEGMENTVALUES

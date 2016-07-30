@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Default>
+  <Result supine_RDI="abnormal" lateral_RDI="abnormal">
+    A position effect is noted with [supine_RDI] events per hour of sleep supine versus [lateral_RDI] events per hour of sleep laterally.
+  </Result>
+</Default>
+

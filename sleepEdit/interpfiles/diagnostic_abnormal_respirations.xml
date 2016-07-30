@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Default>
+
+  <Result value="0" RDI="normal">
+    
+  </Result>
+
+  <Result value="1" RDI="mild">
+    Mild sleep apnea/hypopnea is present with [RDI] events per hour of sleep.
+  </Result>
+
+  <Result value="2" RDI="moderate">
+    Moderate sleep apnea/hypopnea is present with [RDI] events per hour of sleep.
+  </Result>
+
+  <Result value="3" RDI="moderate_severe">
+    Moderate severe sleep apnea/hypopnea is present with [RDI] events per hour of sleep.
+  </Result>
+
+  <Result value="3" RDI="severe">
+    Severe sleep apnea/hypopnea is present with [RDI] events per hour of sleep.
+  </Result> 
+  
+</Default>
+

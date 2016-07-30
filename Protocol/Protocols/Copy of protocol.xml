@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<Protocol>
+  <Section>
+    <id>0</id>
+    <gotoId>0</gotoId>
+    <text>Section 1 Poison Ivy</text>
+    <SubSection>
+      <id>6</id>
+      <gotoId>0</gotoId>
+      <text>How recent?</text>
+      <SubSection>
+        <id>16</id>
+        <gotoId>3</gotoId>
+        <text>Recent--Wash with soap and water.</text>
+      </SubSection>
+      <SubSection>
+        <id>17</id>
+        <gotoId>0</gotoId>
+        <text>Not Recent--Provide cool bath and calamine lotion.</text>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <id>7</id>
+      <gotoId>5</gotoId>
+      <text>Poison Ivy is wide spread and painful.</text>
+    </SubSection>
+    <SubSection>
+      <id>8</id>
+      <gotoId>6</gotoId>
+      <text>Monitor patient.</text>
+    </SubSection>
+  </Section>
+  <Section>
+    <id>1</id>
+    <gotoId>2</gotoId>
+    <text>Section 2 Snake Bite</text>
+    <SubSection>
+      <id>9</id>
+      <gotoId>1</gotoId>
+      <text>Snake is identified-If not why?</text>
+      <SubText>It spit at me and flew away!</SubText>
+      <SubText>I fainted and it ran away.</SubText>
+    </SubSection>
+    <SubSection>
+      <id>10</id>
+      <gotoId>4</gotoId>
+      <text>Clean the bite with soap and water--GOTO Seek Medical Attention.</text>
+    </SubSection>
+  </Section>
+  <Section>
+    <id>2</id>
+    <gotoId>2</gotoId>
+    <text>Section 3 Poison Inhaled or Swallowed</text>
+    <SubSection>
+      <id>11</id>
+      <gotoId>2</gotoId>
+      <text>Check ABCH treat for shock.</text>
+    </SubSection>
+    <SubSection>
+      <id>12</id>
+      <gotoId>2</gotoId>
+      <text>Call the poison control center.</text>
+    </SubSection>
+  </Section>
+  <Section>
+    <id>3</id>
+    <gotoId>3</gotoId>
+    <text>Section 4 Insect or Spider Bite</text>
+    <SubSection>
+      <id>13</id>
+      <gotoId>3</gotoId>
+      <text>Catch the insect or spider--if not why?</text>
+      <SubText>It jumped off a cliff!</SubText>
+    </SubSection>
+    <SubSection>
+      <id>14</id>
+      <gotoId>3</gotoId>
+      <text>Stinger?</text>
+      <SubSection>
+        <id>18</id>
+        <gotoId>3</gotoId>
+        <text>Yes--Scrape the stinger do not squeeze!</text>
+      </SubSection>
+      <SubSection>
+        <id>19</id>
+        <gotoId>3</gotoId>
+        <text>NO-Clean the bite. Apply an ice pack.</text>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <id>15</id>
+      <gotoId>3</gotoId>
+      <text>Patient is allergic.</text>
+      <SubSection>
+        <id>20</id>
+        <gotoId>4</gotoId>
+        <text>Yes--Check ABCH, treat for shock--GOTO Seek Medical Attention.</text>
+      </SubSection>
+      <SubSection>
+        <id>21</id>
+        <gotoId>4</gotoId>
+        <text>No--clean the bite--GOTO Seek Medical Attention.</text>
+      </SubSection>
+    </SubSection>
+  </Section>
+ </Protocol>

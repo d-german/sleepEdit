@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Default>
+
+  <Result value="0" TST="Limited" SUPINE="Absent" R="Absent">
+    Due to the limited amount of time at this pressure, the absence of supine and stage R sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="1" TST="Limited" SUPINE="Absent" R="Limited">
+    Due to the limited amount of time at this pressure, the absence of supine sleep and the limited amount of stage R sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="2" TST="Limited" SUPINE="Absent" R="Normal">
+    Due to the limited amount of time at this pressure and the absence of supine sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="3" TST="Limited" SUPINE="Limited" R="Absent">
+    Due to the limited amount of time at this pressure, the limited amount of supine sleep and the absence of stage R sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="4" TST="Limited" SUPINE="Limited" R="Limited">
+    Due to the limited amount of time at this pressure, the limited amount of supine sleep and the limited amount of stage R sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="5" TST="Limited" SUPINE="Limited" R="Normal">
+    Due to the limited amount of time at this pressure and the limited amount of supine sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="6" TST="Limited" SUPINE="Normal" R="Absent">
+    Due to the limited amount of time at this pressure and the absence of stage R sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="7" TST="Limited" SUPINE="Normal" R="Limited">
+    Due to the limited amount of time at this pressure and the limited amount of stage R sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="8" TST="Limited" SUPINE="Normal" R="Normal">
+    Due to the limited amount of time at this pressure the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="9" TST="Normal" SUPINE="Absent" R="Absent">
+    Due to the absence of supine and stage R sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="10" TST="Normal" SUPINE="Absent" R="Limited">
+    Due to the absence of supine sleep and the limited amount of stage R sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="11" TST="Normal" SUPINE="Absent" R="Normal">
+    Due to the absence of supine sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="12" TST="Normal" SUPINE="Limited" R="Absent">
+    Due to the limited amount of supine sleep and the absence of stage R sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="13" TST="Normal" SUPINE="Limited" R="Limited">
+    Due to the limited amount of supine and stage R sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="14" TST="Normal" SUPINE="Limited" R="Normal">
+    Due to the limited amount of supine sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="15" TST="Normal" SUPINE="Normal" R="Absent">
+    Due to the absence of stage R sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="16" TST="Normal" SUPINE="Normal" R="Limited">
+    Due to the limited amount of stage R sleep the efficacy of the treatment cannot be fully assessed.
+  </Result>
+
+  <Result value="17" TST="Normal" SUPINE="Normal" R="Normal">
+
+  </Result>
+
+</Default>
+

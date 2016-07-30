@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="9.75" />
+  <Class Name="SleepArch.Properties.Settings" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SleepArch.SleepAnalysisResults" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>SleepAnalysisResults.cs</FileName>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SleepArch.SleepAnalysisResultsDefault" Collapsed="true">
+    <Position X="1.5" Y="4.75" Width="3" />
+    <TypeIdentifier>
+      <FileName>SleepAnalysisResultsDefault.cs</FileName>
+      <HashCode>CAAAAAAAEAAAAEAAAgAAAAAAAFAAAAggEACAAAAEAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SleepArch.SleepArchitecture" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>SleepArchitecture.cs</FileName>
+      <HashCode>DAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SleepArch.SleepStageAnalysis" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>SleepStageAnalysis.cs</FileName>
+      <HashCode>AAhggAAgAAAAAAAAgAAAAAAACAIAAAoQACAAAAIAAkA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SleepArch.SleepStageAnalysisAdult" Collapsed="true">
+    <Position X="1.5" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>SleepStageAnalysisAdult.cs</FileName>
+      <HashCode>QAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SleepArch.SleepStageAnalysisChild" Collapsed="true">
+    <Position X="4.5" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>SleepStageAnalysisChild.cs</FileName>
+      <HashCode>QAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="SleepArch.Stage1" Collapsed="true">
+    <Position X="10.75" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>SleepArchitecture.cs</FileName>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SleepArch.Stage2" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>SleepArchitecture.cs</FileName>
+      <HashCode>AAAAEAAAAAABAAAAAAAAAAAAAAAIAAQAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SleepArch.SWS" Collapsed="true">
+    <Position X="10.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>SleepArchitecture.cs</FileName>
+      <HashCode>AAAAEAAAAAABAAAAAAAAAAAAAAAIAAQAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SleepArch.REM" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>SleepArchitecture.cs</FileName>
+      <HashCode>AAAAEAAAAAABAAAAAAAAAAAAAAAIAAQAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

@@ -1,0 +1,469 @@
+PARAMETERS
+Include_Wake 1 0 3 
+Use_End_Event 0 1 3 
+Use_Fractional 0 2 3 
+Use_TIB_Index 0 3 3 
+Onset_Definition 2 4 3 
+Respiratory_O2_Lag_Time 15 5 3 
+Include_Field_Name 0 6 3 
+END_PARAMETERS
+TABLES
+TABLE
+NX=3
+NY=7
+Minutes
+%TST
+Stage Wake
+ 50.0
+11.3
+Stage 1
+ 31.0
+ 7.0
+Stage 2
+274.5
+62.0
+Slow Wave
+  0.0
+ 0.0
+Stage REM
+137.0
+31.0
+WASO
+ 35.0
+ 7.9
+END_TABLE
+TABLE
+NX=2
+NY=7
+Latencies (min)
+Sleep Onset
+   16.1
+Stage 1
+   16.1
+Stage 2
+   32.1
+Stage 3
+    -
+Stage 4
+    -
+Stage REM
+XNULL
+END_TABLE
+TABLE
+NX=7
+NY=3
+Number of Events 
+During REM
+During NREM
+Index
+Index REM
+Index NREM
+Total Arousals
+66
+7
+58
+8.9
+3.1
+11.4
+Arousals w/Resp. Events
+ 0
+0
+ 0
+0.0
+0.0
+ 0.0
+END_TABLE
+TABLE
+NX=3
+NY=5
+Total # of Movements
+Movement Index
+Periodic Movements
+0
+0.0
+Periodic w/arousal
+0
+0.0
+Isolated
+0
+0.0
+Isolated w/arousal
+0
+0.0
+END_TABLE
+TABLE
+NX=11
+NY=6
+Total Duration(min)
+Sleep Time (min)
+Total REM (min)
+Total NREM (min)
+Apnea Index
+A+H Index
+REM A+H Index
+Baseline SpO2
+Low SpO2
+SpO2 at 88% or below (min)
+TX=0
+  0.0
+  0.0
+ 0.0
+  0.0
+-
+-
+-
+-
+-
+0.0
+TX=5
+ 89.5
+ 65.0
+ 0.0
+ 65.0
+0.0
+0.0
+-
+-
+-
+0.0
+TX=6
+101.3
+ 99.3
+41.0
+ 58.4
+0.0
+0.6
+1.5
+-
+-
+0.0
+TX=7
+ 15.8
+ 15.8
+ 0.0
+ 15.8
+0.0
+0.0
+-
+-
+-
+0.0
+TX=8
+285.9
+262.4
+96.0
+166.4
+0.0
+0.9
+2.5
+-
+-
+0.0
+END_TABLE
+TABLE
+NX=12
+NY=6
+# Obstr. Apnea
+Max Duration OSA
+Mean Duration OSA
+# Central Apnea
+Max Duration CSA
+Mean Duration CSA
+# Mixed Apnea
+Max Duration MSA
+Mean Duration MSA
+# Hypop.
+# of A&H in Stage 1
+TX=0
+0
+-
+-
+0
+-
+-
+0
+-
+-
+0
+0
+TX=5
+0
+-
+-
+0
+-
+-
+0
+-
+-
+0
+0
+TX=6
+0
+-
+-
+0
+-
+-
+0
+-
+-
+1
+0
+TX=7
+0
+-
+-
+0
+-
+-
+0
+-
+-
+0
+0
+TX=8
+0
+-
+-
+0
+-
+-
+0
+-
+-
+4
+0
+END_TABLE
+TABLE
+NX=11
+NY=6
+Supine Sleep (min)
+Supine Index
+Lateral Sleep (min)
+Lateral Index
+Sleep on Left Side (min)
+Left Side Index
+Sleep on Right Side (min)
+Right Side Index
+Prone Sleep (min)
+Prone Index
+TX=0
+  0.0
+-
+  0.0
+-
+0.0
+-
+  0.0
+-
+ 0.0
+-
+TX=5
+  0.0
+-
+ 42.0
+0.0
+0.0
+-
+ 42.0
+0.0
+23.0
+0.0
+TX=6
+  0.0
+-
+ 81.0
+0.7
+0.0
+-
+ 81.0
+0.7
+18.4
+0.0
+TX=7
+  0.0
+-
+  0.0
+-
+0.0
+-
+  0.0
+-
+15.8
+0.0
+TX=8
+149.5
+1.2
+102.5
+0.6
+0.0
+-
+102.5
+0.6
+10.4
+0.0
+END_TABLE
+TABLE
+NX=11
+NY=6
+NREM A+H Index
+REM A+H Index
+Supine-NREM Index
+Supine-REM Index
+Lateral-NREM Index
+Lateral-REM Index
+Number Events Supine
+Number Events Left Side
+Number of Events Right Side
+Number of Events Prone
+TX=0
+-
+-
+-
+-
+-
+-
+0
+0
+0
+0
+TX=5
+0.0
+-
+-
+-
+0.0
+-
+0
+0
+0
+0
+TX=6
+0.0
+1.5
+-
+-
+0.0
+1.5
+0
+0
+1
+0
+TX=7
+0.0
+-
+-
+-
+-
+-
+0
+0
+0
+0
+TX=8
+0.0
+2.5
+0.0
+3.1
+0.0
+1.6
+3
+0
+1
+0
+END_TABLE
+END_TABLES
+TAGIDS
+[TESTFACILITY]
+Saint Luke's Sleep Disorders Center
+[PATIENT]
+VAHN F KLINKE
+[SDATE]
+08/29/06
+[REFERREDBY]
+Galbreath, David A
+[BIRTHDATE]
+04/01/70
+[SEX]
+Male
+[PATIENTS_DOCTOR]
+  -
+[TESTID]
+1709464
+[AGE]
+ 36
+[AGEUNITS]
+Years
+[BMINDEX]
+ 43.4
+[PATIENTS_PATIENTID]
+L0623601118
+[HEIGHT]
+ 69
+[WEIGHT]
+287
+[FILENAME]
+KLIN L0623601118____ 2006AUG29 201647 L2 b.EEG
+[TECHNICIAN]
+  A. Klein, CRT, RPSGT
+[TESTS_DOCTOR]
+CPAP /BIPAP
+[ACTIVATION]
+  D. German, RPSGT
+[TESTLOCATION]
+CPAP  Polysomnogram
+[MEDICATION]
+Nexium, Benicar
+[START]
+10:12:37 PM
+[LOFF]
+10:20:31 PM
+[TIB]
+492.6
+[END]
+6:34:26 AM
+[LON]
+6:33:10 AM
+[TST]
+442.5
+[SEFF]
+ 89.8
+[LATR]
+ 88.0
+[NAW]
+ 17
+[TESTS_TEXTCOMBO1]
+Respironic's Comfort Gel
+[TESTS_TEXTCOMBO2]
+Medium
+[#INCLUDEDEFAULT]
+C:\PROGRA~1\SLEEPS~1\DEFAULT.JPG
+END_TAGIDS
+TXVALUES
+NTX=6
+0
+-1
+50
+-1
+60
+-1
+70
+-1
+80
+-1
+END_TXVALUES
+HOURVALUES
+NTX=10
+08/29/06 10:12:37 PM
+08/29/06 11:12:37 PM
+08/30/06 12:12:37 AM
+08/30/06 1:12:37 AM
+08/30/06 2:12:37 AM
+08/30/06 3:12:37 AM
+08/30/06 4:12:37 AM
+08/30/06 5:12:37 AM
+08/30/06 6:12:37 AM
+END_HOURVALUES
+SEGMENTVALUES
+END_SEGMENTVALUES

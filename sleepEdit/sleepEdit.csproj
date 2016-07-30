@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{036B6836-B4CB-4690-B7BA-E9CA60E8B7DB}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyName>sleepEdit</AssemblyName>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>sleepEdit</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>sleepEditPro.sleepEdit</StartupObject>
+    <ManifestCertificateThumbprint>876EBD333B9058E6B645DC8C18A387F0EF98BB36</ManifestCertificateThumbprint>
+    <ManifestKeyFile>sleepEdit_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>false</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>sleepEdit.snk</AssemblyOriginatorKeyFile>
+    <TargetZone>LocalIntranet</TargetZone>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>C:\sleepEdit\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <PublisherName>sleepEdit</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <AutorunEnabled>true</AutorunEnabled>
+    <DisallowUrlActivation>true</DisallowUrlActivation>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NetSpell.SpellChecker, Version=2.1.7.41329, Culture=neutral, PublicKeyToken=318b389f0db66e46">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\NetSpell.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ABG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="about.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Age.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BmiCalcUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BmiCalcUi.designer.cs">
+      <DependentUpon>BmiCalcUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="oldDesignCode.cs" />
+    <Compile Include="medList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedListUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="prelimEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrelimInter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="prelimIntMan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ProtocolEditUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProtocolEditUi.Designer.cs">
+      <DependentUpon>ProtocolEditUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProtocolNodeUi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProtocolNodeUi.Designer.cs">
+      <DependentUpon>ProtocolNodeUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="settings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Settings1.cs" />
+    <Compile Include="sleepEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SleepEditData.cs" />
+    <Compile Include="SleepParameters.cs" />
+    <Compile Include="SpO2Artifact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SleepProtocol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudyType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Technote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tester.cs" />
+    <Compile Include="textInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TreeNodeSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TreeNodeSelect.Designer.cs">
+      <DependentUpon>TreeNodeSelect.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ABG.resx">
+      <DependentUpon>ABG.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="about.resx">
+      <DependentUpon>about.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Age.resx">
+      <DependentUpon>Age.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BmiCalcUi.resx">
+      <DependentUpon>BmiCalcUi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="medList.resx">
+      <DependentUpon>medList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="prelimEditor.resx">
+      <DependentUpon>prelimEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrelimInter.resx">
+      <DependentUpon>PrelimInter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="prelimIntMan.resx">
+      <DependentUpon>prelimIntMan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProtocolEditUi.resx">
+      <DependentUpon>ProtocolEditUi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProtocolNodeUi.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ProtocolNodeUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sleepEdit.resx">
+      <DependentUpon>sleepEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpO2Artifact.resx">
+      <DependentUpon>SpO2Artifact.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SleepProtocol.resx">
+      <DependentUpon>SleepProtocol.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudyType.resx">
+      <DependentUpon>StudyType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Technote.resx">
+      <DependentUpon>Technote.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="textInput.resx">
+      <DependentUpon>textInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeNodeSelect.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TreeNodeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="ClassDiagram2.cd" />
+    <Content Include="data files\en-US.dic">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data files\KLIN L0623601118____ 2006AUG29 201647 L2 B_sleepEdit.DDR">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data files\MARK L0624300447____ 2006SEP01 223110 L2 B_sleepEdit.DDR">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data files\MART J0624300537____ 2006SEP02 200608 J2 B_sleepEdit.DDR">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <BaseApplicationManifest Include="Properties\app.manifest" />
+    <None Include="interpfiles\defaultSleepArch.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="interpfiles\durations_comment.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="interpfiles\durations_comment.xsx">
+      <DependentUpon>durations_comment.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="sleepEdit.snk" />
+    <None Include="STIC J0624201402____ 2006SEP02 194830 J1 B_sleepEdit.DDR" />
+    <None Include="TWYM S0624401737____ 2006SEP03 221351 S2 B_sleepEdit.DDR" />
+    <None Include="WHIT B0624101448____ 2006AUG29 212421 B1 B_sleepEdit.DDR" />
+    <None Include="WIED 0624402458_____ 2006SEP07 222124 L3 B_sleepEdit_DAMON G.DDR" />
+    <None Include="ZELC J0624301407____ 2006SEP03 224647 J1 B_sleepEdit.DDR" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+    <Content Include="data files\medlist.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="interpfiles\abnormal_spo2_comment.xml" />
+    <Content Include="interpfiles\defaultSleepArch.xml" />
+    <Content Include="interpfiles\diagnostic_abnormal_respirations.xml" />
+    <Content Include="interpfiles\diagnostic_durations_comment.xml" />
+    <Content Include="interpfiles\diagnostic_normal_respirations_with_positional_or_rem_effect.xml" />
+    <Content Include="interpfiles\diagnostic_TST_BodyPos_comment.xml" />
+    <Content Include="interpfiles\final_tx_durations_comment.xml" />
+    <Content Include="interpfiles\normal_spo2_comment.xml" />
+    <Content Include="interpfiles\position_effect_abnormal_lateral_comment.xml" />
+    <Content Include="interpfiles\position_effect_normal_lateral_comment.xml" />
+    <Content Include="interpfiles\split_abnormal_respirations.xml" />
+    <Content Include="interpfiles\split_final_tx_normal_respirations_with_positional_or_rem_effect.xml" />
+    <Content Include="interpfiles\split_night_TST_BodyPos_comment.xml" />
+    <Content Include="interpfiles\test.xml" />
+    <Content Include="interpfiles\titration_abnormal_respirations.xml" />
+    <Content Include="interpfiles\titration_final_tx_normal_respirations_with_positional_or_rem_effect.xml" />
+    <Content Include="interpfiles\tx_titration_TST_BodyPos_comment.xml" />
+    <Content Include="protocols\protocol.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="protocols\RESPIRONICS TITRATION PROTOCOL REFERENCE GUIDE.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Protocol\Protocols\Protocols\Protocols.csproj">
+      <Project>{5B7521D3-6E39-44E8-8A2C-AFB7E5F9CE35}</Project>
+      <Name>Protocols</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\respirations\RespirationsComment\RespirationsComment\RespirationsComment.csproj">
+      <Project>{7FAB2473-8845-427E-B2C2-BF03C19690AB}</Project>
+      <Name>RespirationsComment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RichTextBoxPrintCtrl\RichTextBoxPrintCtrl.csproj">
+      <Project>{062E1368-F3F3-40EF-879A-4D2D92F9AD10}</Project>
+      <Name>RichTextBoxPrintCtrl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SleepArch\SleepArch.csproj">
+      <Project>{2B8F0FFF-A3D0-4B72-8A31-E311210D5504}</Project>
+      <Name>SleepArch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TSTbodyPos\TSTbodyPosComment\TSTbodyPosComment.csproj">
+      <Project>{FDB5BF85-55BA-43F9-BFCC-E765B0B914E3}</Project>
+      <Name>TSTbodyPosComment</Name>
+    </ProjectReference>
+    <ProjectReference Include="WFHost\WFHost.csproj">
+      <Project>{9b8148e5-dffb-4b71-9c4b-a44b8163b1bf}</Project>
+      <Name>WFHost</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="data files\medlist.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="data files\RESPIRONICS TITRATION PROTOCOL REFERENCE GUIDE.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

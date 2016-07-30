@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<Protocol>
+  <Section>
+    <gotoId>0</gotoId>
+    <text>Section 1 Poison Ivy</text>
+    <SubSection>
+      <gotoId>0</gotoId>
+      <text>How recent?</text>
+      <SubSection>
+        <gotoId>3</gotoId>
+        <text>Recent--Wash with soap and water.</text>
+      </SubSection>
+      <SubSection>
+        <gotoId>0</gotoId>
+        <text>Not Recent--Provide cool bath and calamine lotion.</text>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <gotoId>5</gotoId>
+      <text>Poison Ivy is wide spread and painful.</text>
+    </SubSection>
+    <SubSection>
+      <gotoId>6</gotoId>
+      <text>Monitor patient.</text>
+    </SubSection>
+  </Section>
+  <Section>
+    <gotoId>2</gotoId>
+    <text>Section 2 Snake Bite</text>
+    <SubSection>
+      <gotoId>1</gotoId>
+      <text>Snake is identified-If not why?</text>
+      <SubText>It spit at me and flew away!</SubText>
+      <SubText>I fainted and it ran away.</SubText>
+    </SubSection>
+    <SubSection>
+      <gotoId>4</gotoId>
+      <text>Clean the bite with soap and water--GOTO Seek Medical Attention.</text>
+    </SubSection>
+  </Section>
+  <Section>
+    <gotoId>2</gotoId>
+    <text>Section 3 Poison Inhaled or Swallowed</text>
+    <SubSection>
+      <gotoId>2</gotoId>
+      <text>Check ABCH treat for shock.</text>
+    </SubSection>
+    <SubSection>
+      <gotoId>2</gotoId>
+      <text>Call the poison control center.</text>
+    </SubSection>
+  </Section>
+  <Section>
+    <gotoId>3</gotoId>
+    <text>Section 4 Insect or Spider Bite</text>
+    <SubSection>
+      <gotoId>3</gotoId>
+      <text>Catch the insect or spider--if not why?</text>
+      <SubText>It jumped off a cliff!</SubText>
+    </SubSection>
+    <SubSection>
+      <gotoId>3</gotoId>
+      <text>Stinger?</text>
+      <SubSection>
+        <gotoId>3</gotoId>
+        <text>Yes--Scrape the stinger do not squeeze!</text>
+      </SubSection>
+      <SubSection>
+        <gotoId>3</gotoId>
+        <text>NO-Clean the bite. Apply an ice pack.</text>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <gotoId>3</gotoId>
+      <text>Patient is allergic.</text>
+      <SubSection>
+        <gotoId>4</gotoId>
+        <text>Yes--Check ABCH, treat for shock--GOTO Seek Medical Attention.</text>
+      </SubSection>
+      <SubSection>
+        <gotoId>4</gotoId>
+        <text>No--clean the bite--GOTO Seek Medical Attention.</text>
+      </SubSection>
+    </SubSection>
+  </Section>
+ </Protocol>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Default>
+  <Result>
+    The patient slept [TotalSleep]; [diagTotalSleep] while documenting sleep apnea/hypopnea ([DiagSupineSleep] supine) and [finalTxSleep] while using [TX_TYPE] at [TX] ([finalTxSupine] supine).
+  </Result>
+</Default>
+

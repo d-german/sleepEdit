@@ -1,0 +1,280 @@
+PARAMETERS
+Include_Wake 1 0 3 
+Use_End_Event 0 1 3 
+Use_Fractional 0 2 3 
+Use_TIB_Index 0 3 3 
+Onset_Definition 2 4 3 
+Respiratory_O2_Lag_Time 15 5 3 
+Include_Field_Name 0 6 3 
+END_PARAMETERS
+TABLES
+TABLE
+NX=3
+NY=7
+Minutes
+%TST
+Stage Wake
+139.6
+45.4
+Stage 1
+ 63.5
+20.7
+Stage 2
+208.0
+67.6
+Slow Wave
+  0.0
+ 0.0
+Stage REM
+ 36.0
+11.7
+WASO
+128.5
+41.8
+END_TABLE
+TABLE
+NX=2
+NY=7
+Latencies (min)
+Sleep Onset
+   12.2
+Stage 1
+   12.2
+Stage 2
+  102.6
+Stage 3
+    -
+Stage 4
+    -
+Stage REM
+XNULL
+END_TABLE
+TABLE
+NX=7
+NY=3
+Number of Events 
+During REM
+During NREM
+Index
+Index REM
+Index NREM
+Total Arousals
+288
+17
+266
+56.2
+28.3
+58.8
+Arousals w/Resp. Events
+213
+16
+190
+41.6
+26.7
+42.0
+END_TABLE
+TABLE
+NX=3
+NY=5
+Total # of Movements
+Movement Index
+Periodic Movements
+503
+98.1
+Periodic w/arousal
+181
+35.3
+Isolated
+  1
+ 0.2
+Isolated w/arousal
+  0
+ 0.0
+END_TABLE
+TABLE
+NX=11
+NY=2
+Total Duration(min)
+Sleep Time (min)
+Total REM (min)
+Total NREM (min)
+Apnea Index
+A+H Index
+REM A+H Index
+Baseline SpO2
+Low SpO2
+SpO2 at 88% or below (min)
+TX=0
+447.1
+307.5
+36.0
+271.5
+20.5
+70.0
+83.3
+92.8
+72.0
+33.8
+END_TABLE
+TABLE
+NX=12
+NY=2
+# Obstr. Apnea
+Max Duration OSA
+Mean Duration OSA
+# Central Apnea
+Max Duration CSA
+Mean Duration CSA
+# Mixed Apnea
+Max Duration MSA
+Mean Duration MSA
+# Hypop.
+# of A&H in Stage 1
+TX=0
+100
+38.5
+20.5
+4
+20.0
+14.5
+1
+25.6
+25.6
+254
+46
+END_TABLE
+TABLE
+NX=11
+NY=2
+Supine Sleep (min)
+Supine Index
+Lateral Sleep (min)
+Lateral Index
+Sleep on Left Side (min)
+Left Side Index
+Sleep on Right Side (min)
+Right Side Index
+Prone Sleep (min)
+Prone Index
+TX=0
+75.5
+93.8
+232.0
+62.3
+78.4
+55.9
+153.6
+65.6
+0.0
+-
+END_TABLE
+TABLE
+NX=11
+NY=2
+NREM A+H Index
+REM A+H Index
+Supine-NREM Index
+Supine-REM Index
+Lateral-NREM Index
+Lateral-REM Index
+Number Events Supine
+Number Events Left Side
+Number of Events Right Side
+Number of Events Prone
+TX=0
+65.6
+81.7
+86.6
+-
+57.6
+83.3
+118
+73
+168
+0
+END_TABLE
+END_TABLES
+TAGIDS
+[TESTFACILITY]
+ St. Lukes South Sleep Disorders Center
+[PATIENT]
+Michael R Noack
+[SDATE]
+08/29/06
+[REFERREDBY]
+Pasowicz, Timothy
+[BIRTHDATE]
+04/08/51
+[SEX]
+Male
+[PATIENTS_DOCTOR]
+  -
+[TESTID]
+0975542
+[AGE]
+ 55
+[AGEUNITS]
+Years
+[BMINDEX]
+ 33.8
+[PATIENTS_PATIENTID]
+J0624001120
+[HEIGHT]
+ 70
+[WEIGHT]
+230
+[FILENAME]
+Noac J0624001120____ 2006AUG29 224318 J1 b.EEG
+[TECHNICIAN]
+  J. Schaaf, RPSGT
+[TESTS_DOCTOR]
+PSG/CPAP
+[ACTIVATION]
+  D. German, RPSGT
+[TESTLOCATION]
+Polysomnogram
+[MEDICATION]
+Zoloft, Nexium, Vitorin, Sonata
+[START]
+10:43:18 PM
+[LOFF]
+10:48:39 PM
+[TIB]
+447.1
+[END]
+6:16:41 AM
+[LON]
+6:15:55 AM
+[TST]
+307.5
+[SEFF]
+ 68.8
+[LATR]
+330.5
+[NAW]
+ 52
+[TESTS_TEXTCOMBO1]
+  -
+[TESTS_TEXTCOMBO2]
+  -
+[#INCLUDEDEFAULT]
+C:\PROGRA~1\SLEEPS~1\DEFAULT.JPG
+END_TAGIDS
+TXVALUES
+NTX=2
+0
+-1
+END_TXVALUES
+HOURVALUES
+NTX=9
+08/29/06 10:43:18 PM
+08/29/06 11:43:18 PM
+08/30/06 12:43:18 AM
+08/30/06 1:43:18 AM
+08/30/06 2:43:18 AM
+08/30/06 3:43:18 AM
+08/30/06 4:43:18 AM
+08/30/06 5:43:18 AM
+END_HOURVALUES
+SEGMENTVALUES
+END_SEGMENTVALUES

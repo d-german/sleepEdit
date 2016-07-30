@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Default>  
+  <Result value="0" position_or_REM_effect="true" RDI_plurality="zero">
+    Overall respirations are within normal limits.
+  </Result>
+
+  <Result value="1" position_or_REM_effect="true" RDI_plurality="single">
+    Overall respirations are within normal limits with 1 or more events per hour of sleep.
+  </Result>
+
+  <Result value="2" position_or_REM_effect="true" RDI_plurality="multiple">
+    Overall respirations are within normal limits with [RDI] events per hour of sleep.
+  </Result>
+
+  <Result value="3" position_or_REM_effect="false" RDI_plurality="zero">
+    Respirations are within normal limits.
+  </Result>
+
+  <Result value="4" position_or_REM_effect="false" RDI_plurality="single">
+    Respirations are within normal limits with 1 or less events per hour of sleep.
+  </Result>
+
+  <Result value="5" position_or_REM_effect="false" RDI_plurality="multiple">
+    Respirations are within normal limits with [RDI] events per hour of sleep.
+  </Result>  
+  
+</Default>
+

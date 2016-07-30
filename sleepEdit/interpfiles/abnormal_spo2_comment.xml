@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Default>
+  <Result spo2="abnormal">
+    Arterial oxygen desaturation to [lowest_spo2]% is observed.
+  </Result>
+</Default>
+

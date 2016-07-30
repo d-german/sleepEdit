@@ -1,0 +1,281 @@
+PARAMETERS
+Include_Wake 1 0 3 
+Use_End_Event 0 1 3 
+Use_Fractional 0 2 3 
+Use_TIB_Index 0 3 3 
+Onset_Definition 2 4 3 
+Respiratory_O2_Lag_Time 15 5 3 
+Include_Field_Name 0 6 3 
+END_PARAMETERS
+TABLES
+TABLE
+NX=3
+NY=7
+Minutes
+%TST
+Stage Wake
+ 26.3
+ 5.9
+Stage 1
+ 55.5
+12.5
+Stage 2
+256.0
+57.5
+Slow Wave
+ 78.0
+17.5
+Stage REM
+ 56.0
+12.6
+WASO
+ 24.0
+ 5.4
+END_TABLE
+TABLE
+NX=2
+NY=7
+Latencies (min)
+Sleep Onset
+    2.6
+Stage 1
+    2.6
+Stage 2
+    7.1
+Stage 3
+   21.1
+Stage 4
+   23.1
+Stage REM
+XNULL
+END_TABLE
+TABLE
+NX=7
+NY=3
+Number of Events 
+During REM
+During NREM
+Index
+Index REM
+Index NREM
+Total Arousals
+209
+12
+196
+28.1
+12.9
+30.2
+Arousals w/Resp. Events
+  1
+ 0
+  1
+ 0.1
+ 0.0
+ 0.2
+END_TABLE
+TABLE
+NX=3
+NY=5
+Total # of Movements
+Movement Index
+Periodic Movements
+0
+0.0
+Periodic w/arousal
+0
+0.0
+Isolated
+0
+0.0
+Isolated w/arousal
+0
+0.0
+END_TABLE
+TABLE
+NX=11
+NY=2
+Total Duration(min)
+Sleep Time (min)
+Total REM (min)
+Total NREM (min)
+Apnea Index
+A+H Index
+REM A+H Index
+Baseline SpO2
+Low SpO2
+SpO2 at 88% or below (min)
+TX=0
+471.8
+445.5
+56.0
+389.5
+0.1
+0.4
+1.1
+97.6
+92.0
+0.0
+END_TABLE
+TABLE
+NX=12
+NY=2
+# Obstr. Apnea
+Max Duration OSA
+Mean Duration OSA
+# Central Apnea
+Max Duration CSA
+Mean Duration CSA
+# Mixed Apnea
+Max Duration MSA
+Mean Duration MSA
+# Hypop.
+# of A&H in Stage 1
+TX=0
+0
+-
+-
+1
+10.9
+10.9
+0
+-
+-
+2
+1
+END_TABLE
+TABLE
+NX=11
+NY=2
+Supine Sleep (min)
+Supine Index
+Lateral Sleep (min)
+Lateral Index
+Sleep on Left Side (min)
+Left Side Index
+Sleep on Right Side (min)
+Right Side Index
+Prone Sleep (min)
+Prone Index
+TX=0
+101.3
+0.6
+257.6
+0.2
+243.8
+0.2
+13.8
+0.0
+86.6
+0.7
+END_TABLE
+TABLE
+NX=11
+NY=2
+NREM A+H Index
+REM A+H Index
+Supine-NREM Index
+Supine-REM Index
+Lateral-NREM Index
+Lateral-REM Index
+Number Events Supine
+Number Events Left Side
+Number of Events Right Side
+Number of Events Prone
+TX=0
+0.3
+1.1
+0.6
+0.0
+0.0
+2.3
+1
+1
+0
+1
+END_TABLE
+END_TABLES
+TAGIDS
+[TESTFACILITY]
+Saint Luke's Sleep Disorders Center
+[PATIENT]
+Jana L Markley
+[SDATE]
+09/01/06
+[REFERREDBY]
+Powell, Alan
+[BIRTHDATE]
+12/22/88
+[SEX]
+Female
+[PATIENTS_DOCTOR]
+  -
+[TESTID]
+1766582
+[AGE]
+ 17
+[AGEUNITS]
+Years
+[BMINDEX]
+ 28.9
+[PATIENTS_PATIENTID]
+L0624300447
+[HEIGHT]
+ 70
+[WEIGHT]
+197
+[FILENAME]
+Mark L0624300447____ 2006SEP01 223110 L2 b.EEG
+[TECHNICIAN]
+  R. Welander, RPFT
+[TESTS_DOCTOR]
+Polysomnogram
+[ACTIVATION]
+  -
+[TESTLOCATION]
+Polysomnogram
+[MEDICATION]
+Amitriptyline
+[START]
+10:31:11 PM
+[LOFF]
+10:43:34 PM
+[TIB]
+471.8
+[END]
+6:36:13 AM
+[LON]
+6:35:27 AM
+[TST]
+445.5
+[SEFF]
+ 94.4
+[LATR]
+211.5
+[NAW]
+ 33
+[TESTS_TEXTCOMBO1]
+  D. German, RPSGT
+[TESTS_TEXTCOMBO2]
+  -
+[#INCLUDEDEFAULT]
+C:\PROGRA~1\SLEEPS~1\DEFAULT.JPG
+END_TAGIDS
+TXVALUES
+NTX=2
+0
+-1
+END_TXVALUES
+HOURVALUES
+NTX=10
+09/01/06 10:31:11 PM
+09/01/06 11:31:11 PM
+09/02/06 12:31:11 AM
+09/02/06 1:31:11 AM
+09/02/06 2:31:11 AM
+09/02/06 3:31:11 AM
+09/02/06 4:31:11 AM
+09/02/06 5:31:11 AM
+09/02/06 6:31:11 AM
+END_HOURVALUES
+SEGMENTVALUES
+END_SEGMENTVALUES

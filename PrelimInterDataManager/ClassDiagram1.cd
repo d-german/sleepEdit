@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Font Name="Tahoma" Size="9.75" />
+  <Class Name="PrelimInterDataManager.ClinicalData">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>ClinicalData.cs</FileName>
+      <HashCode>AAAAIAAACCEAEABAAAAAAAAAAgAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrelimInterDataManager.DemographicData">
+    <Position X="5.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>DemographicData.cs</FileName>
+      <HashCode>AAAACAACEAAAAACAAEgAgAAACgAAAQAAEAAAIAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrelimInterDataManager.OximetryData">
+    <Position X="3.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>OximetryData.cs</FileName>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAKAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrelimInterDataManager.PLMData">
+    <Position X="7.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>PLMData.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAgAEAAgAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrelimInterDataManager.PrelimInterDataList">
+    <Position X="10.25" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>PrelimInterDataElement.cs</FileName>
+      <HashCode>AAAAAAAQAICAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrelimInterDataManager.RespitoryData">
+    <Position X="10.75" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>RespitoryData.cs</FileName>
+      <HashCode>IAAEIAAAAAAAABAAEAAAAACAAAAAACAAgAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrelimInterDataManager.SleepData">
+    <Position X="7.75" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>SleepData.cs</FileName>
+      <HashCode>AAAgAABAQQICAAAIhAAgIBQACAAg0FsCIAKAEIQQAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrelimInterDataManager.SleepStudyData">
+    <Position X="3.75" Y="4.5" Width="3" />
+    <TypeIdentifier>
+      <FileName>SleepStudyData.cs</FileName>
+      <HashCode>CAAAAAAAAAAAAAACAAAAAAAAACBAQAAgAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrelimInterDataManager.TreatmentData">
+    <Position X="0.5" Y="3.75" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>TreatmentData.cs</FileName>
+      <HashCode>ACAAAAAAAAEAAAAAIAAAAAAAACAAACAAAAAAAAABAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="9.75" />
+  <Class Name="RespirationsComment.DurationComment">
+    <Position X="4.75" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <FileName>DurationComment.cs</FileName>
+      <HashCode>AKgCAAAABgJAgAACAIAABggACAUAAABAAYACAYgCAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RespirationsComment.PositionEffectComment">
+    <Position X="8" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>PositionEffectComment.cs</FileName>
+      <HashCode>AAABIQAAAAAAAAAAAAgIBAABgAAQQAAhAAAAAAEAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RespirationsComment.RemEffectComment">
+    <Position X="4.75" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>RemEffectComment.cs</FileName>
+      <HashCode>AAAQIAAAAAAAACQAAAAAAAAAAAAgACEQAABBAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RespirationsComment.Respirations">
+    <Position X="2" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Respirations.cs</FileName>
+      <HashCode>AABJYAgkEKVAQiQABAgghA4QbwnpSAsCACAkQIgCBQQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RespirationsComment.RespirationsDiagnostic">
+    <Position X="3.75" Y="14" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>RespirationsDiagnostic.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAABBAAAAAAAEAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RespirationsComment.RespirationsSplitFinalTX">
+    <Position X="6.75" Y="14" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>RespirationsSplitFinalTX.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAABBAAAAAAAEAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RespirationsComment.RespirationsTitrationFinalTX">
+    <Position X="0.5" Y="14" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>RespirationsTitrationFinalTX.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAABBAAAAAAAEAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RespirationsComment.Sao2Comment">
+    <Position X="8" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>Sao2Comment.cs</FileName>
+      <HashCode>gAAAIAAAAAAAAAAAAAAFAAAAAAgAQQAgAAAAABAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="RespirationsComment.Severity">
+    <Position X="8.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Respirations.cs</FileName>
+      <HashCode>ACEAAAAAQAAAEAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RespirationsComment.Duration">
+    <Position X="7" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Respirations.cs</FileName>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAIAAQAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RespirationsComment.Effect">
+    <Position X="7" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Respirations.cs</FileName>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RespirationsComment.Plurality">
+    <Position X="7" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Respirations.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAIAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RespirationsComment.StudyType">
+    <Position X="8.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Respirations.cs</FileName>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAEAEAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="RespirationsComment.GetResultsDelegate">
+    <Position X="4.75" Y="11" Width="2" />
+    <TypeIdentifier>
+      <FileName>Respirations.cs</FileName>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+</ClassDiagram>
