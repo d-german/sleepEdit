@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace RespirationsComment
 {
-    class RemEffectComment
+    internal class RemEffectComment
     {
+        private readonly float mRemRdi;
+        private readonly float mTotalRdi;
+
         public RemEffectComment(float remRdi, float totalRdi)
         {
             mRemRdi = remRdi;
@@ -13,32 +12,22 @@ namespace RespirationsComment
             initializeRemEffect();
         }
 
-        private float mRemRdi;
-        private Effect mRemEffect;
-        public RespirationsComment.Effect RemEffect
-        {
-            get { return mRemEffect; }
-        }
-        private float mTotalRdi;
+        public Effect RemEffect { get; private set; }
 
-        private string mRemEffectComment;
-        public string RemEffectResult
-        {
-            get { return mRemEffectComment; }
-        }
+        public string RemEffectResult { get; private set; }
 
         private void initializeRemEffect()
         {
             if (isAbnormalRdi() && isEffect())
             {
-                mRemEffect = Effect.True;
+                RemEffect = Effect.True;
             }
             getRemEffect();
         }
 
         private bool isEffect()
         {
-            return mRemRdi >= (2 * mTotalRdi);
+            return mRemRdi >= 2*mTotalRdi;
         }
 
         private bool isAbnormalRdi()
@@ -48,12 +37,11 @@ namespace RespirationsComment
 
         public void getRemEffect()
         {
-            if (mRemEffect == Effect.True)
-                mRemEffectComment = "These events increase in frequency during REM sleep with "
-                    + mRemRdi.ToString("####") + " events per hour of REM sleep. ";
+            if (RemEffect == Effect.True)
+                RemEffectResult = "These events increase in frequency during REM sleep with "
+                                  + mRemRdi.ToString("####") + " events per hour of REM sleep. ";
             else
-                mRemEffectComment = "";
-
+                RemEffectResult = "";
         }
     }
 }

@@ -1,66 +1,45 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Xml;
 using System.IO;
+using System.Windows.Forms;
+using System.Xml;
 
 namespace sleepEditPro
 {
     public class SleepEditData
     {
-        public SleepEditData()
-        { }
+        public List<string> TechNames { get; set; } = new List<string>();
 
+        public List<string> MaskStyles { get; set; } = new List<string>();
 
-        private List<string> mTechNames = new List<string>();
-        public List<string> TechNames
-        {
-            get { return mTechNames; }
-            set { mTechNames = value; }
-        }
-        private List<string> mMaskTypes = new List<string>();
-        public List<string> MaskStyles
-        {
-            get { return mMaskTypes; }
-            set { mMaskTypes = value; }
-        }
-        private List<string> mMaskSizes = new List<string>();
-        public List<string> MaskSizes
-        {
-            get { return mMaskSizes; }
-            set { mMaskSizes = value; }
-        }
-
+        public List<string> MaskSizes { get; set; } = new List<string>();
     }
 
     public class SleepEditDataManager
     {
+        public static string mPath = Application.StartupPath + @"\data files\sleepEditData.xml";
 
         /// <summary>
-        /// Default constructor that uses Application.StartupPath + @"\data files\sleepEditData.xml"
+        ///     Default constructor that uses Application.StartupPath + @"\data files\sleepEditData.xml"
         /// </summary>
         /// <returns></returns>
         public SleepEditDataManager()
-        {           
-            getData();            
+        {
+            getData();
         }
 
-
-        static public string mPath = System.Windows.Forms.Application.StartupPath + @"\data files\sleepEditData.xml";
+        public SleepEditData Data { get; } = new SleepEditData();
 
         private void testData()
         {
-            mData.TechNames.Add("Damon German, BS, RPSGT");
-            mData.TechNames.Add("Rosanna German. RPSGT");
+            Data.TechNames.Add("Damon German, BS, RPSGT");
+            Data.TechNames.Add("Rosanna German. RPSGT");
 
-            mData.MaskSizes.Add("small");
-            mData.MaskSizes.Add("medium");
-            mData.MaskSizes.Add("large");
+            Data.MaskSizes.Add("small");
+            Data.MaskSizes.Add("medium");
+            Data.MaskSizes.Add("large");
 
-            mData.MaskStyles.Add("Respironics Comfort Select");
-            mData.MaskStyles.Add("F&P Flexifit HC407");
-
-           
+            Data.MaskStyles.Add("Respironics Comfort Select");
+            Data.MaskStyles.Add("F&P Flexifit HC407");
         }
 
 
@@ -74,7 +53,6 @@ namespace sleepEditPro
                     streamReader.Close();
                     return true;
                 }
-
             }
             catch
             {
@@ -83,14 +61,7 @@ namespace sleepEditPro
                     streamReader.Close();
                 }
                 return false;
-
             }
-        }
-
-        private SleepEditData mData = new SleepEditData();
-        public SleepEditData Data
-        {
-            get { return mData; }
         }
 
         public void saveData()
@@ -101,34 +72,34 @@ namespace sleepEditPro
 
         private void getData()
         {
-        Here:
+            Here:
             try
             {
-                SleepEditDataReader reader = new SleepEditDataReader(mPath, mData);
+                var reader = new SleepEditDataReader(mPath, Data);
             }
-            catch 
+            catch
             {
                 saveData();
                 goto Here;
             }
-
         }
 
         private void writeData()
         {
-            SleepEditDataWriter writer = new SleepEditDataWriter(mPath, mData);
+            var writer = new SleepEditDataWriter(mPath, Data);
         }
     }
 
     /// <summary>
-    /// ////////////////////////////////////////////////////////////////////////////////
+    ///     ////////////////////////////////////////////////////////////////////////////////
     /// </summary>
     public class SleepEditDataWriter
     {
-        private XmlTextWriter mWriter;
-        private SleepEditData mData;
+        private readonly SleepEditData mData;
+        private readonly XmlTextWriter mWriter;
+
         public SleepEditDataWriter(string path, SleepEditData data)
-        {           
+        {
             mWriter = new XmlTextWriter(path, null);
             mData = data;
 
@@ -139,7 +110,7 @@ namespace sleepEditPro
 
 
             mWriter.WriteStartElement("TechNames");
-            foreach (string techName in mData.TechNames)
+            foreach (var techName in mData.TechNames)
             {
                 mWriter.WriteStartElement("name");
                 mWriter.WriteValue(techName);
@@ -149,7 +120,7 @@ namespace sleepEditPro
 
 
             mWriter.WriteStartElement("MaskStyles");
-            foreach (string maskStyle in mData.MaskStyles)
+            foreach (var maskStyle in mData.MaskStyles)
             {
                 mWriter.WriteStartElement("maskStyle");
                 mWriter.WriteValue(maskStyle);
@@ -159,7 +130,7 @@ namespace sleepEditPro
 
 
             mWriter.WriteStartElement("MaskSizes");
-            foreach (string maskSize in mData.MaskSizes)
+            foreach (var maskSize in mData.MaskSizes)
             {
                 mWriter.WriteStartElement("maskSize");
                 mWriter.WriteValue(maskSize);
@@ -176,12 +147,12 @@ namespace sleepEditPro
 
 
     /// <summary>
-    /// ////////////////////////////////////////////////////////////////////
+    ///     ////////////////////////////////////////////////////////////////////
     /// </summary>
     public class SleepEditDataReader
     {
-        XmlReaderSettings mSettings = new XmlReaderSettings();
-        private XmlReader reader;
+        private readonly XmlReaderSettings mSettings = new XmlReaderSettings();
+        private readonly XmlReader reader;
 
         public SleepEditDataReader(string path, SleepEditData data)
         {
@@ -226,10 +197,7 @@ namespace sleepEditPro
                 }
             }
 
-            reader.Close();            
-
+            reader.Close();
         }
-
     }
-
 }

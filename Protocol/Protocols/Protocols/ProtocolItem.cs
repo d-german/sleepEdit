@@ -1,66 +1,62 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Protocols
 {
-   public enum ProtocolItemType
+    public enum ProtocolItemType
     {
         Text,
         Link,
         Question
     }
+
     public class ProtocolItem
     {
+        public string mText;
+        public ProtocolItemType mType;
+
         public ProtocolItem(string str, ProtocolItemType type)
         {
             mText = str;
             mType = type;
         }
-        
-        public string mText;
-        public ProtocolItemType mType;
     }
 
     public class ProtocolItemList
     {
+        public List<ProtocolItem> mItemList = new List<ProtocolItem>();
+        private readonly string mstring;
+
         public ProtocolItemList(string str)
         {
             mstring = str;
             parseText();
         }
-        private string mstring;
-        public List<ProtocolItem> mItemList = new List<ProtocolItem>();
 
         public void parseText()
         {
-            string[] stringSeparators = new string[] { "[", "]"};
+            string[] stringSeparators = {"[", "]"};
 
             string[] result;
 
             result = mstring.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (string resStr in result)
+            foreach (var resStr in result)
             {
-                if(resStr.Contains("LINK"))
+                if (resStr.Contains("LINK"))
                 {
-                    string[] stringSep = new string[] { "LINK" };
+                    string[] stringSep = {"LINK"};
                     stringSep = resStr.Split(stringSep, StringSplitOptions.RemoveEmptyEntries);
                     mItemList.Add(new ProtocolItem(stringSep[0].Trim(), ProtocolItemType.Link));
                 }
-                else
-                if (resStr.Contains("QUESTION"))
+                else if (resStr.Contains("QUESTION"))
                 {
-                    string[] stringSep = new string[] { "QUESTION" };                    
+                    string[] stringSep = {"QUESTION"};
                     mItemList.Add(new ProtocolItem(null, ProtocolItemType.Question));
                 }
                 else
                     mItemList.Add(new ProtocolItem(resStr, ProtocolItemType.Text));
-
             }
         }
-    };
-
-
-
+    }
 }

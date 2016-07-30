@@ -1,11 +1,15 @@
 using System.Collections.Generic;
-using PrelimInterDataManager; 
+using PrelimInterDataManager;
 
 namespace RespirationsComment
 {
     public class PositionEffectComment
     {
-        string mPath = null;
+        private readonly float mLateralRdi;
+        private readonly float mLateralSleepTime;
+        private string mPath;
+        private readonly float mSupineRdi;
+
         public PositionEffectComment(float lateralRdi, float supineRdi, float lateralSleepTime)
         {
             mLateralRdi = lateralRdi;
@@ -14,26 +18,15 @@ namespace RespirationsComment
             initializePosEffect();
         }
 
-        private float mLateralRdi;
-        private float mSupineRdi;
-        private float mLateralSleepTime;
-        private Effect mPositionEffect;
-        public RespirationsComment.Effect PositionEffect
-        {
-            get { return mPositionEffect; }
+        public Effect PositionEffect { get; private set; }
 
-        }
-        private string mPosEffectResult;
-        public string PosEffectComment
-        {
-            get { return mPosEffectResult; }
-        }
+        public string PosEffectComment { get; private set; }
 
         private void initializePosEffect()
         {
             if (isAbnormalSupineRdi() && isEffect() && isEnoughLateralSleep())
             {
-                mPositionEffect = Effect.True;
+                PositionEffect = Effect.True;
             }
             getPosEffect();
         }
@@ -45,7 +38,7 @@ namespace RespirationsComment
 
         private bool isEffect()
         {
-            return mSupineRdi >= (2 * mLateralRdi);
+            return mSupineRdi >= 2*mLateralRdi;
         }
 
         private bool isAbnormalSupineRdi()
@@ -55,23 +48,20 @@ namespace RespirationsComment
 
         private void getPosEffect()
         {
-
-            if (mPositionEffect == Effect.True)
+            if (PositionEffect == Effect.True)
             {
                 if (Respirations.getSeverity(mLateralRdi) == Severity.Normal)
                 {
-
                     try
                     {
                         mPath = "position_effect_normal_lateral_comment.xml";
-                        mPosEffectResult = getResult();
-                        mPosEffectResult = mPosEffectResult.Replace("[supine_RDI]", mSupineRdi.ToString("####"));
-                        mPosEffectResult += " ";
-
+                        PosEffectComment = getResult();
+                        PosEffectComment = PosEffectComment.Replace("[supine_RDI]", mSupineRdi.ToString("####"));
+                        PosEffectComment += " ";
                     }
                     catch
                     {
-                        mPosEffectResult =
+                        PosEffectComment =
                             "A position effect is noted with "
                             + mSupineRdi.ToString("####") + " events per hour of sleep supine versus "
                             + "normal respirations laterally. ";
@@ -82,14 +72,14 @@ namespace RespirationsComment
                     try
                     {
                         mPath = "position_effect_abnormal_lateral_comment.xml";
-                        mPosEffectResult = getResult();
-                        mPosEffectResult = mPosEffectResult.Replace("[supine_RDI]", mSupineRdi.ToString("####"));
-                        mPosEffectResult = mPosEffectResult.Replace("[lateral_RDI]", mLateralRdi.ToString("####"));
-                        mPosEffectResult += " ";
+                        PosEffectComment = getResult();
+                        PosEffectComment = PosEffectComment.Replace("[supine_RDI]", mSupineRdi.ToString("####"));
+                        PosEffectComment = PosEffectComment.Replace("[lateral_RDI]", mLateralRdi.ToString("####"));
+                        PosEffectComment += " ";
                     }
                     catch
                     {
-                        mPosEffectResult =
+                        PosEffectComment =
                             "A position effect is noted with "
                             + mSupineRdi.ToString("####") + " events per hour of sleep supine versus "
                             + mLateralRdi.ToString("####") + " events per hour of sleep laterally. ";
@@ -100,7 +90,7 @@ namespace RespirationsComment
 
         private string getResult()
         {
-            List<string> list = new List<string>();
+            var list = new List<string>();
             DataReader.readData(mPath, ref list);
             return list[0];
         }

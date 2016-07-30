@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PrelimInterDataManager
 {
@@ -14,7 +12,6 @@ namespace PrelimInterDataManager
             Name = name;
             Value = value;
         }
-
     }
 
 
@@ -28,36 +25,25 @@ namespace PrelimInterDataManager
 
         public readonly List<Tag> Tags;
         public string Result;
-
     }
 
     public class PrelimInterDataList
     {
-        PrelimInterDataList(string path)
+        private string mPath;
+
+        private PrelimInterDataList(string path)
         {
             mPath = path;
         }
-        private string mPath;
-        private List<PrelimInterDataElement> mDataList = new List<PrelimInterDataElement>();
-        public List<PrelimInterDataElement> DataList
-        {
-            get { return mDataList; }
-        }
+
+        public List<PrelimInterDataElement> DataList { get; } = new List<PrelimInterDataElement>();
 
         private void load()
         {
-
         }
 
         private void save()
         {
-
         }
     }
-
-
-
-
-
-
 }

@@ -1,19 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TSTbodyPosComment;
-using System.IO;
-using SleepArch;
-using PrelimInterDataManager;
-using SleepEdit;
 using System.Configuration;
-
 
 namespace Driver
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //             TSTbodyPos comment = new TSTbodyPos(389.5, 155.4);
             //             TSTbodyPos comment = new TSTbodyPos(389.5, 155.5, 29.5, 62.5, 11.1, "BIPAP", "10/5 cm H2O");
@@ -41,7 +32,6 @@ namespace Driver
 //             writer.Close();
 
 
-
 //             SleepAnalysisResultsDefault dd = new SleepAnalysisResultsDefault();
 //             dd.printDefaultResults();
 
@@ -52,14 +42,9 @@ namespace Driver
 //             DataReader.readData(pathIn, ref mDataList);
 //             DataWriter.writeData(mDataList, pathOut); 
 
-            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             config.AppSettings.Settings.Add("Address", "3711 Fremont");
             config.Save();
-    
-
-
-
-            
         }
     }
 }

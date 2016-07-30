@@ -1,5 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Default>  
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Default>
   <Result value="0" position_or_REM_effect="true" RDI_plurality="zero">
     Overall respirations are within normal limits.
   </Result>
@@ -22,7 +23,6 @@
 
   <Result value="5" position_or_REM_effect="false" RDI_plurality="multiple">
     Respirations are within normal limits with [RDI] events per hour of sleep.
-  </Result>  
-  
-</Default>
+  </Result>
 
+</Default>

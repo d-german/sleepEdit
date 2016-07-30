@@ -1,23 +1,19 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace BMIcalc
 {
     public partial class BmiCalcUi : Form
     {
+        private double height;
+        private double result;
+        private double weight;
+
         public BmiCalcUi()
         {
             InitializeComponent();
         }
-
-        private double height = 0.0;
-        private double weight = 0.0;
-        private double result = 0.0;
 
         private void textBox_TextChanged(object sender, EventArgs e)
         {
@@ -33,19 +29,18 @@ namespace BMIcalc
                 DisplayResult();
 
                 DisplayInterp();
-                
             }
             catch
             {
                 SetResultToZero();
-                
             }
         }
 
-private void SetResultToZero()
-{
-	textBoxResult.Text = "0";
-}
+        private void SetResultToZero()
+        {
+            textBoxResult.Text = "0";
+        }
+
         private void ConvertMetricToStandard()
         {
             if (radioButtonCm.Checked)
@@ -57,6 +52,7 @@ private void SetResultToZero()
                 ConvertKgtoLbs();
             }
         }
+
         private void DisplayInterp()
         {
             //BMI  	Weight Status
@@ -67,7 +63,7 @@ private void SetResultToZero()
 
             while (true)
             {
-                if ( isNull() )
+                if (isNull())
                 {
                     richTextBoxInterp.Text = "";
                     SetResultToZero();
@@ -105,16 +101,17 @@ private void SetResultToZero()
                 {
                     richTextBoxInterp.Text = "Obese";
                     richTextBoxInterp.ForeColor = Color.Red;
-                    break;
                 }
 
                 break;
             }
         }
+
         private bool isNull()
         {
             return weight == 0 || height == 0 || textBoxWeight.Text == "" || textBoxWeight.Text == "";
         }
+
         private void DisplayResult()
         {
             if (result > 100 || result < 1)
@@ -122,17 +119,20 @@ private void SetResultToZero()
             else
                 textBoxResult.Text = result.ToString("###.##");
         }
+
         private void CaculateBmi()
         {
-            result = (weight / (height * height)) * 703;
+            result = weight/(height*height)*703;
         }
+
         private void ConvertKgtoLbs()
         {
-            weight = weight / 0.45359237;
+            weight = weight/0.45359237;
         }
+
         private void ConvertCmToIn()
         {
-            height = height / 2.54;
+            height = height/2.54;
         }
     }
 }

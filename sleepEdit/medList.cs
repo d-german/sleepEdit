@@ -1,59 +1,61 @@
 using System;
-using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
-using System.Windows.Forms;
 using System.IO;
-using System.Data;
+using System.Windows.Forms;
 
 namespace sleepEditPro
 {
     /// <summary>
-    /// Summary description for medList.
+    ///     Summary description for medList.
     /// </summary>
-    public class medList : System.Windows.Forms.Form
+    public class medList : Form
     {
-        private System.Windows.Forms.ComboBox comboBox_medlList;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox document;
-        private System.Windows.Forms.Button button2;
-        private ArrayList list = new ArrayList();
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox_removeMed;
-        public System.Windows.Forms.GroupBox groupBox_removeMed;
-        public System.Windows.Forms.GroupBox groupBox_main;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
         public static bool isOpen;
-        private string mPath = "";
-        private System.IO.StreamReader sr;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private ComboBox comboBox_medlList;
 
         /// <summary>
-        /// Required designer variable.
+        ///     Required designer variable.
         /// </summary>
-        private System.ComponentModel.Container components = null;
+        private readonly Container components = null;
+
+        private TextBox document;
+        public GroupBox groupBox_main;
+        public GroupBox groupBox_removeMed;
+        private Label label1;
+        private Label label2;
+        private readonly ArrayList list = new ArrayList();
+        private string mPath = "";
+        private OpenFileDialog openFileDialog1;
+        private StreamReader sr;
+        private TextBox textBox_removeMed;
 
         public medList()
         {
             init();
         }
+
         public medList(string path)
         {
             mPath = path;
             init();
         }
+
         private void init()
         {
             InitializeComponent();
 
 
             isOpen = true;
-            if (this.getPath())
-                this.LoadMedList();
+            if (getPath())
+                LoadMedList();
         }
+
         /// <summary>
-        /// Clean up any resources being used.
+        ///     Clean up any resources being used.
         /// </summary>
         protected override void Dispose(bool disposing)
         {
@@ -70,9 +72,10 @@ namespace sleepEditPro
         }
 
         #region Windows Form Designer generated code
+
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        ///     Required method for Designer support - do not modify
+        ///     the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -93,12 +96,14 @@ namespace sleepEditPro
             // 
             // comboBox_medlList
             // 
-            this.comboBox_medlList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_medlList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.comboBox_medlList.Location = new System.Drawing.Point(13, 21);
             this.comboBox_medlList.Name = "comboBox_medlList";
             this.comboBox_medlList.Size = new System.Drawing.Size(280, 25);
             this.comboBox_medlList.TabIndex = 0;
-            this.comboBox_medlList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox_medlList_KeyPress);
+            this.comboBox_medlList.KeyPress +=
+                new System.Windows.Forms.KeyPressEventHandler(this.comboBox_medlList_KeyPress);
             this.comboBox_medlList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox_medlList_KeyDown);
             // 
             // button1
@@ -112,7 +117,8 @@ namespace sleepEditPro
             // 
             // document
             // 
-            this.document.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.document.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.document.Location = new System.Drawing.Point(13, 55);
             this.document.Multiline = true;
             this.document.Name = "document";
@@ -130,13 +136,14 @@ namespace sleepEditPro
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label1.Location = new System.Drawing.Point(13, 222);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 76);
             this.label1.TabIndex = 4;
             this.label1.Text = "If the medication entered is not in the list it will be flagged with a * until ve" +
-                "rified.";
+                               "rified.";
             // 
             // textBox_removeMed
             // 
@@ -150,7 +157,8 @@ namespace sleepEditPro
             this.groupBox_removeMed.Controls.Add(this.button3);
             this.groupBox_removeMed.Controls.Add(this.label2);
             this.groupBox_removeMed.Controls.Add(this.textBox_removeMed);
-            this.groupBox_removeMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox_removeMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.groupBox_removeMed.Location = new System.Drawing.Point(13, 21);
             this.groupBox_removeMed.Name = "groupBox_removeMed";
             this.groupBox_removeMed.Size = new System.Drawing.Size(280, 187);
@@ -207,30 +215,30 @@ namespace sleepEditPro
             this.groupBox_main.ResumeLayout(false);
             this.groupBox_main.PerformLayout();
             this.ResumeLayout(false);
-
         }
+
         #endregion
+
         private bool getPath()
         {
             try
             {
                 mPath = sleepEdit.medPath;
-                sr = new System.IO.StreamReader(mPath);
+                sr = new StreamReader(mPath);
                 return true;
             }
             catch
             {
                 return GetMedList();
             }
-
         }
 
         private bool GetMedList()
         {
-            if (this.openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                mPath = this.openFileDialog1.FileName;
-                sr = new System.IO.StreamReader(mPath);
+                mPath = openFileDialog1.FileName;
+                sr = new StreamReader(mPath);
                 sleepEdit.medPath = mPath;
                 if (mPath == "")
                 {
@@ -238,8 +246,7 @@ namespace sleepEditPro
                 }
                 return true;
             }
-            else
-                return false;
+            return false;
         }
 
 
@@ -254,7 +261,6 @@ namespace sleepEditPro
                 {
                     input = sr.ReadLine();
                     list.Add(input);
-
                 } while (sr.Peek() != -1);
                 // Peek returns -1 if at the end of the stream
                 // Close the stream
@@ -269,7 +275,7 @@ namespace sleepEditPro
                     temp = temp.ToUpper();
                     tempStr = str.Remove(0, 1);
                     tempStr = temp + tempStr;
-                    this.comboBox_medlList.Items.Add(tempStr);
+                    comboBox_medlList.Items.Add(tempStr);
                 }
             }
             catch
@@ -283,52 +289,50 @@ namespace sleepEditPro
         {
             try
             {
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(mPath);
-                foreach (string item in this.comboBox_medlList.Items)
+                var sw = new StreamWriter(mPath);
+                foreach (string item in comboBox_medlList.Items)
                     sw.WriteLine(item); // Write the item to the file
                 sw.Flush();
                 sw.Close();
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 MessageBox.Show("File not found or moved!");
             }
         }
 
 
-
-        private void comboBox_medlList_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        private void comboBox_medlList_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ComboBox cbo = (ComboBox)sender;
+            var cbo = (ComboBox) sender;
 
-            if (e.KeyChar == (char)13)
+            if (e.KeyChar == (char) 13)
             {
                 if (document.Text == "")
-                    document.Text = this.comboBox_medlList.Text + ", ";
+                    document.Text = comboBox_medlList.Text + ", ";
                 else
-                    document.Text += this.comboBox_medlList.Text + ", ";
+                    document.Text += comboBox_medlList.Text + ", ";
             }
         }
 
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             document.SelectAll();
             document.Copy();
         }
 
-        private void button2_Click(object sender, System.EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             document.Clear();
-
         }
 
-        private void comboBox_medlList_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void comboBox_medlList_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter)
-                this.comboBox_medlList.DroppedDown = true;
-            int index = 0;
-            ComboBox cbo = (ComboBox)sender;
+                comboBox_medlList.DroppedDown = true;
+            var index = 0;
+            var cbo = (ComboBox) sender;
             index = cbo.FindStringExact(cbo.Text);
 
             // We only want to do something if the enter key was pressed
@@ -356,14 +360,12 @@ namespace sleepEditPro
             }
         }
 
-        private void button3_Click(object sender, System.EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
-            string str = this.textBox_removeMed.Text;
-            this.textBox_removeMed.Text = "";
-            MedListUtil theMed = new MedListUtil();
+            var str = textBox_removeMed.Text;
+            textBox_removeMed.Text = "";
+            var theMed = new MedListUtil();
             theMed.removeMedDelegate(str);
         }
-
     }
 }

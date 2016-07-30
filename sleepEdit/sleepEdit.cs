@@ -1,180 +1,65 @@
 using System;
-using System.IO;
-using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
-using System.Windows.Forms;
-using System.Data;
+using System.Drawing;
 using System.Drawing.Printing;
-using System.Configuration;
-using System.Collections.Specialized;
-using System.Runtime.Serialization;
-//using System.Runtime.Serialization.Formatters.Soap;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using sleepEditPro;
+using System.Windows.Forms;
+using BMIcalc;
+using NetSpell.SpellChecker;
+using NetSpell.SpellChecker.Dictionary;
 using Protocols;
+using ProtocolUi;
 using WFHost;
+//using System.Runtime.Serialization.Formatters.Soap;
 
 
 namespace sleepEditPro
 {
-
     /// <summary>
-    /// Summary description for PrelimInter.
+    ///     Summary description for PrelimInter.
     /// </summary>
-    public class sleepEdit : System.Windows.Forms.Form
+    public class sleepEdit : Form
     {
-        #region variables
-        internal System.Windows.Forms.ToolBar editToolBar;
-        internal System.Windows.Forms.ToolBarButton openBarButton;
-        internal System.Windows.Forms.ToolBarButton saveBarButton;
-        internal System.Windows.Forms.ToolBarButton toolBarButton4;
-        internal System.Windows.Forms.ToolBarButton printBarButton;
-        internal System.Windows.Forms.ToolBarButton printPreviewBarButton;
-        internal System.Windows.Forms.ToolBarButton toolBarButton5;
-        internal System.Windows.Forms.ToolBarButton spellBarButton;
-        internal System.Windows.Forms.ToolBarButton toolBarButton1;
-        internal System.Windows.Forms.ToolBarButton cutBarButton;
-        internal System.Windows.Forms.ToolBarButton copyBarButton;
-        internal System.Windows.Forms.ToolBarButton pasteBarButton;
-        internal System.Windows.Forms.ToolBarButton toolBarButton8;
-        internal System.Windows.Forms.ToolBarButton undoBarButton;
-        internal System.Windows.Forms.ToolBarButton redoBarButton;
-        internal System.Windows.Forms.ToolBarButton toolBarButton11;
-        internal System.Windows.Forms.ToolBarButton fontBarButton;
-        internal System.Windows.Forms.ToolBarButton toolBarButton2;
-        internal System.Windows.Forms.ToolBarButton boldBarButton;
-        internal System.Windows.Forms.ToolBarButton italicBarButton;
-        internal System.Windows.Forms.ToolBarButton underlineBarButton;
-        internal System.Windows.Forms.ToolBarButton toolBarButton6;
-        internal System.Windows.Forms.ToolBarButton leftBarButton;
-        internal System.Windows.Forms.ToolBarButton centerBarButton;
-        internal System.Windows.Forms.ToolBarButton rightBarButton;
-        internal System.Windows.Forms.ToolBarButton toolBarButton12;
-        internal System.Windows.Forms.ToolBarButton bulletsBarButton;
-        internal System.Windows.Forms.ToolBarButton toolBarButton3;
-        internal System.Windows.Forms.ToolBarButton fontColorBarButton;
-        private System.Windows.Forms.ImageList toolBarImages;
-        private RichTextBoxPrintCtrl.RichTextBoxPrintCtrl document;
-        private System.Windows.Forms.MainMenu mainMenu1;
-        private System.Windows.Forms.MenuItem menuItem1;
-        private System.Windows.Forms.MenuItem menuItem_open;
-        private System.Windows.Forms.MenuItem menuItem_save;
-        private System.Windows.Forms.MenuItem menuItem2;
-        private System.Windows.Forms.MenuItem menuItem_print;
-        private System.Windows.Forms.MenuItem menuItem_pageSetup;
-        private System.Windows.Forms.MenuItem menuItem_printPreview;
-        private System.Windows.Forms.MenuItem menuItem3;
-        private System.Windows.Forms.MenuItem menuItem_exit;
-        private System.Windows.Forms.MenuItem menuItem4;
-        private System.Windows.Forms.MenuItem menuItem7;
-        private System.Windows.Forms.MenuItem menuItem11;
-        private System.Windows.Forms.MenuItem menuItem13;
-        private System.Windows.Forms.MenuItem menuItem16;
-        private System.Windows.Forms.MenuItem menuItem_undo;
-        private System.Windows.Forms.MenuItem menuItem_redo;
-        private System.Windows.Forms.MenuItem menuItem_cut;
-        private System.Windows.Forms.MenuItem menuItem_copy;
-        private System.Windows.Forms.MenuItem menuItem_paste;
-        private System.Windows.Forms.MenuItem menuItem_selectAll;
-        private System.Windows.Forms.MenuItem menuItem_wordwrap;
-        private System.Windows.Forms.MenuItem menuItem_font;
-        private System.Windows.Forms.MenuItem menuItem_spelling;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.FontDialog fontDialog1;
-        private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.PrintDialog printDialog1;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
-        private NetSpell.SpellChecker.Dictionary.WordDictionary wordDictionary1;
-        private System.Windows.Forms.MenuItem menuItem_new;
-        private System.ComponentModel.IContainer components;
-        private string fileName = "Untitled";
-        private NetSpell.SpellChecker.Spelling spelling;
-        private System.Windows.Forms.ToolBarButton newBarButton;
-        private System.Windows.Forms.MenuItem menuItem5;
-        private System.Windows.Forms.MenuItem menuItem6;
-        private System.Windows.Forms.MenuItem menuItem8;
-        private System.Windows.Forms.MenuItem menuItem9;
-        private System.Windows.Forms.MenuItem menuItem10;
-        private System.Windows.Forms.ContextMenu contextMenu1;
-        private System.Windows.Forms.MenuItem menuItem12;
-        private System.Windows.Forms.ContextMenu contextMenu;
-        private System.Windows.Forms.MenuItem menuItem14;
-        private System.Windows.Forms.MenuItem menuItem15;
-        private System.Windows.Forms.MenuItem menuItem17;
-        private System.Windows.Forms.MenuItem menuItem18;
-        private System.Windows.Forms.MenuItem menuItem19;
-        private System.Windows.Forms.MenuItem menuItem20;
-        private System.Windows.Forms.MenuItem menuItem21;
-        private System.Windows.Forms.MenuItem menuItem22;
-        private System.Windows.Forms.MenuItem menuItem23;
-        private System.Windows.Forms.MenuItem menuItem24;
-        private System.Windows.Forms.MenuItem menuItem25;
-        //99999 Setting variables
-        static public string medPath = Application.StartupPath + @"\data files\medlist.txt";
-        static string dictionaryPath = Application.StartupPath + @"\data files";
-        static public  string sleepEditDataPath = "";
-        static public string prelimIntPath = "";
-        static public string workDirPath = "";
-        static public string protocolTitle = "Sleep Lab\r\n";
-        static public string protocolPath = "";
-        static public ArrayList techList = new ArrayList();
-        static public ArrayList maskType = new ArrayList();
-        static public ArrayList maskSize = new ArrayList();
-        private MenuItem menuItem26;
-        private MenuItem menuItem28;
-        private MenuItem menuItem29;
-        private MenuItem bmiCalcMenuItem;
-        private int checkPrint;
-        private MenuItem menuItem27;
-
-        private SleepEditDataManager mManager;
-        #endregion
-
-
-
-
         public sleepEdit()
         {
             //
             // Required for Windows Form Designer support
             //
             InitializeComponent();
-            
+
             //
             // TODO: Add any constructor code after InitializeComponent call
             //
-            this.getSettings();
+            getSettings();
             try
             {
-            	mManager = new SleepEditDataManager();
+                mManager = new SleepEditDataManager();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("sleepEditData.xml not found");
             }
             ProtocolManager.DefaultPath = protocolPath;
             try
             {
-                this.wordDictionary1.DictionaryFolder = dictionaryPath;
+                wordDictionary1.DictionaryFolder = dictionaryPath;
             }
             catch
             {
-                MessageBox.Show("Warning, Dictionary file not found-Spell Checker will not Function", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.menuItem_spelling.Enabled = false;
-            }     
-
+                MessageBox.Show("Warning, Dictionary file not found-Spell Checker will not Function", "",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                menuItem_spelling.Enabled = false;
+            }
         }
 
         /// <summary>
-        /// Clean up any resources being used.
+        ///     Clean up any resources being used.
         /// </summary>
         protected override void Dispose(bool disposing)
         {
-            this.saveSettings();
+            saveSettings();
             if (disposing)
             {
                 if (components != null)
@@ -186,14 +71,15 @@ namespace sleepEditPro
         }
 
         #region Windows Form Designer generated code
+
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        ///     Required method for Designer support - do not modify
+        ///     the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sleepEdit));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(sleepEdit));
             this.editToolBar = new System.Windows.Forms.ToolBar();
             this.newBarButton = new System.Windows.Forms.ToolBarButton();
             this.openBarButton = new System.Windows.Forms.ToolBarButton();
@@ -290,36 +176,38 @@ namespace sleepEditPro
             // editToolBar
             // 
             this.editToolBar.AutoSize = false;
-            this.editToolBar.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
-            this.newBarButton,
-            this.openBarButton,
-            this.saveBarButton,
-            this.toolBarButton4,
-            this.printBarButton,
-            this.printPreviewBarButton,
-            this.toolBarButton5,
-            this.spellBarButton,
-            this.toolBarButton1,
-            this.cutBarButton,
-            this.copyBarButton,
-            this.pasteBarButton,
-            this.toolBarButton8,
-            this.undoBarButton,
-            this.redoBarButton,
-            this.toolBarButton11,
-            this.fontBarButton,
-            this.toolBarButton2,
-            this.boldBarButton,
-            this.italicBarButton,
-            this.underlineBarButton,
-            this.toolBarButton6,
-            this.leftBarButton,
-            this.centerBarButton,
-            this.rightBarButton,
-            this.toolBarButton12,
-            this.bulletsBarButton,
-            this.toolBarButton3,
-            this.fontColorBarButton});
+            this.editToolBar.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[]
+            {
+                this.newBarButton,
+                this.openBarButton,
+                this.saveBarButton,
+                this.toolBarButton4,
+                this.printBarButton,
+                this.printPreviewBarButton,
+                this.toolBarButton5,
+                this.spellBarButton,
+                this.toolBarButton1,
+                this.cutBarButton,
+                this.copyBarButton,
+                this.pasteBarButton,
+                this.toolBarButton8,
+                this.undoBarButton,
+                this.redoBarButton,
+                this.toolBarButton11,
+                this.fontBarButton,
+                this.toolBarButton2,
+                this.boldBarButton,
+                this.italicBarButton,
+                this.underlineBarButton,
+                this.toolBarButton6,
+                this.leftBarButton,
+                this.centerBarButton,
+                this.rightBarButton,
+                this.toolBarButton12,
+                this.bulletsBarButton,
+                this.toolBarButton3,
+                this.fontColorBarButton
+            });
             this.editToolBar.ButtonSize = new System.Drawing.Size(20, 20);
             this.editToolBar.DropDownArrows = true;
             this.editToolBar.ImageList = this.toolBarImages;
@@ -331,7 +219,8 @@ namespace sleepEditPro
             this.editToolBar.TabIndex = 5;
             this.editToolBar.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
             this.editToolBar.Wrappable = false;
-            this.editToolBar.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.editToolBar_ButtonClick);
+            this.editToolBar.ButtonClick +=
+                new System.Windows.Forms.ToolBarButtonClickEventHandler(this.editToolBar_ButtonClick);
             // 
             // newBarButton
             // 
@@ -506,7 +395,8 @@ namespace sleepEditPro
             // 
             // toolBarImages
             // 
-            this.toolBarImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("toolBarImages.ImageStream")));
+            this.toolBarImages.ImageStream =
+                ((System.Windows.Forms.ImageListStreamer) (resources.GetObject("toolBarImages.ImageStream")));
             this.toolBarImages.TransparentColor = System.Drawing.Color.Transparent;
             this.toolBarImages.Images.SetKeyName(0, "");
             this.toolBarImages.Images.SetKeyName(1, "");
@@ -535,11 +425,13 @@ namespace sleepEditPro
             // 
             // contextMenu
             // 
-            this.contextMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem14,
-            this.menuItem15,
-            this.menuItem17,
-            this.menuItem18});
+            this.contextMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem14,
+                this.menuItem15,
+                this.menuItem17,
+                this.menuItem18
+            });
             // 
             // menuItem14
             // 
@@ -567,28 +459,32 @@ namespace sleepEditPro
             // 
             // mainMenu1
             // 
-            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem1,
-            this.menuItem4,
-            this.menuItem13,
-            this.menuItem5,
-            this.menuItem16,
-            this.menuItem19,
-            this.menuItem25});
+            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem1,
+                this.menuItem4,
+                this.menuItem13,
+                this.menuItem5,
+                this.menuItem16,
+                this.menuItem19,
+                this.menuItem25
+            });
             // 
             // menuItem1
             // 
             this.menuItem1.Index = 0;
-            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem_new,
-            this.menuItem_open,
-            this.menuItem_save,
-            this.menuItem2,
-            this.menuItem_print,
-            this.menuItem_pageSetup,
-            this.menuItem_printPreview,
-            this.menuItem3,
-            this.menuItem_exit});
+            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem_new,
+                this.menuItem_open,
+                this.menuItem_save,
+                this.menuItem2,
+                this.menuItem_print,
+                this.menuItem_pageSetup,
+                this.menuItem_printPreview,
+                this.menuItem3,
+                this.menuItem_exit
+            });
             this.menuItem1.Text = "File";
             // 
             // menuItem_new
@@ -646,15 +542,17 @@ namespace sleepEditPro
             // menuItem4
             // 
             this.menuItem4.Index = 1;
-            this.menuItem4.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem_undo,
-            this.menuItem_redo,
-            this.menuItem7,
-            this.menuItem_cut,
-            this.menuItem_copy,
-            this.menuItem_paste,
-            this.menuItem11,
-            this.menuItem_selectAll});
+            this.menuItem4.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem_undo,
+                this.menuItem_redo,
+                this.menuItem7,
+                this.menuItem_cut,
+                this.menuItem_copy,
+                this.menuItem_paste,
+                this.menuItem11,
+                this.menuItem_selectAll
+            });
             this.menuItem4.Text = "Edit";
             // 
             // menuItem_undo
@@ -706,9 +604,11 @@ namespace sleepEditPro
             // menuItem13
             // 
             this.menuItem13.Index = 2;
-            this.menuItem13.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem_wordwrap,
-            this.menuItem_font});
+            this.menuItem13.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem_wordwrap,
+                this.menuItem_font
+            });
             this.menuItem13.Text = "Format";
             // 
             // menuItem_wordwrap
@@ -727,13 +627,15 @@ namespace sleepEditPro
             // 
             this.menuItem5.DefaultItem = true;
             this.menuItem5.Index = 3;
-            this.menuItem5.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem6,
-            this.menuItem8,
-            this.menuItem9,
-            this.menuItem10,
-            this.menuItem12,
-            this.bmiCalcMenuItem});
+            this.menuItem5.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem6,
+                this.menuItem8,
+                this.menuItem9,
+                this.menuItem10,
+                this.menuItem12,
+                this.bmiCalcMenuItem
+            });
             this.menuItem5.Text = "Sleep Tools";
             // 
             // menuItem6
@@ -780,8 +682,10 @@ namespace sleepEditPro
             // menuItem16
             // 
             this.menuItem16.Index = 4;
-            this.menuItem16.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem_spelling});
+            this.menuItem16.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem_spelling
+            });
             this.menuItem16.Text = "Tools";
             // 
             // menuItem_spelling
@@ -794,20 +698,24 @@ namespace sleepEditPro
             // menuItem19
             // 
             this.menuItem19.Index = 5;
-            this.menuItem19.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem20,
-            this.menuItem26});
+            this.menuItem19.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem20,
+                this.menuItem26
+            });
             this.menuItem19.Text = "Utilities";
             this.menuItem19.Popup += new System.EventHandler(this.menuItem19_Popup);
             // 
             // menuItem20
             // 
             this.menuItem20.Index = 0;
-            this.menuItem20.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem21,
-            this.menuItem23,
-            this.menuItem22,
-            this.menuItem24});
+            this.menuItem20.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem21,
+                this.menuItem23,
+                this.menuItem22,
+                this.menuItem24
+            });
             this.menuItem20.Text = "Med List";
             // 
             // menuItem21
@@ -837,10 +745,12 @@ namespace sleepEditPro
             // menuItem26
             // 
             this.menuItem26.Index = 1;
-            this.menuItem26.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem28,
-            this.menuItem29,
-            this.menuItem27});
+            this.menuItem26.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem28,
+                this.menuItem29,
+                this.menuItem27
+            });
             this.menuItem26.Text = "Protocol";
             // 
             // menuItem28
@@ -883,9 +793,11 @@ namespace sleepEditPro
             // 
             // printDocument1
             // 
-            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
+            this.printDocument1.BeginPrint +=
+                new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
             this.printDocument1.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_EndPrint);
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            this.printDocument1.PrintPage +=
+                new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // printPreviewDialog1
             // 
@@ -894,7 +806,7 @@ namespace sleepEditPro
             this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
             this.printPreviewDialog1.Document = this.printDocument1;
             this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon) (resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
@@ -905,18 +817,23 @@ namespace sleepEditPro
             // spelling
             // 
             this.spelling.Dictionary = this.wordDictionary1;
-            this.spelling.DeletedWord += new NetSpell.SpellChecker.Spelling.DeletedWordEventHandler(this.spelling_DeletedWord);
-            this.spelling.ReplacedWord += new NetSpell.SpellChecker.Spelling.ReplacedWordEventHandler(this.spelling_ReplacedWord);
+            this.spelling.DeletedWord +=
+                new NetSpell.SpellChecker.Spelling.DeletedWordEventHandler(this.spelling_DeletedWord);
+            this.spelling.ReplacedWord +=
+                new NetSpell.SpellChecker.Spelling.ReplacedWordEventHandler(this.spelling_ReplacedWord);
             // 
             // document
             // 
-            this.document.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.document.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    ((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                       | System.Windows.Forms.AnchorStyles.Left)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.document.BulletIndent = 5;
             this.document.ContextMenu = this.contextMenu;
             this.document.DetectUrls = false;
-            this.document.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.document.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.15F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.document.Location = new System.Drawing.Point(8, 40);
             this.document.Name = "document";
             this.document.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
@@ -931,68 +848,68 @@ namespace sleepEditPro
             this.ClientSize = new System.Drawing.Size(937, 415);
             this.Controls.Add(this.document);
             this.Controls.Add(this.editToolBar);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Menu = this.mainMenu1;
             this.Name = "sleepEdit";
             this.Text = "Sleep Edit";
             this.ResumeLayout(false);
-
         }
+
         #endregion
 
         /// <summary>
-        /// The main entry point for the application.
+        ///     The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.Run(new sleepEdit());
+        }
 
-        } 
         private void getSettings()
         {
-            string fileName = Application.StartupPath + @"\settings.ini";
-            BinaryFormatter bf = new BinaryFormatter();
+            var fileName = Application.StartupPath + @"\settings.ini";
+            var bf = new BinaryFormatter();
             try
             {
                 using (Stream stream = new FileStream(fileName, FileMode.Open))
                 {
                     try
                     {
-
-                        settings s = new settings();
-                        s = (settings)bf.Deserialize(stream);
+                        var s = new settings();
+                        s = (settings) bf.Deserialize(stream);
                         //sleepEdit.medPath = s.medListFileName;
-                        sleepEdit.prelimIntPath = s.prelimIntFileName;
-                        sleepEdit.workDirPath = s.workDirPath;
-                        sleepEdit.techList = s.techList;
-                        sleepEdit.maskType = s.maskType;
-                        sleepEdit.maskSize = s.maskSize;
-                        sleepEdit.protocolTitle = s.protocolTitle;
+                        prelimIntPath = s.prelimIntFileName;
+                        workDirPath = s.workDirPath;
+                        techList = s.techList;
+                        maskType = s.maskType;
+                        maskSize = s.maskSize;
+                        protocolTitle = s.protocolTitle;
                         if (!ProtocolManager.IsValidPath(s.protocalPath))
                         {
                             getPathToTheMainProtocolFile();
-                            
-                        } else
-                        {
-                            sleepEdit.protocolPath = s.protocalPath;
                         }
-                        sleepEdit.sleepEditDataPath = s.sleepEditDataPath;
+                        else
+                        {
+                            protocolPath = s.protocalPath;
+                        }
+                        sleepEditDataPath = s.sleepEditDataPath;
 
                         if (!SleepEditDataManager.isValidPath(sleepEditDataPath))
                         {
                             sleepEditDataPath = Application.StartupPath + @"\data files\sleepEditData.xml";
-                            
+
                             if (!SleepEditDataManager.isValidPath(sleepEditDataPath))
                             {
                                 getPathToSleepEditDataFile();
                             }
                         }
-                        SleepEditDataManager.mPath = sleepEdit.sleepEditDataPath;
+                        SleepEditDataManager.mPath = sleepEditDataPath;
                     }
-                    catch { }
-
+                    catch
+                    {
+                    }
                 }
             }
             catch
@@ -1000,159 +917,150 @@ namespace sleepEditPro
                 MessageBox.Show("settings.ini file not found!!\r\nA new one will be created.");
                 Stream stream = new FileStream(fileName, FileMode.Create);
                 stream.Close();
-
             }
         }
 
         private void getPathToSleepEditDataFile()
         {
-            OpenFileDialog dlg = new OpenFileDialog();
+            var dlg = new OpenFileDialog();
             dlg.Title = "Open sleepEditDataFile.xml ";
             dlg.Filter = "XML Files (*.xml)|*.xml";
             dlg.InitialDirectory = Application.StartupPath + @"\data files";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                sleepEdit.sleepEditDataPath = dlg.FileName;
-                SleepEditDataManager.mPath = dlg.FileName;                
+                sleepEditDataPath = dlg.FileName;
+                SleepEditDataManager.mPath = dlg.FileName;
             }
         }
 
         private void getPathToTheMainProtocolFile()
         {
-            OpenFileDialog dlg = new OpenFileDialog();
+            var dlg = new OpenFileDialog();
             dlg.Title = "Open XML Document";
             dlg.Filter = "XML Files (*.xml)|*.xml";
             dlg.InitialDirectory = Application.StartupPath + @"\protocols";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                sleepEdit.protocolPath = dlg.FileName;
-                ProtocolManager.DefaultPath = dlg.FileName;                
+                protocolPath = dlg.FileName;
+                ProtocolManager.DefaultPath = dlg.FileName;
             }
         }
+
         private void saveSettings()
         {
-            string fileName = Application.StartupPath + @"\settings.ini";
-            BinaryFormatter bf = new BinaryFormatter();
+            var fileName = Application.StartupPath + @"\settings.ini";
+            var bf = new BinaryFormatter();
             using (Stream stream = new FileStream(fileName, FileMode.Open))
             {
-
-                settings s = new settings();
-               // s.medListFileName = sleepEdit.medPath;
-                s.prelimIntFileName = sleepEdit.prelimIntPath;
-                s.workDirPath = sleepEdit.workDirPath;
-                s.techList = sleepEdit.techList;
-                s.maskType = sleepEdit.maskType;
-                s.maskSize = sleepEdit.maskSize;
-                s.protocolTitle = sleepEdit.protocolTitle;
-                s.protocalPath = sleepEdit.protocolPath;
-                s.sleepEditDataPath = sleepEdit.sleepEditDataPath;
+                var s = new settings();
+                // s.medListFileName = sleepEdit.medPath;
+                s.prelimIntFileName = prelimIntPath;
+                s.workDirPath = workDirPath;
+                s.techList = techList;
+                s.maskType = maskType;
+                s.maskSize = maskSize;
+                s.protocolTitle = protocolTitle;
+                s.protocalPath = protocolPath;
+                s.sleepEditDataPath = sleepEditDataPath;
                 bf.Serialize(stream, s);
             }
-
         }
-        private void menuItem_new_Click(object sender, System.EventArgs e)
+
+        private void menuItem_new_Click(object sender, EventArgs e)
         {
-            this.Text = "Untitled";
+            Text = "Untitled";
             fileName = "Untitled";
-            this.document.Clear();
+            document.Clear();
         }
 
-        private void menuItem_open_Click(object sender, System.EventArgs e)
+        private void menuItem_open_Click(object sender, EventArgs e)
         {
-            this.OpenFile();
+            OpenFile();
         }
+
         private void OpenFile()
         {
             // Create an OpenFileDialog to request a file to open.
             //OpenFileDialog openFile1 = new OpenFileDialog();	
             //this.openFileDialog1.Filter= "RTF Document (*.rtf)|*.rtf|Text Documents (*.txt)|*.txt";
-            this.openFileDialog1.Filter = "Text Documents (*.txt)|*.txt|RTF Document (*.rtf)|*.rtf";
-            this.openFileDialog1.InitialDirectory = sleepEdit.workDirPath;
+            openFileDialog1.Filter = "Text Documents (*.txt)|*.txt|RTF Document (*.rtf)|*.rtf";
+            openFileDialog1.InitialDirectory = workDirPath;
 
 
             // Determine whether the user selected a file from the OpenFileDialog.
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK &&
+            if (openFileDialog1.ShowDialog() == DialogResult.OK &&
                 openFileDialog1.FileName.Length > 0)
             {
-                sleepEdit.workDirPath = System.Environment.CurrentDirectory;
+                workDirPath = Environment.CurrentDirectory;
                 // Load the contents of the file into the RichTextBox.
                 if (openFileDialog1.FileName.EndsWith("rtf"))
                     document.LoadFile(openFileDialog1.FileName, RichTextBoxStreamType.RichText);
                 else
                     document.LoadFile(openFileDialog1.FileName, RichTextBoxStreamType.PlainText);
             }
-
         }
 
-        private void menuItem_printPreview_Click(object sender, System.EventArgs e)
+        private void menuItem_printPreview_Click(object sender, EventArgs e)
         {
-            this.printPreviewDialog1.ShowDialog();
-
+            printPreviewDialog1.ShowDialog();
         }
 
-        private void menuItem_print_Click(object sender, System.EventArgs e)
+        private void menuItem_print_Click(object sender, EventArgs e)
         {
-
-            this.printDocument();
+            printDocument();
         }
 
 
         private void printDocument()
         {
-
             try
             {
                 if (document.SelectionLength != 0)
                 {
-                    this.printDialog1.AllowSelection = true;
+                    printDialog1.AllowSelection = true;
                     //this.printDialog1.PrinterSettings.PrintRange = PrintRange.Selection;
                 }
 
 
-                if (this.printDialog1.ShowDialog() == DialogResult.OK)
+                if (printDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    this.printDocument1.PrinterSettings = this.printDialog1.PrinterSettings;
+                    printDocument1.PrinterSettings = printDialog1.PrinterSettings;
 
-                    this.printDocument1.Print();
+                    printDocument1.Print();
                 }
             }
             catch
             {
                 MessageBox.Show("Printer not available!!");
             }
-
-
-
         }
 
-        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void printDocument1_BeginPrint(object sender, PrintEventArgs e)
         {
-
-            if (document.SelectionLength != 0 && this.printDocument1.PrinterSettings.PrintRange == PrintRange.Selection)
+            if (document.SelectionLength != 0 && printDocument1.PrinterSettings.PrintRange == PrintRange.Selection)
                 checkPrint = document.SelectionStart;
             else
 
                 checkPrint = 0;
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             try
             {
-                if (document.SelectionLength != 0 && this.printDocument1.PrinterSettings.PrintRange == PrintRange.Selection)
+                if (document.SelectionLength != 0 && printDocument1.PrinterSettings.PrintRange == PrintRange.Selection)
                 {
-                    checkPrint = this.document.Print(document.SelectionStart, document.SelectionStart + document.SelectionLength, e);
-                    if (checkPrint < this.document.SelectionLength)
+                    checkPrint = document.Print(document.SelectionStart,
+                        document.SelectionStart + document.SelectionLength, e);
+                    if (checkPrint < document.SelectionLength)
                         e.HasMorePages = true;
                     else
                         e.HasMorePages = false;
-
                 }
                 else
                 {
-
-                    checkPrint = this.document.Print(checkPrint, this.document.TextLength, e);
-                    if (checkPrint < this.document.TextLength)
+                    checkPrint = document.Print(checkPrint, document.TextLength, e);
+                    if (checkPrint < document.TextLength)
                         e.HasMorePages = true;
                     else
                         e.HasMorePages = false;
@@ -1161,122 +1069,117 @@ namespace sleepEditPro
             catch
             {
                 MessageBox.Show("Printer not available!!");
-
             }
         }
 
-        private void menuItem_pageSetup_Click(object sender, System.EventArgs e)
+        private void menuItem_pageSetup_Click(object sender, EventArgs e)
         {
-            this.pageSetupDialog1.ShowDialog();
+            pageSetupDialog1.ShowDialog();
         }
 
-        private void menuItem_exit_Click(object sender, System.EventArgs e)
+        private void menuItem_exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void menuItem_spelling_Click(object sender, System.EventArgs e)
+        private void menuItem_spelling_Click(object sender, EventArgs e)
         {
-            this.checkSpelling();
+            checkSpelling();
         }
+
         private void checkSpelling()
         {
             try
             {
-                this.wordDictionary1.DictionaryFolder = dictionaryPath;
+                wordDictionary1.DictionaryFolder = dictionaryPath;
                 if (document.SelectedText != "")
-                    this.spelling.Text = this.document.SelectedText;
+                    spelling.Text = document.SelectedText;
                 else
-                    this.spelling.Text = this.document.Text;
-                this.spelling.SpellCheck();
+                    spelling.Text = document.Text;
+                spelling.SpellCheck();
             }
             catch
             {
-                MessageBox.Show("Warning, Dictionary file not found-Spell Checker will not Function", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.menuItem_spelling.Enabled = false;
-
+                MessageBox.Show("Warning, Dictionary file not found-Spell Checker will not Function", "",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                menuItem_spelling.Enabled = false;
             }
-
         }
 
-        private void spelling_DeletedWord(object sender, NetSpell.SpellChecker.SpellingEventArgs e)
+        private void spelling_DeletedWord(object sender, SpellingEventArgs e)
         {
-            int start = this.document.SelectionStart;
-            int length = this.document.SelectionLength;
+            var start = document.SelectionStart;
+            var length = document.SelectionLength;
 
-            this.document.Select(e.TextIndex, e.Word.Length);
-            this.document.SelectedText = "";
+            document.Select(e.TextIndex, e.Word.Length);
+            document.SelectedText = "";
 
-            if (start > this.document.Text.Length)
-                start = this.document.Text.Length;
+            if (start > document.Text.Length)
+                start = document.Text.Length;
 
-            if ((start + length) > this.document.Text.Length)
+            if (start + length > document.Text.Length)
                 length = 0;
 
-            this.document.Select(start, length);
+            document.Select(start, length);
         }
 
-        private void spelling_ReplacedWord(object sender, NetSpell.SpellChecker.ReplaceWordEventArgs e)
+        private void spelling_ReplacedWord(object sender, ReplaceWordEventArgs e)
         {
-            int start = this.document.SelectionStart;
-            int length = this.document.SelectionLength;
+            var start = document.SelectionStart;
+            var length = document.SelectionLength;
 
-            this.document.Select(e.TextIndex, e.Word.Length);
-            this.document.SelectedText = e.ReplacementWord;
+            document.Select(e.TextIndex, e.Word.Length);
+            document.SelectedText = e.ReplacementWord;
 
-            if (start > this.document.Text.Length)
-                start = this.document.Text.Length;
+            if (start > document.Text.Length)
+                start = document.Text.Length;
 
-            if ((start + length) > this.document.Text.Length)
+            if (start + length > document.Text.Length)
                 length = 0;
 
-            this.document.Select(start, length);
+            document.Select(start, length);
         }
 
-        private void menuItem_save_Click(object sender, System.EventArgs e)
+        private void menuItem_save_Click(object sender, EventArgs e)
         {
-            this.saveFile();
+            saveFile();
         }
 
         private void saveFile()
         {
-            if (this.fileName != "Untitled")
+            if (fileName != "Untitled")
             {
-                this.document.SaveFile(fileName, RichTextBoxStreamType.RichText);
-
+                document.SaveFile(fileName, RichTextBoxStreamType.RichText);
             }
             else
             {
-                saveFileDialog1.InitialDirectory = sleepEdit.workDirPath;
-                if (this.saveFileDialog1.ShowDialog() == DialogResult.OK)
+                saveFileDialog1.InitialDirectory = workDirPath;
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    sleepEdit.workDirPath = System.Environment.CurrentDirectory;
+                    workDirPath = Environment.CurrentDirectory;
 
-                    if (this.saveFileDialog1.FilterIndex == 1)
+                    if (saveFileDialog1.FilterIndex == 1)
                     {
-                        this.saveFileDialog1.DefaultExt = ".rtf";
-                        fileName = this.saveFileDialog1.FileName;
-                        this.document.SaveFile(fileName, RichTextBoxStreamType.RichText);
+                        saveFileDialog1.DefaultExt = ".rtf";
+                        fileName = saveFileDialog1.FileName;
+                        document.SaveFile(fileName, RichTextBoxStreamType.RichText);
                     }
                     else
                     {
-                        this.saveFileDialog1.DefaultExt = ".txt";
-                        fileName = this.saveFileDialog1.FileName;
-                        this.document.SaveFile(fileName, RichTextBoxStreamType.PlainText);
+                        saveFileDialog1.DefaultExt = ".txt";
+                        fileName = saveFileDialog1.FileName;
+                        document.SaveFile(fileName, RichTextBoxStreamType.PlainText);
                     }
 
                     SetFormTitle();
-
                 }
             }
-
-
-
         }
+
         protected void SetFormTitle()
         {
-            FileInfo fileinfo = new FileInfo(fileName);
-            this.Text = fileinfo.Name;
+            var fileinfo = new FileInfo(fileName);
+            Text = fileinfo.Name;
         }
 
         private void SaveFile()
@@ -1284,9 +1187,9 @@ namespace sleepEditPro
             try
             {
                 Stream stream = File.OpenWrite(fileName);
-                using (StreamWriter writer = new StreamWriter(stream))
+                using (var writer = new StreamWriter(stream))
                 {
-                    writer.Write(this.document.Text);
+                    writer.Write(document.Text);
                 }
             }
             catch (IOException ex)
@@ -1296,102 +1199,99 @@ namespace sleepEditPro
             }
         }
 
-        private void menuItem_undo_Click(object sender, System.EventArgs e)
+        private void menuItem_undo_Click(object sender, EventArgs e)
         {
-            this.document.Undo();
+            document.Undo();
         }
 
-        private void menuItem_redo_Click(object sender, System.EventArgs e)
+        private void menuItem_redo_Click(object sender, EventArgs e)
         {
-            this.document.Redo();
+            document.Redo();
         }
 
-        private void menuItem_cut_Click(object sender, System.EventArgs e)
+        private void menuItem_cut_Click(object sender, EventArgs e)
         {
-            this.document.Cut();
+            document.Cut();
         }
 
-        private void menuItem_copy_Click(object sender, System.EventArgs e)
+        private void menuItem_copy_Click(object sender, EventArgs e)
         {
-            this.document.Copy();
+            document.Copy();
         }
 
-        private void menuItem_paste_Click(object sender, System.EventArgs e)
+        private void menuItem_paste_Click(object sender, EventArgs e)
         {
-            this.document.Paste();
+            document.Paste();
         }
 
-        private void menuItem_selectAll_Click(object sender, System.EventArgs e)
+        private void menuItem_selectAll_Click(object sender, EventArgs e)
         {
-            this.document.SelectAll();
+            document.SelectAll();
         }
 
-        private void menuItem_font_Click(object sender, System.EventArgs e)
+        private void menuItem_font_Click(object sender, EventArgs e)
         {
-            this.setFont();
+            setFont();
         }
+
         private void setFont()
         {
-            this.fontDialog1.Font = document.SelectionFont;
-            if (this.fontDialog1.ShowDialog(this) == DialogResult.OK)
+            fontDialog1.Font = document.SelectionFont;
+            if (fontDialog1.ShowDialog(this) == DialogResult.OK)
             {
-                document.SelectionFont = this.fontDialog1.Font;
+                document.SelectionFont = fontDialog1.Font;
             }
         }
 
         private void setFontColor()
         {
-            this.colorDialog1.Color = document.SelectionColor;
-            if (this.colorDialog1.ShowDialog(this) == DialogResult.OK)
+            colorDialog1.Color = document.SelectionColor;
+            if (colorDialog1.ShowDialog(this) == DialogResult.OK)
             {
-                document.SelectionColor = this.colorDialog1.Color;
+                document.SelectionColor = colorDialog1.Color;
             }
         }
-        private void editToolBar_ButtonClick(object sender, System.Windows.Forms.ToolBarButtonClickEventArgs e)
+
+        private void editToolBar_ButtonClick(object sender, ToolBarButtonClickEventArgs e)
         {
             if (e.Button == newBarButton)
             {
                 fileName = "Untitled";
-                this.Text = "Untitled";
-                this.document.Clear();
-
+                Text = "Untitled";
+                document.Clear();
             }
             else if (e.Button == openBarButton)
             {
-                this.OpenFile();
-
+                OpenFile();
             }
             else if (e.Button == cutBarButton)
             {
-                this.document.Cut();
-
+                document.Cut();
             }
             else if (e.Button == copyBarButton)
             {
-                this.document.Copy();
-
+                document.Copy();
             }
             else if (e.Button == pasteBarButton)
             {
-                this.document.Paste();
+                document.Paste();
             }
             else if (e.Button == printBarButton)
             {
                 try
                 {
-                    this.printDocument1.Print();
+                    printDocument1.Print();
                 }
                 catch
                 {
                     MessageBox.Show("Printer not available!!");
                 }
-
             }
             else if (e.Button == printPreviewBarButton)
             {
                 try
                 {
-                    this.printPreviewDialog1.ShowDialog();
+                    printPreviewDialog1.ShowDialog();
                 }
                 catch
                 {
@@ -1400,40 +1300,37 @@ namespace sleepEditPro
             }
             else if (e.Button == redoBarButton)
             {
-                this.document.Redo();
+                document.Redo();
             }
             else if (e.Button == saveBarButton)
             {
-                this.saveFile();
+                saveFile();
             }
             else if (e.Button == spellBarButton)
             {
-                this.checkSpelling();
-
+                checkSpelling();
             }
             else if (e.Button == undoBarButton)
             {
-                this.document.Undo();
+                document.Undo();
             }
 
             else if (e.Button == fontBarButton)
             {
-                this.setFont();
+                setFont();
             }
             else if (e.Button == boldBarButton || e.Button == italicBarButton || e.Button == underlineBarButton)
             {
-
-
                 if (document.SelectionFont != null)
                 {
-                    System.Drawing.Font currentFont = document.SelectionFont;
-                    System.Drawing.FontStyle newFontStyle = FontStyle.Regular;
+                    var currentFont = document.SelectionFont;
+                    var newFontStyle = FontStyle.Regular;
 
-                    if (this.boldBarButton.Pushed)
+                    if (boldBarButton.Pushed)
                         newFontStyle |= FontStyle.Bold;
-                    if (this.italicBarButton.Pushed)
+                    if (italicBarButton.Pushed)
                         newFontStyle |= FontStyle.Italic;
-                    if (this.underlineBarButton.Pushed)
+                    if (underlineBarButton.Pushed)
                         newFontStyle |= FontStyle.Underline;
 
 
@@ -1451,7 +1348,6 @@ namespace sleepEditPro
                 centerBarButton.Pushed = false;
                 rightBarButton.Pushed = false;
                 document.SelectionAlignment = HorizontalAlignment.Left;
-
             }
             else if (e.Button == centerBarButton)
             {
@@ -1469,163 +1365,162 @@ namespace sleepEditPro
             }
             else if (e.Button == bulletsBarButton)
             {
-                if (bulletsBarButton.Pushed == true)
+                if (bulletsBarButton.Pushed)
                 {
-                    this.document.SelectionBullet = true;
+                    document.SelectionBullet = true;
                 }
                 else
-                    this.document.SelectionBullet = false;
+                    document.SelectionBullet = false;
             }
 
             else if (e.Button == fontColorBarButton)
             {
-                if (this.colorDialog1.ShowDialog() == DialogResult.OK)
-                    this.document.SelectionColor = this.colorDialog1.Color;
+                if (colorDialog1.ShowDialog() == DialogResult.OK)
+                    document.SelectionColor = colorDialog1.Color;
             }
         }
 
         private void DisableEditButtons()
         {
-            this.saveBarButton.Enabled = false;
-            this.printBarButton.Enabled = false;
-            this.printPreviewBarButton.Enabled = false;
-            this.spellBarButton.Enabled = false;
-            this.cutBarButton.Enabled = false;
-            this.copyBarButton.Enabled = false;
-            this.pasteBarButton.Enabled = false;
-            this.undoBarButton.Enabled = false;
-            this.redoBarButton.Enabled = false;
+            saveBarButton.Enabled = false;
+            printBarButton.Enabled = false;
+            printPreviewBarButton.Enabled = false;
+            spellBarButton.Enabled = false;
+            cutBarButton.Enabled = false;
+            copyBarButton.Enabled = false;
+            pasteBarButton.Enabled = false;
+            undoBarButton.Enabled = false;
+            redoBarButton.Enabled = false;
 
-            this.fontBarButton.Enabled = false;
-            this.boldBarButton.Enabled = false;
-            this.italicBarButton.Enabled = false;
-            this.underlineBarButton.Enabled = false;
-            this.leftBarButton.Enabled = false;
-            this.centerBarButton.Enabled = false;
-            this.rightBarButton.Enabled = false;
-            this.bulletsBarButton.Enabled = false;
-            this.fontColorBarButton.Enabled = false;
+            fontBarButton.Enabled = false;
+            boldBarButton.Enabled = false;
+            italicBarButton.Enabled = false;
+            underlineBarButton.Enabled = false;
+            leftBarButton.Enabled = false;
+            centerBarButton.Enabled = false;
+            rightBarButton.Enabled = false;
+            bulletsBarButton.Enabled = false;
+            fontColorBarButton.Enabled = false;
         }
 
         private void EnableEditButtons()
         {
-            this.saveBarButton.Enabled = true;
-            this.printBarButton.Enabled = true;
-            this.printPreviewBarButton.Enabled = true;
-            this.spellBarButton.Enabled = true;
-            this.cutBarButton.Enabled = true;
-            this.copyBarButton.Enabled = true;
-            this.pasteBarButton.Enabled = true;
-            this.undoBarButton.Enabled = true;
-            this.redoBarButton.Enabled = true;
+            saveBarButton.Enabled = true;
+            printBarButton.Enabled = true;
+            printPreviewBarButton.Enabled = true;
+            spellBarButton.Enabled = true;
+            cutBarButton.Enabled = true;
+            copyBarButton.Enabled = true;
+            pasteBarButton.Enabled = true;
+            undoBarButton.Enabled = true;
+            redoBarButton.Enabled = true;
 
-            this.fontBarButton.Enabled = true;
-            this.boldBarButton.Enabled = true;
-            this.italicBarButton.Enabled = true;
-            this.underlineBarButton.Enabled = true;
-            this.leftBarButton.Enabled = true;
-            this.centerBarButton.Enabled = true;
-            this.rightBarButton.Enabled = true;
-            this.bulletsBarButton.Enabled = true;
-            this.fontColorBarButton.Enabled = true;
+            fontBarButton.Enabled = true;
+            boldBarButton.Enabled = true;
+            italicBarButton.Enabled = true;
+            underlineBarButton.Enabled = true;
+            leftBarButton.Enabled = true;
+            centerBarButton.Enabled = true;
+            rightBarButton.Enabled = true;
+            bulletsBarButton.Enabled = true;
+            fontColorBarButton.Enabled = true;
         }
 
-        private void document_SelectionChanged(object sender, System.EventArgs e)
+        private void document_SelectionChanged(object sender, EventArgs e)
         {
             //this.UpdateButtons(document.SelectionFont.Style, 
             //	document.SelectionBullet,
             //	document.SelectionAlignment);
         }
+
         internal void UpdateButtons(FontStyle style, bool bullet, HorizontalAlignment alignment)
         {
             if ((style & FontStyle.Bold) == FontStyle.Bold)
-                this.boldBarButton.Pushed = true;
+                boldBarButton.Pushed = true;
             else
-                this.boldBarButton.Pushed = false;
+                boldBarButton.Pushed = false;
 
             if ((style & FontStyle.Italic) == FontStyle.Italic)
-                this.italicBarButton.Pushed = true;
+                italicBarButton.Pushed = true;
             else
-                this.italicBarButton.Pushed = false;
+                italicBarButton.Pushed = false;
 
             if ((style & FontStyle.Underline) == FontStyle.Underline)
-                this.underlineBarButton.Pushed = true;
+                underlineBarButton.Pushed = true;
             else
-                this.underlineBarButton.Pushed = false;
+                underlineBarButton.Pushed = false;
 
-            this.bulletsBarButton.Pushed = bullet;
+            bulletsBarButton.Pushed = bullet;
 
             switch (alignment)
             {
                 case HorizontalAlignment.Left:
-                    this.leftBarButton.Pushed = true;
-                    this.centerBarButton.Pushed = false;
-                    this.rightBarButton.Pushed = false;
+                    leftBarButton.Pushed = true;
+                    centerBarButton.Pushed = false;
+                    rightBarButton.Pushed = false;
                     break;
                 case HorizontalAlignment.Center:
-                    this.leftBarButton.Pushed = false;
-                    this.centerBarButton.Pushed = true;
-                    this.rightBarButton.Pushed = false;
+                    leftBarButton.Pushed = false;
+                    centerBarButton.Pushed = true;
+                    rightBarButton.Pushed = false;
                     break;
                 case HorizontalAlignment.Right:
-                    this.leftBarButton.Pushed = false;
-                    this.centerBarButton.Pushed = false;
-                    this.rightBarButton.Pushed = true;
+                    leftBarButton.Pushed = false;
+                    centerBarButton.Pushed = false;
+                    rightBarButton.Pushed = true;
                     break;
             }
         }
 
-        private void menuItem_wordwrap_Click(object sender, System.EventArgs e)
+        private void menuItem_wordwrap_Click(object sender, EventArgs e)
         {
-            if (this.document.WordWrap)
+            if (document.WordWrap)
             {
-                this.menuItem_wordwrap.Checked = false;
-                this.document.WordWrap = false;
+                menuItem_wordwrap.Checked = false;
+                document.WordWrap = false;
             }
             else
             {
-                this.menuItem_wordwrap.Checked = true;
-                this.document.WordWrap = true;
+                menuItem_wordwrap.Checked = true;
+                document.WordWrap = true;
             }
-
         }
+
         private void PassData(object sender)
         {
-            string str = (string)sender + "\r\n";
+            var str = (string) sender + "\r\n";
             document.AppendText(str);
         }
 
-        private void menuItem9_Click(object sender, System.EventArgs e)
+        private void menuItem9_Click(object sender, EventArgs e)
         {
-            PrelimInter sleepInterp = new PrelimInter();
+            var sleepInterp = new PrelimInter();
             sleepInterp.Show();
         }
 
-        private void menuItem8_Click(object sender, System.EventArgs e)
+        private void menuItem8_Click(object sender, EventArgs e)
         {
-            TechNote sleepNote = new TechNote();
-            sleepNote.passControl += new TechNote.PassControl(PassData);
+            var sleepNote = new TechNote();
+            sleepNote.passControl += PassData;
             sleepNote.Show();
         }
 
-        private void sleepProtocol_Click(object sender, System.EventArgs e)
+        private void sleepProtocol_Click(object sender, EventArgs e)
         {
             //99999+
             SetSleepProtocolTitle();
             //99999-
-            
-            sleepEditPro.Protocol protocol = new Protocol();
+
+            var protocol = new Protocol();
 
 
-
-            if (protocol.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (protocol.ShowDialog() == DialogResult.OK)
             {
-               
                 // this.document.Text = protocol.document.Text;
-                this.document.Rtf = protocol.document.Rtf;
+                document.Rtf = protocol.document.Rtf;
 
 
-                for (int i = 0; i < document.Text.Length; )
+                for (var i = 0; i < document.Text.Length;)
                 {
                     document.Find("GOAL", i,
                         RichTextBoxFinds.MatchCase);
@@ -1647,7 +1542,7 @@ namespace sleepEditPro
 
 
                 if (document.Find(
-                    sleepEditPro.Protocol.ProtocolTitle.Trim(), //99999
+                    Protocol.ProtocolTitle.Trim(), //99999
                     RichTextBoxFinds.MatchCase) > 2)
                 {
                     document.SelectionFont = new Font("SansSerif", 10, FontStyle.Underline);
@@ -1655,7 +1550,6 @@ namespace sleepEditPro
                 }
 
                 formatTitleString("Technician Documentation");
-                
             }
         }
 
@@ -1670,10 +1564,10 @@ namespace sleepEditPro
 
         private void SetSleepProtocolTitle()
         {
-            string str = sleepEdit.protocolTitle;
+            var str = protocolTitle;
             if (str == "")
             {
-                textInput tx = new textInput();
+                var tx = new textInput();
                 tx.Text = "Protocol Title?";
 
                 if (tx.ShowDialog() == DialogResult.OK)
@@ -1691,119 +1585,111 @@ namespace sleepEditPro
         {
             Protocol.ProtocolTitle = str;
         }
-        private void menuItem10_Click(object sender, System.EventArgs e)
-        {
 
+        private void menuItem10_Click(object sender, EventArgs e)
+        {
             //this.menuItem20.Enabled=false;
-            medList theMedList = new medList(medPath);
+            var theMedList = new medList(medPath);
             theMedList.groupBox_removeMed.Visible = false;
             theMedList.Show();
-
         }
 
-        private void menuItem12_Click(object sender, System.EventArgs e)
+        private void menuItem12_Click(object sender, EventArgs e)
         {
             document.Copy();
         }
 
-        private void menuItem14_Click(object sender, System.EventArgs e)
+        private void menuItem14_Click(object sender, EventArgs e)
         {
             document.Cut();
-
         }
 
-        private void menuItem15_Click(object sender, System.EventArgs e)
+        private void menuItem15_Click(object sender, EventArgs e)
         {
             document.Paste();
         }
 
-        private void menuItem12_Click_1(object sender, System.EventArgs e)
+        private void menuItem12_Click_1(object sender, EventArgs e)
         {
-            ABG abg = new ABG();
+            var abg = new ABG();
             abg.Show();
         }
 
-        private void menuItem14_Click_1(object sender, System.EventArgs e)
+        private void menuItem14_Click_1(object sender, EventArgs e)
         {
             document.Copy();
         }
 
-        private void menuItem15_Click_1(object sender, System.EventArgs e)
+        private void menuItem15_Click_1(object sender, EventArgs e)
         {
             document.Cut();
-
         }
 
-        private void menuItem17_Click(object sender, System.EventArgs e)
+        private void menuItem17_Click(object sender, EventArgs e)
         {
             document.Paste();
         }
 
-        private void menuItem18_Click(object sender, System.EventArgs e)
+        private void menuItem18_Click(object sender, EventArgs e)
         {
             document.SelectAll();
         }
 
-        private void menuItem21_Click(object sender, System.EventArgs e)
+        private void menuItem21_Click(object sender, EventArgs e)
         {
-            MedListUtil theMed = new MedListUtil();
+            var theMed = new MedListUtil();
             theMed.RemoveDupDelegate();
-
         }
 
-        private void menuItem22_Click(object sender, System.EventArgs e)
+        private void menuItem22_Click(object sender, EventArgs e)
         {
-            MedListUtil med = new MedListUtil();
+            var med = new MedListUtil();
             med.ToLowerCaseDelegate();
-
         }
 
-        private void menuItem23_Click(object sender, System.EventArgs e)
+        private void menuItem23_Click(object sender, EventArgs e)
         {
-            MedListUtil theMed = new MedListUtil();
+            var theMed = new MedListUtil();
             theMed.RemoveFlagDelegate();
-
         }
 
-        private void menuItem24_Click(object sender, System.EventArgs e)
+        private void menuItem24_Click(object sender, EventArgs e)
         {
-            medList theMedList = new medList();
+            var theMedList = new medList();
             theMedList.groupBox_main.Visible = false;
             theMedList.ShowDialog();
-
         }
 
-        private void menuItem19_Popup(object sender, System.EventArgs e)
+        private void menuItem19_Popup(object sender, EventArgs e)
         {
             if (medList.isOpen)
             {
-                this.menuItem20.Enabled = false;
+                menuItem20.Enabled = false;
             }
             else
-                this.menuItem20.Enabled = true;
+                menuItem20.Enabled = true;
         }
 
-        private void menuItem25_Click(object sender, System.EventArgs e)
+        private void menuItem25_Click(object sender, EventArgs e)
         {
             MessageBox.Show("VER: 1.0.0\rCopyright(R): 11-08\rDamon L. German BS, RPSGT", "sleepEdit");
         }
 
-        private void printDocument1_EndPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void printDocument1_EndPrint(object sender, PrintEventArgs e)
         {
-            this.printDialog1.PrinterSettings.Copies = 1;
+            printDialog1.PrinterSettings.Copies = 1;
         }
 
         private void changeProtocolTitle_Click(object sender, EventArgs e)
         {
-            sleepEdit.protocolTitle = ""; //reset protocol title
+            protocolTitle = ""; //reset protocol title
             SetSleepProtocolTitle();
         }
 
         private void menuItem28_Click(object sender, EventArgs e)
         {
-            ProtocolUi.ProtocolEditUi pe = new ProtocolUi.ProtocolEditUi();
+            var pe = new ProtocolEditUi();
             pe.ShowDialog();
-
         }
 
         private void menuItem29_Click(object sender, EventArgs e)
@@ -1813,7 +1699,7 @@ namespace sleepEditPro
 
         private void bmiCalcMenuItem_Click(object sender, EventArgs e)
         {
-            BMIcalc.BmiCalcUi calc = new BMIcalc.BmiCalcUi();
+            var calc = new BmiCalcUi();
             calc.Show();
         }
 
@@ -1827,5 +1713,117 @@ namespace sleepEditPro
             var host = new ProtocolWFHost();
             host.Show();
         }
+
+        #region variables
+
+        internal ToolBar editToolBar;
+        internal ToolBarButton openBarButton;
+        internal ToolBarButton saveBarButton;
+        internal ToolBarButton toolBarButton4;
+        internal ToolBarButton printBarButton;
+        internal ToolBarButton printPreviewBarButton;
+        internal ToolBarButton toolBarButton5;
+        internal ToolBarButton spellBarButton;
+        internal ToolBarButton toolBarButton1;
+        internal ToolBarButton cutBarButton;
+        internal ToolBarButton copyBarButton;
+        internal ToolBarButton pasteBarButton;
+        internal ToolBarButton toolBarButton8;
+        internal ToolBarButton undoBarButton;
+        internal ToolBarButton redoBarButton;
+        internal ToolBarButton toolBarButton11;
+        internal ToolBarButton fontBarButton;
+        internal ToolBarButton toolBarButton2;
+        internal ToolBarButton boldBarButton;
+        internal ToolBarButton italicBarButton;
+        internal ToolBarButton underlineBarButton;
+        internal ToolBarButton toolBarButton6;
+        internal ToolBarButton leftBarButton;
+        internal ToolBarButton centerBarButton;
+        internal ToolBarButton rightBarButton;
+        internal ToolBarButton toolBarButton12;
+        internal ToolBarButton bulletsBarButton;
+        internal ToolBarButton toolBarButton3;
+        internal ToolBarButton fontColorBarButton;
+        private ImageList toolBarImages;
+        private RichTextBoxPrintCtrl.RichTextBoxPrintCtrl document;
+        private MainMenu mainMenu1;
+        private MenuItem menuItem1;
+        private MenuItem menuItem_open;
+        private MenuItem menuItem_save;
+        private MenuItem menuItem2;
+        private MenuItem menuItem_print;
+        private MenuItem menuItem_pageSetup;
+        private MenuItem menuItem_printPreview;
+        private MenuItem menuItem3;
+        private MenuItem menuItem_exit;
+        private MenuItem menuItem4;
+        private MenuItem menuItem7;
+        private MenuItem menuItem11;
+        private MenuItem menuItem13;
+        private MenuItem menuItem16;
+        private MenuItem menuItem_undo;
+        private MenuItem menuItem_redo;
+        private MenuItem menuItem_cut;
+        private MenuItem menuItem_copy;
+        private MenuItem menuItem_paste;
+        private MenuItem menuItem_selectAll;
+        private MenuItem menuItem_wordwrap;
+        private MenuItem menuItem_font;
+        private MenuItem menuItem_spelling;
+        private OpenFileDialog openFileDialog1;
+        private SaveFileDialog saveFileDialog1;
+        private FontDialog fontDialog1;
+        private ColorDialog colorDialog1;
+        private PrintDialog printDialog1;
+        private PrintPreviewDialog printPreviewDialog1;
+        private PrintDocument printDocument1;
+        private PageSetupDialog pageSetupDialog1;
+        private WordDictionary wordDictionary1;
+        private MenuItem menuItem_new;
+        private IContainer components;
+        private string fileName = "Untitled";
+        private Spelling spelling;
+        private ToolBarButton newBarButton;
+        private MenuItem menuItem5;
+        private MenuItem menuItem6;
+        private MenuItem menuItem8;
+        private MenuItem menuItem9;
+        private MenuItem menuItem10;
+        private ContextMenu contextMenu1;
+        private MenuItem menuItem12;
+        private ContextMenu contextMenu;
+        private MenuItem menuItem14;
+        private MenuItem menuItem15;
+        private MenuItem menuItem17;
+        private MenuItem menuItem18;
+        private MenuItem menuItem19;
+        private MenuItem menuItem20;
+        private MenuItem menuItem21;
+        private MenuItem menuItem22;
+        private MenuItem menuItem23;
+        private MenuItem menuItem24;
+        private MenuItem menuItem25;
+        //99999 Setting variables
+        public static string medPath = Application.StartupPath + @"\data files\medlist.txt";
+        private static readonly string dictionaryPath = Application.StartupPath + @"\data files";
+        public static string sleepEditDataPath = "";
+        public static string prelimIntPath = "";
+        public static string workDirPath = "";
+        public static string protocolTitle = "Sleep Lab\r\n";
+        public static string protocolPath = "";
+        public static ArrayList techList = new ArrayList();
+        public static ArrayList maskType = new ArrayList();
+        public static ArrayList maskSize = new ArrayList();
+        private MenuItem menuItem26;
+        private MenuItem menuItem28;
+        private MenuItem menuItem29;
+        private MenuItem bmiCalcMenuItem;
+        private int checkPrint;
+        private MenuItem menuItem27;
+
+        private SleepEditDataManager mManager;
+
+        #endregion
     }
 }

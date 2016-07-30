@@ -1,11 +1,13 @@
-using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using PrelimInterDataManager;
 
 namespace RespirationsComment
 {
-   public delegate void GetResultsDelegate();
+    public delegate void GetResultsDelegate();
+
     #region Common Enums
+
     public enum Severity
     {
         Normal,
@@ -39,59 +41,15 @@ namespace RespirationsComment
     {
         Diagnostic,
         SplitNight,
-        Titration,
+        Titration
     }
+
     #endregion
 
     public abstract class Respirations
     {
-        #region Member Variables
-        // Respiratory index rating
-        private PositionEffectComment mPositionEffectComment;
-        private RemEffectComment mRemEffectComment;
-        private Sao2Comment mSao2Comment;
-        protected DurationComment mDurationComment;
-        protected Effect mEffect;
-        protected GetResultsDelegate mAbnormalResultsDelegate;
-        protected GetResultsDelegate mNormalResultsDelegate;
-        protected Plurality mLateralRdiPlurality;
-        protected Plurality mRdiPlurality;
-        protected Severity mLateralSeverity;
-        protected Severity mRdiSeverity;
-        protected Severity mRemSeverity;
-        protected Severity mSupineSeverity;
-        protected StudyType mStudyType = StudyType.Diagnostic;
-        protected const float MILD = 14.4f;
-        protected const float MODERATE = 25.4f;
-        protected const float MOD_SEVERE = 35.4f;
-        protected const float SEVERE = 35.5f;
-        protected const float ZERO = 0.0f;       
-        protected float mLateralRdi = 0.0f;
-        protected float mLateralSleepTime = 0.0f;
-        protected float mLowestSao2 = 0.0f;
-        protected float mRemRdi = 0.0f;
-        protected float mRemSleepTime = 0.0f;
-        protected float mSupineRdi = 0.0f;
-        protected float mSupineSleepTime = 0.0f;
-        protected float mTotalRdi = 0.0f;
-        protected float mTotalSleepTime = 0.0f;
-        protected static int[,] normalSeverityTable;
-        protected static readonly float NORMAL = 4.4f;
-        protected string mSeverityResult;
-        protected string mTxType; // i.e CPAP or BIPAP
-        protected string mTxValue; // i.e 10
-        protected string[] mAbnormalSeverityResults = new string[5];
-        protected string[] mNormalSeverityResults = new string[6];
-
-        public string Result
-        {
-            get { return getResult(); }
-
-        }
-        #endregion
-
         protected void initializeData()
-        {            
+        {
             InitializeLateralSeverity();
             InitializePlurality(mLateralRdi, out mLateralRdiPlurality);
             InitializePlurality(mTotalRdi, out mRdiPlurality);
@@ -126,68 +84,70 @@ namespace RespirationsComment
             mLateralRdi = LateralRdi;
             mRemRdi = RemRdi;
             mLowestSao2 = LowestSao2;
-            mNormalResultsDelegate = new GetResultsDelegate(loadNormalDefaultValues);
-            mAbnormalResultsDelegate = new GetResultsDelegate(loadAbnormalDefaultValues);
+            mNormalResultsDelegate = loadNormalDefaultValues;
+            mAbnormalResultsDelegate = loadAbnormalDefaultValues;
         }
 
         private void InitializeRdiSeverity()
         {
             if (mTotalRdi <= NORMAL)
                 mRdiSeverity = Severity.Normal;
+            else if (mTotalRdi <= MILD)
+                mRdiSeverity = Severity.Mild;
+            else if (mTotalRdi <= MODERATE)
+                mRdiSeverity = Severity.Moderate;
+            else if (mTotalRdi <= MOD_SEVERE)
+                mRdiSeverity = Severity.ModerateSevere;
+            else if (mTotalRdi > SEVERE)
+                mRdiSeverity = Severity.Severe;
             else
-                if (mTotalRdi <= MILD)
-                    mRdiSeverity = Severity.Mild;
-                else
-                    if (mTotalRdi <= MODERATE)
-                        mRdiSeverity = Severity.Moderate;
-                    else
-                        if (mTotalRdi <= MOD_SEVERE)
-                            mRdiSeverity = Severity.ModerateSevere;
-                        else
-                            if (mTotalRdi > SEVERE)
-                                mRdiSeverity = Severity.Severe;
-                            else
-                                System.Diagnostics.Debug.Assert(
-                                 false, "No value found in InitializeRdiSeverity().");
+                Debug.Assert(
+                    false, "No value found in InitializeRdiSeverity().");
         }
+
         private void InitializeSupineSeverity()
         {
             if (mSupineRdi > NORMAL)
                 mSupineSeverity = Severity.Mild;
             //actually could be more than mild
         }
+
         private void InitializeLateralSeverity()
         {
             if (mLateralRdi > NORMAL)
                 mLateralSeverity = Severity.Mild;
         }
+
         private void InitializeRemSeverity()
         {
             if (mRemRdi > NORMAL)
                 mRemSeverity = Severity.Mild;
         }
+
         private void InitializeEffect()
         {
             if ((mPositionEffectComment.PositionEffect == Effect.True) || (mRemEffectComment.RemEffect == Effect.True))
                 mEffect = Effect.True;
         }
+
         private void InitializeRemEffect()
         {
             mRemEffectComment = new RemEffectComment(mRemRdi, mTotalRdi);
         }
+
         private void InitializePosEffect()
         {
             mPositionEffectComment = new PositionEffectComment(mLateralRdi, mSupineRdi, mLateralSleepTime);
         }
+
         private void InitializePlurality(float num, out Plurality val)
         {
             if (num <= 0.4f)
                 val = Plurality.Zero;
+            else if (num <= 1.4f)
+                val = Plurality.Singular;
             else
-                if (num <= 1.4f)
-                    val = Plurality.Singular;
-                else
-                    val = Plurality.Multiple;
+                val = Plurality.Multiple;
         }
 
         protected abstract void loadNormalSeverityValues();
@@ -211,17 +171,17 @@ namespace RespirationsComment
         {
             normalSeverityTable = new int[2, 3];
             //     Position or REM Effect,        totalRdi
-            normalSeverityTable[(int)Effect.True, (int)Plurality.Zero] = 0;
-            normalSeverityTable[(int)Effect.True, (int)Plurality.Singular] = 1;
-            normalSeverityTable[(int)Effect.True, (int)Plurality.Multiple] = 2;
+            normalSeverityTable[(int) Effect.True, (int) Plurality.Zero] = 0;
+            normalSeverityTable[(int) Effect.True, (int) Plurality.Singular] = 1;
+            normalSeverityTable[(int) Effect.True, (int) Plurality.Multiple] = 2;
 
-            normalSeverityTable[(int)Effect.False, (int)Plurality.Zero] = 3;
-            normalSeverityTable[(int)Effect.False, (int)Plurality.Singular] = 4;
-            normalSeverityTable[(int)Effect.False, (int)Plurality.Multiple] = 5;
+            normalSeverityTable[(int) Effect.False, (int) Plurality.Zero] = 3;
+            normalSeverityTable[(int) Effect.False, (int) Plurality.Singular] = 4;
+            normalSeverityTable[(int) Effect.False, (int) Plurality.Multiple] = 5;
         }
 
         protected void loadResults(string path, ref List<string> list)
-        {            
+        {
             DataReader.readData(path, ref list);
         }
 
@@ -229,18 +189,17 @@ namespace RespirationsComment
         {
             if (mRdiSeverity == Severity.Normal)
             {
-                int index = normalSeverityTable[(int)mEffect, (int)mRdiPlurality];
+                var index = normalSeverityTable[(int) mEffect, (int) mRdiPlurality];
                 loadNormalSeverityValues();
                 mSeverityResult = mNormalSeverityResults[index];
                 insertSeverityTagValues();
             }
-            else
-                if (mRdiSeverity != Severity.Normal)
-                {
-                    loadAbnormalSeverityValues();
-                    mSeverityResult = mAbnormalSeverityResults[(int)mRdiSeverity];
-                    insertSeverityTagValues();
-                }
+            else if (mRdiSeverity != Severity.Normal)
+            {
+                loadAbnormalSeverityValues();
+                mSeverityResult = mAbnormalSeverityResults[(int) mRdiSeverity];
+                insertSeverityTagValues();
+            }
         }
 
         public static Severity getSeverity(float rdi)
@@ -249,8 +208,7 @@ namespace RespirationsComment
             {
                 return Severity.Mild;
             }
-            else
-                return Severity.Normal;
+            return Severity.Normal;
         }
 
         private string getResult()
@@ -277,12 +235,12 @@ namespace RespirationsComment
 
         protected void load_Results(string path, ref string[] results, GetResultsDelegate defaultResults)
         {
-            List<string> list = new List<string>();
+            var list = new List<string>();
             try
             {
                 loadResults(path, ref list);
 
-                for (int i = 0; i < list.Count; i++)
+                for (var i = 0; i < list.Count; i++)
                 {
                     results[i] = list[i];
                 }
@@ -292,5 +250,51 @@ namespace RespirationsComment
                 defaultResults();
             }
         }
+
+        #region Member Variables
+
+        // Respiratory index rating
+        private PositionEffectComment mPositionEffectComment;
+        private RemEffectComment mRemEffectComment;
+        private Sao2Comment mSao2Comment;
+        protected DurationComment mDurationComment;
+        protected Effect mEffect;
+        protected GetResultsDelegate mAbnormalResultsDelegate;
+        protected GetResultsDelegate mNormalResultsDelegate;
+        protected Plurality mLateralRdiPlurality;
+        protected Plurality mRdiPlurality;
+        protected Severity mLateralSeverity;
+        protected Severity mRdiSeverity;
+        protected Severity mRemSeverity;
+        protected Severity mSupineSeverity;
+        protected StudyType mStudyType = StudyType.Diagnostic;
+        protected const float MILD = 14.4f;
+        protected const float MODERATE = 25.4f;
+        protected const float MOD_SEVERE = 35.4f;
+        protected const float SEVERE = 35.5f;
+        protected const float ZERO = 0.0f;
+        protected float mLateralRdi;
+        protected float mLateralSleepTime;
+        protected float mLowestSao2;
+        protected float mRemRdi;
+        protected float mRemSleepTime;
+        protected float mSupineRdi;
+        protected float mSupineSleepTime;
+        protected float mTotalRdi;
+        protected float mTotalSleepTime;
+        protected static int[,] normalSeverityTable;
+        protected static readonly float NORMAL = 4.4f;
+        protected string mSeverityResult;
+        protected string mTxType; // i.e CPAP or BIPAP
+        protected string mTxValue; // i.e 10
+        protected string[] mAbnormalSeverityResults = new string[5];
+        protected string[] mNormalSeverityResults = new string[6];
+
+        public string Result
+        {
+            get { return getResult(); }
+        }
+
+        #endregion
     }
 }

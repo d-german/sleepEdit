@@ -1,9 +1,8 @@
-
 namespace SleepArch
 {
-    class SleepStageAnalysisAdult : SleepStageAnalysis
+    internal class SleepStageAnalysisAdult : SleepStageAnalysis
     {
-        SleepAnalysisResults TheResults;
+        private readonly SleepAnalysisResults TheResults;
 
         public SleepStageAnalysisAdult(
             double AmountStage1,
@@ -11,15 +10,15 @@ namespace SleepArch
             double AmountSWS,
             double AmountREM)
         {
-
             initializeStageValues();
             StageOneAnalysis(AmountStage1);
             StageTwoAnalysis(AmountStage2);
             StageSWSAnalysis(AmountSWS);
             StageREMAnalysis(AmountREM);
             TheResults = new SleepAnalysisResultsDefault();
-            this.Results = this.getResults();
+            Results = getResults();
         }
+
         private string getResults()
         {
             return TheResults.GetResults(STAGE1, SlowWaveSleep, REMsleep);
@@ -39,7 +38,5 @@ namespace SleepArch
             StageREMlow = 17.5;
             StageREMhigh = 22.4;
         }
-
-
     }
 }

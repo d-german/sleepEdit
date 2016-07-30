@@ -1,9 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Default>
 
 
   <Result value="0" RDI="normal">
-    
+
   </Result>
 
   <Result value="1" RDI="mild">
@@ -20,7 +21,6 @@
 
   <Result value="4" RDI="severe">
     Despite [TX_TYPE] at [TX] cm H2O severe sleep apnea/hypopnea persists with [RDI] events per hour of sleep.
-  </Result> 
-  
-</Default>
+  </Result>
 
+</Default>

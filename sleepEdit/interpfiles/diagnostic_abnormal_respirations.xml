@@ -1,8 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Default>
 
   <Result value="0" RDI="normal">
-    
+
   </Result>
 
   <Result value="1" RDI="mild">
@@ -19,7 +20,6 @@
 
   <Result value="3" RDI="severe">
     Severe sleep apnea/hypopnea is present with [RDI] events per hour of sleep.
-  </Result> 
-  
-</Default>
+  </Result>
 
+</Default>

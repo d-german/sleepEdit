@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Protocols;
 
@@ -11,15 +5,13 @@ namespace sleepEdit
 {
     public partial class TreeNodeSelect : Form
     {
+        private readonly ProtocolNode mSelectedNode;
 
-        private ProtocolNode mSelectedNode = null;
 
-        
         public TreeNodeSelect(ProtocolNode node, ProtocolNode selectedNode)
-        {   
-                   
+        {
             InitializeComponent();
-            this.mTreeView.Nodes.AddRange(new /*System.Windows.Forms.TreeNode*/ProtocolNode[] { node });          
+            mTreeView.Nodes.AddRange(new /*System.Windows.Forms.TreeNode*/[] {node});
             mSelectedNode = selectedNode;
             findNode(node);
         }

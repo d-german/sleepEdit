@@ -1,17 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace SleepArch
 {
     public class SleepStageAnalysisChild : SleepStageAnalysis
     {
-        SleepAnalysisResults TheResults;
+        private readonly SleepAnalysisResults TheResults;
+
         public SleepStageAnalysisChild(
-             double AmountStage1,
-             double AmountStage2,
-             double AmountSWS,
-             double AmountREM)
+            double AmountStage1,
+            double AmountStage2,
+            double AmountSWS,
+            double AmountREM)
         {
             initializeStageValues();
             StageOneAnalysis(AmountStage1);
@@ -19,8 +16,9 @@ namespace SleepArch
             StageSWSAnalysis(AmountSWS);
             StageREMAnalysis(AmountREM);
             TheResults = new SleepAnalysisResultsDefault();
-            this.Results = this.getResults();
+            Results = getResults();
         }
+
         private string getResults()
         {
             return TheResults.GetResults(STAGE1, SlowWaveSleep, REMsleep);
@@ -40,7 +38,5 @@ namespace SleepArch
             StageREMlow = 19.5;
             StageREMhigh = 25.41;
         }
-
-
     }
 }

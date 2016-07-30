@@ -1,145 +1,146 @@
 using System;
-using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace sleepEditPro
 {
-	/// <summary>
-	/// Summary description for prelimEditor.
-	/// </summary>
-	public class prelimEditor : System.Windows.Forms.Form
-	{
-		private System.Windows.Forms.TabControl tabControl1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Label label9;
-		public System.Windows.Forms.TextBox textBox_SleepTimeMin;
-		private System.Windows.Forms.Label label10;
-		public System.Windows.Forms.TextBox textBox_sleepEfficiency;
-		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.Label label13;
-		public System.Windows.Forms.TextBox textBox_sws_percentOfTST;
-		public System.Windows.Forms.TextBox textBox_plmIndex;
-		public System.Windows.Forms.TextBox textBox_stage1_percentOfTST;
-		public System.Windows.Forms.TextBox textBox_stage2_percentOfTST;
-		public System.Windows.Forms.TextBox textBox_rem_percentOfTST;
-		public System.Windows.Forms.TextBox textBox_plmArousalIndex;
-		public System.Windows.Forms.TextBox textBox_wake_percentOfTST;
-		public System.Windows.Forms.TextBox textBox_sleepLatency;
-		public System.Windows.Forms.TextBox textBox_remLatency;
-		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.Label label16;
-		private System.Windows.Forms.Label label17;
-		private System.Windows.Forms.Label label18;
-		private System.Windows.Forms.Label label19;
-		private System.Windows.Forms.Label label20;
-		private System.Windows.Forms.Label label21;
-		private System.Windows.Forms.Label label22;
-		private System.Windows.Forms.Label label15;
-		private System.Windows.Forms.Label label23;
-		private System.Windows.Forms.Label label24;
-		private System.Windows.Forms.Label label25;
-		private System.Windows.Forms.Label label26;
-		private System.Windows.Forms.Label label27;
-		private System.Windows.Forms.Label label28;
-		private System.Windows.Forms.Label label29;
-		private System.Windows.Forms.Label label30;
-		private System.Windows.Forms.Label label31;
-		private System.Windows.Forms.Label label32;
-		private System.Windows.Forms.Label label33;
-		private System.Windows.Forms.Label label34;
-		private System.Windows.Forms.Label label35;
-		private System.Windows.Forms.Label label36;
-		private System.Windows.Forms.Label label37;
-		public System.Windows.Forms.TextBox psg_supineSleepTime;
-		public System.Windows.Forms.TextBox psg_remSleepTime;
-		public System.Windows.Forms.TextBox psg_totalAHI;
-		public System.Windows.Forms.TextBox psg_RemAHI;
-		public System.Windows.Forms.TextBox psg_supineAHI;
-		public System.Windows.Forms.TextBox psg_lateralAHI;
-		public System.Windows.Forms.TextBox psg_lowestSpO2;
-		public System.Windows.Forms.TextBox psg_sleepTime;
-		public System.Windows.Forms.TextBox diag_supineSleepTime;
-		public System.Windows.Forms.TextBox diag_remSleepTime;
-		public System.Windows.Forms.TextBox diag_totalAHI;
-		public System.Windows.Forms.TextBox diag_RemAHI;
-		public System.Windows.Forms.TextBox diag_supineAHI;
-		public System.Windows.Forms.TextBox diag_lateralAHI;
-		public System.Windows.Forms.TextBox diag_lowestSpO2;
-		public System.Windows.Forms.TextBox diag_sleepTime;
-		public System.Windows.Forms.TextBox final_supineSleepTime;
-		public System.Windows.Forms.TextBox final_remSleepTime;
-		public System.Windows.Forms.TextBox final_totalAHI;
-		public System.Windows.Forms.TextBox final_RemAHI;
-		public System.Windows.Forms.TextBox final_supineAHI;
-		public System.Windows.Forms.TextBox final_lateralAHI;
-		public System.Windows.Forms.TextBox final_lowestSpO2;
-		public System.Windows.Forms.TextBox final_sleepTime;
-		public System.Windows.Forms.RichTextBox richTextBox_interp;
-		private System.Windows.Forms.TabPage tabPage_SleepStageAnalysis;
-		private System.Windows.Forms.TabPage tabPage_psg;
-		private System.Windows.Forms.TabPage tabPage_diagnostic;
-		private System.Windows.Forms.TabPage tabPage_finalTx;
-		private System.Windows.Forms.TabPage tabPage_interp;
-		private System.Windows.Forms.Button button_copy;
-		private System.Windows.Forms.ContextMenu contextMenu1;
-		private System.Windows.Forms.MenuItem menuItem6;
-		private System.Windows.Forms.MenuItem menuItem7;
-		private System.Windows.Forms.MenuItem menuItem8;
-		private System.Windows.Forms.MenuItem menuItem1;
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.PictureBox pictureBox2;
-		private System.Windows.Forms.PictureBox pictureBox3;
-		private System.Windows.Forms.PictureBox pictureBox4;
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.Container components = null;
+    /// <summary>
+    ///     Summary description for prelimEditor.
+    /// </summary>
+    public class prelimEditor : Form
+    {
+        private Button button_copy;
 
-		public prelimEditor()
-		{
-			//
-			// Required for Windows Form Designer support
-			//
-			InitializeComponent();
+        /// <summary>
+        ///     Required designer variable.
+        /// </summary>
+        private readonly Container components = null;
 
-			//
-			// TODO: Add any constructor code after InitializeComponent call
-			//
-		}
+        private ContextMenu contextMenu1;
+        public TextBox diag_lateralAHI;
+        public TextBox diag_lowestSpO2;
+        public TextBox diag_RemAHI;
+        public TextBox diag_remSleepTime;
+        public TextBox diag_sleepTime;
+        public TextBox diag_supineAHI;
+        public TextBox diag_supineSleepTime;
+        public TextBox diag_totalAHI;
+        public TextBox final_lateralAHI;
+        public TextBox final_lowestSpO2;
+        public TextBox final_RemAHI;
+        public TextBox final_remSleepTime;
+        public TextBox final_sleepTime;
+        public TextBox final_supineAHI;
+        public TextBox final_supineSleepTime;
+        public TextBox final_totalAHI;
+        private Label label1;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label2;
+        private Label label20;
+        private Label label21;
+        private Label label22;
+        private Label label23;
+        private Label label24;
+        private Label label25;
+        private Label label26;
+        private Label label27;
+        private Label label28;
+        private Label label29;
+        private Label label3;
+        private Label label30;
+        private Label label31;
+        private Label label32;
+        private Label label33;
+        private Label label34;
+        private Label label35;
+        private Label label36;
+        private Label label37;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private MenuItem menuItem1;
+        private MenuItem menuItem6;
+        private MenuItem menuItem7;
+        private MenuItem menuItem8;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
+        public TextBox psg_lateralAHI;
+        public TextBox psg_lowestSpO2;
+        public TextBox psg_RemAHI;
+        public TextBox psg_remSleepTime;
+        public TextBox psg_sleepTime;
+        public TextBox psg_supineAHI;
+        public TextBox psg_supineSleepTime;
+        public TextBox psg_totalAHI;
+        public RichTextBox richTextBox_interp;
+        private TabControl tabControl1;
+        private TabPage tabPage_diagnostic;
+        private TabPage tabPage_finalTx;
+        private TabPage tabPage_interp;
+        private TabPage tabPage_psg;
+        private TabPage tabPage_SleepStageAnalysis;
+        public TextBox textBox_plmArousalIndex;
+        public TextBox textBox_plmIndex;
+        public TextBox textBox_rem_percentOfTST;
+        public TextBox textBox_remLatency;
+        public TextBox textBox_sleepEfficiency;
+        public TextBox textBox_sleepLatency;
+        public TextBox textBox_SleepTimeMin;
+        public TextBox textBox_stage1_percentOfTST;
+        public TextBox textBox_stage2_percentOfTST;
+        public TextBox textBox_sws_percentOfTST;
+        public TextBox textBox_wake_percentOfTST;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		protected override void Dispose( bool disposing )
-		{
-			if( disposing )
-			{
-				if(components != null)
-				{
-					components.Dispose();
-				}
-			}
-			base.Dispose( disposing );
-		}
+        public prelimEditor()
+        {
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
 
-		#region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(prelimEditor));
+            //
+            // TODO: Add any constructor code after InitializeComponent call
+            //
+        }
+
+        /// <summary>
+        ///     Clean up any resources being used.
+        /// </summary>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///     Required method for Designer support - do not modify
+        ///     the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(prelimEditor));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_interp = new System.Windows.Forms.TabPage();
             this.richTextBox_interp = new System.Windows.Forms.RichTextBox();
@@ -232,13 +233,13 @@ namespace sleepEditPro
             this.tabControl1.SuspendLayout();
             this.tabPage_interp.SuspendLayout();
             this.tabPage_SleepStageAnalysis.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.tabPage_psg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox2)).BeginInit();
             this.tabPage_diagnostic.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox3)).BeginInit();
             this.tabPage_finalTx.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -250,7 +251,8 @@ namespace sleepEditPro
             this.tabControl1.Controls.Add(this.tabPage_diagnostic);
             this.tabControl1.Controls.Add(this.tabPage_finalTx);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
@@ -271,7 +273,8 @@ namespace sleepEditPro
             // 
             this.richTextBox_interp.ContextMenu = this.contextMenu1;
             this.richTextBox_interp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox_interp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox_interp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.richTextBox_interp.Location = new System.Drawing.Point(0, 0);
             this.richTextBox_interp.Name = "richTextBox_interp";
             this.richTextBox_interp.Size = new System.Drawing.Size(982, 525);
@@ -280,11 +283,13 @@ namespace sleepEditPro
             // 
             // contextMenu1
             // 
-            this.contextMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem6,
-            this.menuItem7,
-            this.menuItem8,
-            this.menuItem1});
+            this.contextMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem6,
+                this.menuItem7,
+                this.menuItem8,
+                this.menuItem1
+            });
             this.contextMenu1.Popup += new System.EventHandler(this.contextMenu1_Popup);
             // 
             // menuItem6
@@ -347,7 +352,7 @@ namespace sleepEditPro
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = ((System.Drawing.Image) (resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(507, 21);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(273, 180);
@@ -542,7 +547,8 @@ namespace sleepEditPro
             // 
             // button_copy
             // 
-            this.button_copy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_copy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.button_copy.Location = new System.Drawing.Point(40, 28);
             this.button_copy.Name = "button_copy";
             this.button_copy.Size = new System.Drawing.Size(140, 27);
@@ -577,7 +583,7 @@ namespace sleepEditPro
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Image = ((System.Drawing.Image) (resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(33, 222);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(194, 104);
@@ -731,7 +737,7 @@ namespace sleepEditPro
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Image = ((System.Drawing.Image) (resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(40, 222);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(193, 104);
@@ -885,7 +891,7 @@ namespace sleepEditPro
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Image = ((System.Drawing.Image) (resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(60, 222);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(193, 104);
@@ -1023,73 +1029,54 @@ namespace sleepEditPro
             this.tabPage_interp.ResumeLayout(false);
             this.tabPage_SleepStageAnalysis.ResumeLayout(false);
             this.tabPage_SleepStageAnalysis.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             this.tabPage_psg.ResumeLayout(false);
             this.tabPage_psg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox2)).EndInit();
             this.tabPage_diagnostic.ResumeLayout(false);
             this.tabPage_diagnostic.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox3)).EndInit();
             this.tabPage_finalTx.ResumeLayout(false);
             this.tabPage_finalTx.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
+        }
 
-		}
-		#endregion
+        #endregion
 
-		private void textBox1_StudyDate_TextChanged(object sender, System.EventArgs e)
-		{
-		
-		}
+        private void textBox1_StudyDate_TextChanged(object sender, EventArgs e)
+        {
+        }
 
-		private void button_copy_Click(object sender, System.EventArgs e)
-		{
-			this.richTextBox_interp.SelectAll();
-			this.richTextBox_interp.Copy();
-		}
+        private void button_copy_Click(object sender, EventArgs e)
+        {
+            richTextBox_interp.SelectAll();
+            richTextBox_interp.Copy();
+        }
 
-		private void contextMenu1_Popup(object sender, System.EventArgs e)
-		{
-		
-		}
+        private void contextMenu1_Popup(object sender, EventArgs e)
+        {
+        }
 
-		private void menuItem6_Click(object sender, System.EventArgs e)
-		{
-			this.richTextBox_interp.Copy();
-		}
+        private void menuItem6_Click(object sender, EventArgs e)
+        {
+            richTextBox_interp.Copy();
+        }
 
-		private void menuItem7_Click(object sender, System.EventArgs e)
-		{
-			this.richTextBox_interp.Cut();
-		}
+        private void menuItem7_Click(object sender, EventArgs e)
+        {
+            richTextBox_interp.Cut();
+        }
 
-		private void menuItem8_Click(object sender, System.EventArgs e)
-		{
-			this.richTextBox_interp.Paste();
-		}
+        private void menuItem8_Click(object sender, EventArgs e)
+        {
+            richTextBox_interp.Paste();
+        }
 
-		private void menuItem1_Click(object sender, System.EventArgs e)
-		{
-			this.richTextBox_interp.SelectAll();
-			this.richTextBox_interp.Copy();
-		}
-
-		
-	
-
-		
-
-		
-
-		
-
-		
-
-		
-
-		
-
-		
-	}
+        private void menuItem1_Click(object sender, EventArgs e)
+        {
+            richTextBox_interp.SelectAll();
+            richTextBox_interp.Copy();
+        }
+    }
 }

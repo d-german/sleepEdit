@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Default>
 
   <Result value="0" TST="Limited" SUPINE="Absent" R="Absent">
@@ -70,8 +71,7 @@
   </Result>
 
   <Result value="17" TST="Normal" SUPINE="Normal" R="Normal">
-    
+
   </Result>
 
 </Default>
-

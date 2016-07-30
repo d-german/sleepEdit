@@ -1,25 +1,23 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Protocols;
+using sleepEdit;
 
 namespace ProtocolUi
 {
     public partial class ProtocolEditUi : Form
     {
-        const int ROOT_IMG = 1;
-        const int SECT_IMG = 21;
-        private ProtocolNode mProtocolNode = new ProtocolNode();
-        ProtocolNode mCurNode = null;
-        ProtocolNode mSourceNode = null;
-        private DragDropEffects _dragMode = DragDropEffects.Move;
-        private string mPath = null;
-        private bool mIsFound = false;
-        UndoManager mManager = new UndoManager();
+        private const int ROOT_IMG = 1;
+        private const int SECT_IMG = 21;
+        private readonly DragDropEffects _dragMode = DragDropEffects.Move;
+        private ProtocolNode mCurNode;
+        private bool mIsFound;
+        private UndoManager mManager = new UndoManager();
+        private string mPath;
+        private readonly ProtocolNode mProtocolNode = new ProtocolNode();
+        private ProtocolNode mSourceNode;
 
         public ProtocolEditUi()
         {
@@ -27,29 +25,28 @@ namespace ProtocolUi
             try
             {
                 ProtocolManager.Load(mProtocolNode);
-                this.Text = ProtocolManager.DefaultPath;
-                mPath = this.Text;
+                Text = ProtocolManager.DefaultPath;
+                mPath = Text;
             }
-            catch 
+            catch
             {
-                OpenFileDialog dlg = new OpenFileDialog();
+                var dlg = new OpenFileDialog();
                 dlg.Title = "Open XML Document";
                 dlg.Filter = "XML Files (*.xml)|*.xml";
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     mPath = dlg.FileName;
-                    this.Text = dlg.FileName;
+                    Text = dlg.FileName;
                     ProtocolManager.Load(mProtocolNode, mPath);
                 }
             }
             populateTree();
-             
         }
 
         private void populateTree()
         {
-            this.mProtocolTreeView.Nodes.Clear();
-            this.mProtocolTreeView.Nodes.AddRange(new /*System.Windows.Forms.TreeNode*/ProtocolNode[] { mProtocolNode });
+            mProtocolTreeView.Nodes.Clear();
+            mProtocolTreeView.Nodes.AddRange(new /*System.Windows.Forms.TreeNode*/[] {mProtocolNode});
             mProtocolTreeView.Nodes[0].ImageIndex = ROOT_IMG;
             mProtocolTreeView.Nodes[0].SelectedImageIndex = ROOT_IMG;
             mProtocolTreeView.Nodes[0].Expand();
@@ -61,7 +58,7 @@ namespace ProtocolUi
                 node.ImageIndex = SECT_IMG;
             }
         }
-      
+
 
         private void mProtocolTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -75,14 +72,13 @@ namespace ProtocolUi
 
             if (mCurNode.Element.SubTextList.Count > 0)
             {
-                foreach (string str in mCurNode.Element.SubTextList)
+                foreach (var str in mCurNode.Element.SubTextList)
                 {
-                    mQuestionListComboBox.Items.Add(str);                   
+                    mQuestionListComboBox.Items.Add(str);
                 }
 
                 mQuestionListComboBox.Text = mQuestionListComboBox.Items[0] as string;
             }
-
         }
 
         private TreeNodeCollection getSectionNodes()
@@ -92,7 +88,7 @@ namespace ProtocolUi
 
         private void _addNode(ProtocolNode parent, ProtocolNode childNode)
         {
-            AddCmd cmd = new AddCmd(parent, childNode);
+            var cmd = new AddCmd(parent, childNode);
             cmd.Execute();
         }
 
@@ -100,15 +96,16 @@ namespace ProtocolUi
         {
             List<ProtocolNode> list = null;
             getNodesThatLinkToNodeId_(mProtocolNode, ref list, childNode.Id);
-            RemoveCmd cmd = new RemoveCmd(parent, childNode, list);
+            var cmd = new RemoveCmd(parent, childNode, list);
             cmd.Execute();
         }
+
         private void _nudgeNodeUp()
         {
-            ProtocolNode cur = getSelNode();
+            var cur = getSelNode();
             if (cur != null)
             {
-                NudgeUpCmd cmd = new NudgeUpCmd(cur);
+                var cmd = new NudgeUpCmd(cur);
                 cmd.Execute();
                 mProtocolTreeView.SelectedNode = cur;
             }
@@ -116,19 +113,21 @@ namespace ProtocolUi
 
         private void _nudgeNodeDown()
         {
-            ProtocolNode cur = getSelNode();
+            var cur = getSelNode();
             if (cur != null)
             {
-                NudgeDownCmd cmd = new NudgeDownCmd(cur);
+                var cmd = new NudgeDownCmd(cur);
                 cmd.Execute();
                 mProtocolTreeView.SelectedNode = cur;
             }
         }
+
         private void _move(ProtocolNode node, ProtocolNode newNode)
         {
-            MoveCmd cmd = new MoveCmd(mSourceNode, node, newNode);
+            var cmd = new MoveCmd(mSourceNode, node, newNode);
             cmd.Execute();
         }
+
         private void getNodesThatLinkToNodeId_(ProtocolNode rootNode, ref List<ProtocolNode> list, int id)
         {
             foreach (ProtocolNode curNode in rootNode.Nodes)
@@ -148,7 +147,7 @@ namespace ProtocolUi
         private ProtocolNode getSelNode()
         {
             ProtocolNode node;
-            node = (ProtocolNode)mProtocolTreeView.SelectedNode;
+            node = (ProtocolNode) mProtocolTreeView.SelectedNode;
             return node;
         }
 
@@ -161,48 +160,46 @@ namespace ProtocolUi
 
         private void mLinkTextBox_TextChanged(object sender, EventArgs e)
         {
-                mCurNode.LinkText = mLinkTextBox.Text;
+            mCurNode.LinkText = mLinkTextBox.Text;
         }
 
         private void Tree_ItemDrag(object sender, ItemDragEventArgs e)
         {
             // Get the tree.
-            TreeView tree = (TreeView)sender;
+            var tree = (TreeView) sender;
 
             // Get the node underneath the mouse.
-            ProtocolNode selectedNode = (ProtocolNode)mProtocolTreeView.SelectedNode;
+            var selectedNode = (ProtocolNode) mProtocolTreeView.SelectedNode;
             tree.SelectedNode = selectedNode;
 
             // Start the drag-and-drop operation with a cloned copy of the node.
             if (selectedNode != null)
             {
-                tree.DoDragDrop((ProtocolNode)selectedNode.Clone(), DragDropEffects.Move);
-
+                tree.DoDragDrop((ProtocolNode) selectedNode.Clone(), DragDropEffects.Move);
             }
-
         }
 
 
-        private void tree_DragOver(object sender, System.Windows.Forms.DragEventArgs e)
+        private void tree_DragOver(object sender, DragEventArgs e)
         {
             // Get the tree.
-            TreeView tree = (TreeView)sender;
+            var tree = (TreeView) sender;
 
             // Drag and drop denied by default.
             e.Effect = DragDropEffects.None;
 
             // Is it a valid format?
-            ProtocolNode dragedNode = (ProtocolNode)e.Data.GetData(typeof(ProtocolNode));
+            var dragedNode = (ProtocolNode) e.Data.GetData(typeof(ProtocolNode));
             if (dragedNode != null)
             {
                 // Get the screen point.
-                Point pt = new Point(e.X, e.Y);
+                var pt = new Point(e.X, e.Y);
 
                 // Convert to a point in the TreeView's coordinate system.
                 pt = tree.PointToClient(pt);
 
                 // Is the mouse over a valid node?
-                ProtocolNode target = (ProtocolNode)tree.GetNodeAt(pt);
+                var target = (ProtocolNode) tree.GetNodeAt(pt);
                 if (isValidDragDrop(target))
                 {
                     e.Effect = DragDropEffects.Move;
@@ -213,31 +210,29 @@ namespace ProtocolUi
 
         private void Tree_DragEnter(object sender, DragEventArgs e)
         {
-            e.Effect = this._dragMode;
+            e.Effect = _dragMode;
         }
 
-        private void tree_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
+        private void tree_DragDrop(object sender, DragEventArgs e)
         {
             // Get the tree.
-            TreeView tree = (TreeView)sender;
+            var tree = (TreeView) sender;
 
             // Get the screen point.
-            Point pt = new Point(e.X, e.Y);
+            var pt = new Point(e.X, e.Y);
 
             // Convert to a point in the TreeView's coordinate system.
             pt = tree.PointToClient(pt);
 
             // Get the node underneath the mouse.
-            ProtocolNode newParentNode = (ProtocolNode)tree.GetNodeAt(pt);
-            ProtocolNode newChildNode = (ProtocolNode)e.Data.GetData(typeof(ProtocolNode));
+            var newParentNode = (ProtocolNode) tree.GetNodeAt(pt);
+            var newChildNode = (ProtocolNode) e.Data.GetData(typeof(ProtocolNode));
 
             _move(newParentNode, newChildNode);
-
         }
 
         private bool isValidDragDrop(ProtocolNode target)
         {
-            
             if (target == null ||
                 mSourceNode.IsSection && target != mProtocolTreeView.TopNode ||
                 mSourceNode.Equals(target) ||
@@ -250,7 +245,7 @@ namespace ProtocolUi
             }
             return true;
         }
-       
+
         private bool contains(ProtocolNode parent, ProtocolNode child)
         {
             foreach (ProtocolNode node in parent.Nodes)
@@ -266,10 +261,9 @@ namespace ProtocolUi
 
         private void mProtocolTreeView_MouseDown(object sender, MouseEventArgs e)
         {
-
-            ProtocolNode selectedNode = (ProtocolNode)mProtocolTreeView.GetNodeAt(e.X, e.Y);
-            mProtocolTreeView.SelectedNode = (TreeNode)selectedNode;
-            mSourceNode = (ProtocolNode)selectedNode;
+            var selectedNode = (ProtocolNode) mProtocolTreeView.GetNodeAt(e.X, e.Y);
+            mProtocolTreeView.SelectedNode = selectedNode;
+            mSourceNode = selectedNode;
         }
 
         private void undoMoveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -299,18 +293,17 @@ namespace ProtocolUi
 
         private void addChild()
         {
-            ProtocolNode node = getSelNode();
+            var node = getSelNode();
             if (node != null)
             {
-	            if (node.IsProtocol)
-	            {
-	                return;
-	            }
-	            ProtocolNode childNode = new ProtocolNode("New Node");
-	            _addNode(node, childNode);
-	            node.Expand();
+                if (node.IsProtocol)
+                {
+                    return;
+                }
+                var childNode = new ProtocolNode("New Node");
+                _addNode(node, childNode);
+                node.Expand();
             }
-            
         }
 
         private void removeChildToolStripMenuItem_Click(object sender, EventArgs e)
@@ -319,12 +312,12 @@ namespace ProtocolUi
         }
 
         private void removeNode()
-        {            
+        {
             if (getSelNode().Name != "ROOT")
             {
-	            ProtocolNode parent = (ProtocolNode)mProtocolTreeView.SelectedNode.Parent;
-	            ProtocolNode child = (ProtocolNode)mProtocolTreeView.SelectedNode;
-	            _RemoveNode(parent, child);
+                var parent = (ProtocolNode) mProtocolTreeView.SelectedNode.Parent;
+                var child = (ProtocolNode) mProtocolTreeView.SelectedNode;
+                _RemoveNode(parent, child);
             }
         }
 
@@ -347,15 +340,15 @@ namespace ProtocolUi
         {
             if (mPath == null)
             {
-                SaveFileDialog dlg = new SaveFileDialog();
+                var dlg = new SaveFileDialog();
                 dlg.Title = "Save XML Document";
                 dlg.Filter = "XML Files (*.xml)|*.xml";
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    this.Text = dlg.FileName;
+                    Text = dlg.FileName;
                     mPath = dlg.FileName;
                     ProtocolManager.Save(mProtocolNode, mPath);
-                }               
+                }
             }
             else
             {
@@ -370,11 +363,11 @@ namespace ProtocolUi
 
         private void addSection()
         {
-            ProtocolNode newSectionNode = new ProtocolNode("New Section");
+            var newSectionNode = new ProtocolNode("New Section");
             newSectionNode.ImageIndex = SECT_IMG;
             newSectionNode.SelectedImageIndex = SECT_IMG;
             newSectionNode.IsSection = true;
-            _addNode( (ProtocolNode) mProtocolTreeView.Nodes[0], newSectionNode);
+            _addNode((ProtocolNode) mProtocolTreeView.Nodes[0], newSectionNode);
         }
 
         private void mAddChildToolStripButton_Click(object sender, EventArgs e)
@@ -384,16 +377,16 @@ namespace ProtocolUi
 
         private void setLinkIdToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sleepEdit.TreeNodeSelect dlg = new sleepEdit.TreeNodeSelect((ProtocolNode) mProtocolNode.Clone(), (ProtocolNode) getSelNode().Clone());
+            var dlg = new TreeNodeSelect((ProtocolNode) mProtocolNode.Clone(), (ProtocolNode) getSelNode().Clone());
 
             dlg.Text = "Select Link node";
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                ProtocolNode node = (ProtocolNode) dlg.TreeView.SelectedNode;
+                var node = (ProtocolNode) dlg.TreeView.SelectedNode;
                 if (node != null)
                 {
-                    ProtocolNode curNode = getSelNode();
+                    var curNode = getSelNode();
                     curNode.LinkId = node.Id;
                     mLinkLabelText.Text = node.Id.ToString();
                     mLinkTextBox.Text = node.Text;
@@ -410,7 +403,6 @@ namespace ProtocolUi
                 getSelNode().Element.SubTextList.Add(mQuestionListComboBox.Text);
                 mQuestionListComboBox.Items.Add(mQuestionListComboBox.Text);
                 // to do: add undo-redo support
-                
             }
         }
 
@@ -431,14 +423,14 @@ namespace ProtocolUi
         }
 
         private void toolStripButton2_Click_1(object sender, EventArgs e)
-        {           
-            OpenFileDialog dlg = new OpenFileDialog();
+        {
+            var dlg = new OpenFileDialog();
             dlg.Title = "Open XML Document";
             dlg.Filter = "XML Files (*.xml)|*.xml";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 clearAllFields();
-                this.Text = dlg.FileName;
+                Text = dlg.FileName;
                 mPath = dlg.FileName;
                 /*mProtocolNode.Nodes.Clear();*/
                 ProtocolManager.Load(mProtocolNode, mPath);
@@ -449,39 +441,39 @@ namespace ProtocolUi
         private void newToolStripButton_Click(object sender, EventArgs e)
         {
             clearAllFields();
-            ProtocolNode newSectionNode = new ProtocolNode("New Section");
+            var newSectionNode = new ProtocolNode("New Section");
             newSectionNode.ImageIndex = SECT_IMG;
             newSectionNode.SelectedImageIndex = SECT_IMG;
             newSectionNode.IsSection = true;
             mProtocolNode.Element.Text = "New Protocol";
             mProtocolNode.Text = "New Protocol";
-            this.Text = "new Protocol";
+            Text = "new Protocol";
             mProtocolNode.Element.SubTextList.Clear();
             mProtocolNode.IsProtocol = true;
             mProtocolNode.Id = 0;
             mProtocolNode.LinkId = -1;
             mProtocolNode.LinkText = "";
             mProtocolNode.Nodes.Add(newSectionNode);
-            this.mProtocolTreeView.Nodes.AddRange(new /*System.Windows.Forms.TreeNode*/ProtocolNode[] { mProtocolNode });
+            mProtocolTreeView.Nodes.AddRange(new /*System.Windows.Forms.TreeNode*/[] {mProtocolNode});
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
-                SaveFileDialog dlg = new SaveFileDialog();
-                dlg.Title = "Save XML Document As";
-                dlg.Filter = "XML Files (*.xml)|*.xml";
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    this.Text = dlg.FileName;
-                    mPath = dlg.FileName;
-                    ProtocolManager.Save(mProtocolNode, mPath);
-                    this.Text = mPath;
-                }
+        {
+            var dlg = new SaveFileDialog();
+            dlg.Title = "Save XML Document As";
+            dlg.Filter = "XML Files (*.xml)|*.xml";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                Text = dlg.FileName;
+                mPath = dlg.FileName;
+                ProtocolManager.Save(mProtocolNode, mPath);
+                Text = mPath;
+            }
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -501,8 +493,7 @@ namespace ProtocolUi
             mIdLabelValue.Text = "";
             mQuestionListComboBox.Items.Clear();
             mQuestionListComboBox.Text = "";
-            this.Text = "";
+            Text = "";
         }
-
     }
 }

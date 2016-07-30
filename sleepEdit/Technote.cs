@@ -1,148 +1,86 @@
 using System;
-using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Data;
 
 namespace sleepEditPro
 {
-	/// <summary>
-	/// Summary description for PrelimInter.
-	/// </summary>
-	public class TechNote : System.Windows.Forms.Form
+    /// <summary>
+    ///     Summary description for PrelimInter.
+    /// </summary>
+    public class TechNote : Form
     {
-        #region variables
-        private ContextMenuStrip contextMenuStrip1;
-        private ToolStripMenuItem addTechnicianNameToolStripMenuItem;
-        private ToolStripMenuItem addToolStripMenuItem;
-        private ToolStripMenuItem maskTypeToolStripMenuItemAdd;
-        private ToolStripMenuItem maskSizeToolStripMenuItemAdd;
-        private ToolStripMenuItem maskTypeToolStripMenuItemRemove;
-        private ToolStripMenuItem maskSizeToolStripMenuItemRemove;
-        private Button button_makeNote;
-        private CheckBox checkBox_lat;
-        private CheckBox checkBox_prone;
-        private CheckBox checkBox_supine;
-        private CheckBox checkBox_modSnor;
-        private CheckBox checkBox_loudSnor;
-        private CheckBox checkBox_mildSnor;
-        private CheckBox checkBox_plms;
-        private CheckBox checkBox_resEvents;
-        private CheckBox checkBox_arr;
-        private CheckBox checkBoxRemEffect;
-        private CheckBox checkBoxPositionEffect;
-        private CheckBox checkBox_ambian;
-        private CheckBox checkBox_15lpmO2;
-        private CheckBox checkBox_tooLateForCpap;
-        private CheckBox checkBox_NoCpap;
-        private ComboBox comboBox_finalEpap;
-        private ComboBox comboBox_iniCpap;
-        private Label label_Initial;
-        private ComboBox comboBox_finalCpap;
-        private Label label_final;
-        private ComboBox comboBox_initIpap;
-        private ComboBox comboBox_finalIpap;
-        private ComboBox comboBox_initialEpap;
-        private Label label_slash1;
-        private Label label_slash2;
-        private RichTextBox document;
-        private Label label1_maskType;
-        private ComboBox comboBox_maskType;
-        private Label label_maskSize;
-        private ComboBox comboBox_maskSize;
-        private CheckBox checkBox_chinStrap;
-        private CheckBox checkBox_humidifer;
-        private CheckBox checkBox_ptHasMachine;
-        private Label label_pressVerified;
-        private ComboBox comboBox_txVerifiedAT;
-        private Label label_andChangedTo;
-        private ComboBox comboBox_txChangedTo;
-        private GroupBox mGoupBoxStudyPerformed;
-        private RadioButton mRadioButtonSplitNight;
-        private RadioButton mRadioButtonCpapBipapTitrat;
-        private RadioButton mRadioButtonPsg;
-        private GroupBox groupBox1;
-        private GroupBox groupBox3;
-        private GroupBox groupBox4;
-        private GroupBox groupBox5;
-        private GroupBox groupBox6;
-        private RadioButton mRadioButton_bipap;
-        private RadioButton mRadioButton_cpap;
-        private GroupBox mGroupCPAP_BIPAP;
-        private GroupBox mCpapBipapInfoGroupBox;
-        private Panel mPanelBipap;
-        private Panel mPanelCpap;
-        private Panel mPanelPressVerAndChangedTo;
-        private IContainer components;
-        #endregion
+        /// <summary>
+        ///     The main entry point for the application.
+        /// </summary>
+        public delegate void PassControl(object sender);
 
-		public TechNote()
-		{
-			//
-			// Required for Windows Form Designer support
-			//
-			InitializeComponent();
+        public PassControl passControl;
 
-			this.comboBox_maskType.KeyDown += new
-				System.Windows.Forms.KeyEventHandler(this.comboBox_maskType_KeyDown);
-			//LoadMaskType();
+        public TechNote()
+        {
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
 
-			//
-			// TODO: Add any constructor code after InitializeComponent call
-			//
+            comboBox_maskType.KeyDown += comboBox_maskType_KeyDown;
+            //LoadMaskType();
+
+            //
+            // TODO: Add any constructor code after InitializeComponent call
+            //
 
 
-            SleepEditDataManager mManager = new SleepEditDataManager();
+            var mManager = new SleepEditDataManager();
 
-            foreach (string maskSize in mManager.Data.MaskSizes)
+            foreach (var maskSize in mManager.Data.MaskSizes)
             {
                 comboBox_maskSize.Items.Add(maskSize);
             }
 
-            foreach (string maskStyle in mManager.Data.MaskStyles)
+            foreach (var maskStyle in mManager.Data.MaskStyles)
             {
                 comboBox_maskType.Items.Add(maskStyle);
             }
-		}
+        }
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// 
-		//		protected override void Dispose()
-		//		{
-		//			// Save the items in the ComboBox
-		//			SaveOccupation();
-		//
-		//			base.Dispose();
-		//			if(components != null)
-		//				components.Dispose();
-		//		} 
+        /// <summary>
+        ///     Clean up any resources being used.
+        /// </summary>
+        //		protected override void Dispose()
+        //		{
+        //			// Save the items in the ComboBox
+        //			SaveOccupation();
+        //
+        //			base.Dispose();
+        //			if(components != null)
+        //				components.Dispose();
+        //		} 
+        protected override void Dispose(bool disposing)
+        {
+            //SaveMaskType();
 
-		protected override void Dispose( bool disposing )
-		{
-			//SaveMaskType();
-			
-			if( disposing )
-			{
-				if (components != null) 
-				{
-					components.Dispose();
-				}
-			}
-			base.Dispose( disposing );
-		}
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///     Required method for Designer support - do not modify
+        ///     the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TechNote));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(TechNote));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maskTypeToolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
@@ -220,10 +158,13 @@ namespace sleepEditPro
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem,
-            this.addTechnicianNameToolStripMenuItem});
+            this.contextMenuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[]
+            {
+                this.addToolStripMenuItem,
+                this.addTechnicianNameToolStripMenuItem
+            });
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.contextMenuStrip1.ShowImageMargin = false;
@@ -231,17 +172,21 @@ namespace sleepEditPro
             // 
             // addToolStripMenuItem
             // 
-            this.addToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.maskTypeToolStripMenuItemAdd,
-            this.maskSizeToolStripMenuItemAdd});
-            this.addToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[]
+            {
+                this.maskTypeToolStripMenuItemAdd,
+                this.maskSizeToolStripMenuItemAdd
+            });
+            this.addToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
             this.addToolStripMenuItem.Text = "Add";
             // 
             // maskTypeToolStripMenuItemAdd
             // 
-            this.maskTypeToolStripMenuItemAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskTypeToolStripMenuItemAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.maskTypeToolStripMenuItemAdd.Name = "maskTypeToolStripMenuItemAdd";
             this.maskTypeToolStripMenuItemAdd.Size = new System.Drawing.Size(159, 24);
             this.maskTypeToolStripMenuItemAdd.Text = "Mask Type";
@@ -249,7 +194,8 @@ namespace sleepEditPro
             // 
             // maskSizeToolStripMenuItemAdd
             // 
-            this.maskSizeToolStripMenuItemAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskSizeToolStripMenuItemAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.maskSizeToolStripMenuItemAdd.Name = "maskSizeToolStripMenuItemAdd";
             this.maskSizeToolStripMenuItemAdd.Size = new System.Drawing.Size(159, 24);
             this.maskSizeToolStripMenuItemAdd.Text = "Mask Size";
@@ -257,35 +203,44 @@ namespace sleepEditPro
             // 
             // addTechnicianNameToolStripMenuItem
             // 
-            this.addTechnicianNameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.maskTypeToolStripMenuItemRemove,
-            this.maskSizeToolStripMenuItemRemove});
-            this.addTechnicianNameToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addTechnicianNameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[]
+            {
+                this.maskTypeToolStripMenuItemRemove,
+                this.maskSizeToolStripMenuItemRemove
+            });
+            this.addTechnicianNameToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.addTechnicianNameToolStripMenuItem.Name = "addTechnicianNameToolStripMenuItem";
             this.addTechnicianNameToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
             this.addTechnicianNameToolStripMenuItem.Text = "Remove";
-            this.addTechnicianNameToolStripMenuItem.Click += new System.EventHandler(this.addTechnicianNameToolStripMenuItem_Click);
+            this.addTechnicianNameToolStripMenuItem.Click +=
+                new System.EventHandler(this.addTechnicianNameToolStripMenuItem_Click);
             // 
             // maskTypeToolStripMenuItemRemove
             // 
-            this.maskTypeToolStripMenuItemRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskTypeToolStripMenuItemRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.maskTypeToolStripMenuItemRemove.Name = "maskTypeToolStripMenuItemRemove";
             this.maskTypeToolStripMenuItemRemove.Size = new System.Drawing.Size(159, 24);
             this.maskTypeToolStripMenuItemRemove.Text = "Mask Type";
-            this.maskTypeToolStripMenuItemRemove.Click += new System.EventHandler(this.maskTypeToolStripMenuItemRemove_Click);
+            this.maskTypeToolStripMenuItemRemove.Click +=
+                new System.EventHandler(this.maskTypeToolStripMenuItemRemove_Click);
             // 
             // maskSizeToolStripMenuItemRemove
             // 
-            this.maskSizeToolStripMenuItemRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskSizeToolStripMenuItemRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.maskSizeToolStripMenuItemRemove.Name = "maskSizeToolStripMenuItemRemove";
             this.maskSizeToolStripMenuItemRemove.Size = new System.Drawing.Size(159, 24);
             this.maskSizeToolStripMenuItemRemove.Text = "Mask Size";
-            this.maskSizeToolStripMenuItemRemove.Click += new System.EventHandler(this.maskSizeToolStripMenuItemRemove_Click);
+            this.maskSizeToolStripMenuItemRemove.Click +=
+                new System.EventHandler(this.maskSizeToolStripMenuItemRemove_Click);
             // 
             // checkBox_lat
             // 
             this.checkBox_lat.AutoSize = true;
-            this.checkBox_lat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_lat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_lat.Location = new System.Drawing.Point(20, 55);
             this.checkBox_lat.Name = "checkBox_lat";
             this.checkBox_lat.Size = new System.Drawing.Size(77, 24);
@@ -295,7 +250,8 @@ namespace sleepEditPro
             // checkBox_prone
             // 
             this.checkBox_prone.AutoSize = true;
-            this.checkBox_prone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_prone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_prone.Location = new System.Drawing.Point(20, 85);
             this.checkBox_prone.Name = "checkBox_prone";
             this.checkBox_prone.Size = new System.Drawing.Size(70, 24);
@@ -305,7 +261,8 @@ namespace sleepEditPro
             // checkBox_supine
             // 
             this.checkBox_supine.AutoSize = true;
-            this.checkBox_supine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_supine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_supine.Location = new System.Drawing.Point(20, 25);
             this.checkBox_supine.Name = "checkBox_supine";
             this.checkBox_supine.Size = new System.Drawing.Size(78, 24);
@@ -315,7 +272,8 @@ namespace sleepEditPro
             // checkBox_modSnor
             // 
             this.checkBox_modSnor.AutoSize = true;
-            this.checkBox_modSnor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_modSnor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_modSnor.Location = new System.Drawing.Point(19, 55);
             this.checkBox_modSnor.Name = "checkBox_modSnor";
             this.checkBox_modSnor.Size = new System.Drawing.Size(96, 24);
@@ -325,7 +283,8 @@ namespace sleepEditPro
             // checkBox_loudSnor
             // 
             this.checkBox_loudSnor.AutoSize = true;
-            this.checkBox_loudSnor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_loudSnor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_loudSnor.Location = new System.Drawing.Point(19, 85);
             this.checkBox_loudSnor.Name = "checkBox_loudSnor";
             this.checkBox_loudSnor.Size = new System.Drawing.Size(64, 24);
@@ -335,7 +294,8 @@ namespace sleepEditPro
             // checkBox_mildSnor
             // 
             this.checkBox_mildSnor.AutoSize = true;
-            this.checkBox_mildSnor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_mildSnor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_mildSnor.Location = new System.Drawing.Point(19, 25);
             this.checkBox_mildSnor.Name = "checkBox_mildSnor";
             this.checkBox_mildSnor.Size = new System.Drawing.Size(56, 24);
@@ -345,7 +305,8 @@ namespace sleepEditPro
             // checkBox_plms
             // 
             this.checkBox_plms.AutoSize = true;
-            this.checkBox_plms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_plms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_plms.Location = new System.Drawing.Point(6, 55);
             this.checkBox_plms.Name = "checkBox_plms";
             this.checkBox_plms.Size = new System.Drawing.Size(71, 24);
@@ -354,11 +315,14 @@ namespace sleepEditPro
             // 
             // checkBox_resEvents
             // 
-            this.checkBox_resEvents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBox_resEvents.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    ((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                       | System.Windows.Forms.AnchorStyles.Left)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox_resEvents.AutoSize = true;
-            this.checkBox_resEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_resEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_resEvents.Location = new System.Drawing.Point(6, 25);
             this.checkBox_resEvents.Name = "checkBox_resEvents";
             this.checkBox_resEvents.Size = new System.Drawing.Size(166, 24);
@@ -368,7 +332,8 @@ namespace sleepEditPro
             // checkBox_arr
             // 
             this.checkBox_arr.AutoSize = true;
-            this.checkBox_arr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_arr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_arr.Location = new System.Drawing.Point(6, 85);
             this.checkBox_arr.Name = "checkBox_arr";
             this.checkBox_arr.Size = new System.Drawing.Size(121, 24);
@@ -378,7 +343,8 @@ namespace sleepEditPro
             // checkBoxRemEffect
             // 
             this.checkBoxRemEffect.AutoSize = true;
-            this.checkBoxRemEffect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxRemEffect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBoxRemEffect.Location = new System.Drawing.Point(6, 55);
             this.checkBoxRemEffect.Name = "checkBoxRemEffect";
             this.checkBoxRemEffect.Size = new System.Drawing.Size(133, 24);
@@ -387,11 +353,14 @@ namespace sleepEditPro
             // 
             // checkBoxPositionEffect
             // 
-            this.checkBoxPositionEffect.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxPositionEffect.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    ((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                       | System.Windows.Forms.AnchorStyles.Left)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxPositionEffect.AutoSize = true;
-            this.checkBoxPositionEffect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxPositionEffect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBoxPositionEffect.Location = new System.Drawing.Point(6, 25);
             this.checkBoxPositionEffect.Name = "checkBoxPositionEffect";
             this.checkBoxPositionEffect.Size = new System.Drawing.Size(140, 24);
@@ -402,7 +371,8 @@ namespace sleepEditPro
             // 
             this.checkBox_ambian.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox_ambian.AutoSize = true;
-            this.checkBox_ambian.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_ambian.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_ambian.Location = new System.Drawing.Point(16, 85);
             this.checkBox_ambian.Name = "checkBox_ambian";
             this.checkBox_ambian.Size = new System.Drawing.Size(91, 24);
@@ -414,7 +384,8 @@ namespace sleepEditPro
             // 
             this.checkBox_15lpmO2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox_15lpmO2.AutoSize = true;
-            this.checkBox_15lpmO2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_15lpmO2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_15lpmO2.Location = new System.Drawing.Point(16, 115);
             this.checkBox_15lpmO2.Name = "checkBox_15lpmO2";
             this.checkBox_15lpmO2.Size = new System.Drawing.Size(304, 24);
@@ -424,7 +395,8 @@ namespace sleepEditPro
             // checkBox_tooLateForCpap
             // 
             this.checkBox_tooLateForCpap.AutoSize = true;
-            this.checkBox_tooLateForCpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_tooLateForCpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_tooLateForCpap.Location = new System.Drawing.Point(16, 26);
             this.checkBox_tooLateForCpap.Name = "checkBox_tooLateForCpap";
             this.checkBox_tooLateForCpap.Size = new System.Drawing.Size(389, 24);
@@ -434,7 +406,8 @@ namespace sleepEditPro
             // checkBox_NoCpap
             // 
             this.checkBox_NoCpap.AutoSize = true;
-            this.checkBox_NoCpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_NoCpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_NoCpap.Location = new System.Drawing.Point(16, 56);
             this.checkBox_NoCpap.Name = "checkBox_NoCpap";
             this.checkBox_NoCpap.Size = new System.Drawing.Size(375, 24);
@@ -443,35 +416,38 @@ namespace sleepEditPro
             // 
             // comboBox_finalEpap
             // 
-            this.comboBox_finalEpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_finalEpap.Items.AddRange(new object[] {
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30"});
+            this.comboBox_finalEpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.comboBox_finalEpap.Items.AddRange(new object[]
+            {
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30"
+            });
             this.comboBox_finalEpap.Location = new System.Drawing.Point(90, 48);
             this.comboBox_finalEpap.MaxDropDownItems = 25;
             this.comboBox_finalEpap.Name = "comboBox_finalEpap";
@@ -480,35 +456,38 @@ namespace sleepEditPro
             // 
             // comboBox_iniCpap
             // 
-            this.comboBox_iniCpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_iniCpap.Items.AddRange(new object[] {
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30"});
+            this.comboBox_iniCpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.comboBox_iniCpap.Items.AddRange(new object[]
+            {
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30"
+            });
             this.comboBox_iniCpap.Location = new System.Drawing.Point(3, 3);
             this.comboBox_iniCpap.MaxDropDownItems = 10;
             this.comboBox_iniCpap.Name = "comboBox_iniCpap";
@@ -518,7 +497,8 @@ namespace sleepEditPro
             // label_Initial
             // 
             this.label_Initial.AutoSize = true;
-            this.label_Initial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Initial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label_Initial.Location = new System.Drawing.Point(6, 39);
             this.label_Initial.Name = "label_Initial";
             this.label_Initial.Size = new System.Drawing.Size(46, 20);
@@ -528,35 +508,38 @@ namespace sleepEditPro
             // 
             // comboBox_finalCpap
             // 
-            this.comboBox_finalCpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_finalCpap.Items.AddRange(new object[] {
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30"});
+            this.comboBox_finalCpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.comboBox_finalCpap.Items.AddRange(new object[]
+            {
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30"
+            });
             this.comboBox_finalCpap.Location = new System.Drawing.Point(3, 38);
             this.comboBox_finalCpap.MaxDropDownItems = 25;
             this.comboBox_finalCpap.Name = "comboBox_finalCpap";
@@ -566,7 +549,8 @@ namespace sleepEditPro
             // label_final
             // 
             this.label_final.AutoSize = true;
-            this.label_final.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_final.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label_final.Location = new System.Drawing.Point(6, 79);
             this.label_final.Name = "label_final";
             this.label_final.Size = new System.Drawing.Size(43, 20);
@@ -576,35 +560,38 @@ namespace sleepEditPro
             // 
             // comboBox_initIpap
             // 
-            this.comboBox_initIpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_initIpap.Items.AddRange(new object[] {
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30"});
+            this.comboBox_initIpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.comboBox_initIpap.Items.AddRange(new object[]
+            {
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30"
+            });
             this.comboBox_initIpap.Location = new System.Drawing.Point(7, 15);
             this.comboBox_initIpap.MaxDropDownItems = 25;
             this.comboBox_initIpap.Name = "comboBox_initIpap";
@@ -613,35 +600,38 @@ namespace sleepEditPro
             // 
             // comboBox_finalIpap
             // 
-            this.comboBox_finalIpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_finalIpap.Items.AddRange(new object[] {
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30"});
+            this.comboBox_finalIpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.comboBox_finalIpap.Items.AddRange(new object[]
+            {
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30"
+            });
             this.comboBox_finalIpap.Location = new System.Drawing.Point(7, 48);
             this.comboBox_finalIpap.MaxDropDownItems = 25;
             this.comboBox_finalIpap.Name = "comboBox_finalIpap";
@@ -650,35 +640,38 @@ namespace sleepEditPro
             // 
             // comboBox_initialEpap
             // 
-            this.comboBox_initialEpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_initialEpap.Items.AddRange(new object[] {
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30"});
+            this.comboBox_initialEpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.comboBox_initialEpap.Items.AddRange(new object[]
+            {
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30"
+            });
             this.comboBox_initialEpap.Location = new System.Drawing.Point(90, 14);
             this.comboBox_initialEpap.MaxDropDownItems = 25;
             this.comboBox_initialEpap.Name = "comboBox_initialEpap";
@@ -688,7 +681,8 @@ namespace sleepEditPro
             // label_slash1
             // 
             this.label_slash1.AutoSize = true;
-            this.label_slash1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_slash1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label_slash1.Location = new System.Drawing.Point(66, 17);
             this.label_slash1.Name = "label_slash1";
             this.label_slash1.Size = new System.Drawing.Size(18, 25);
@@ -699,7 +693,8 @@ namespace sleepEditPro
             // label_slash2
             // 
             this.label_slash2.AutoSize = true;
-            this.label_slash2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_slash2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label_slash2.Location = new System.Drawing.Point(66, 47);
             this.label_slash2.Name = "label_slash2";
             this.label_slash2.Size = new System.Drawing.Size(18, 25);
@@ -710,7 +705,8 @@ namespace sleepEditPro
             // label1_maskType
             // 
             this.label1_maskType.AutoSize = true;
-            this.label1_maskType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1_maskType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label1_maskType.Location = new System.Drawing.Point(233, 23);
             this.label1_maskType.Name = "label1_maskType";
             this.label1_maskType.Size = new System.Drawing.Size(85, 20);
@@ -719,7 +715,8 @@ namespace sleepEditPro
             // 
             // comboBox_maskType
             // 
-            this.comboBox_maskType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_maskType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.comboBox_maskType.Location = new System.Drawing.Point(237, 46);
             this.comboBox_maskType.Name = "comboBox_maskType";
             this.comboBox_maskType.Size = new System.Drawing.Size(180, 28);
@@ -730,7 +727,8 @@ namespace sleepEditPro
             // 
             this.label_maskSize.AutoSize = true;
             this.label_maskSize.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label_maskSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_maskSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label_maskSize.Location = new System.Drawing.Point(236, 81);
             this.label_maskSize.Name = "label_maskSize";
             this.label_maskSize.Size = new System.Drawing.Size(82, 20);
@@ -739,7 +737,8 @@ namespace sleepEditPro
             // 
             // comboBox_maskSize
             // 
-            this.comboBox_maskSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_maskSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.comboBox_maskSize.Location = new System.Drawing.Point(240, 112);
             this.comboBox_maskSize.Name = "comboBox_maskSize";
             this.comboBox_maskSize.Size = new System.Drawing.Size(180, 28);
@@ -748,7 +747,8 @@ namespace sleepEditPro
             // checkBox_chinStrap
             // 
             this.checkBox_chinStrap.AutoSize = true;
-            this.checkBox_chinStrap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_chinStrap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_chinStrap.Location = new System.Drawing.Point(13, 114);
             this.checkBox_chinStrap.Name = "checkBox_chinStrap";
             this.checkBox_chinStrap.Size = new System.Drawing.Size(112, 24);
@@ -758,7 +758,8 @@ namespace sleepEditPro
             // checkBox_humidifer
             // 
             this.checkBox_humidifer.AutoSize = true;
-            this.checkBox_humidifer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_humidifer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_humidifer.Location = new System.Drawing.Point(13, 144);
             this.checkBox_humidifer.Name = "checkBox_humidifer";
             this.checkBox_humidifer.Size = new System.Drawing.Size(165, 24);
@@ -768,18 +769,21 @@ namespace sleepEditPro
             // checkBox_ptHasMachine
             // 
             this.checkBox_ptHasMachine.AutoSize = true;
-            this.checkBox_ptHasMachine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_ptHasMachine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.checkBox_ptHasMachine.Location = new System.Drawing.Point(13, 172);
             this.checkBox_ptHasMachine.Name = "checkBox_ptHasMachine";
             this.checkBox_ptHasMachine.Size = new System.Drawing.Size(295, 24);
             this.checkBox_ptHasMachine.TabIndex = 42;
             this.checkBox_ptHasMachine.Text = "Pt has and brought a CPAP machine?";
-            this.checkBox_ptHasMachine.CheckedChanged += new System.EventHandler(this.checkBox_ptHasMachine_CheckedChanged);
+            this.checkBox_ptHasMachine.CheckedChanged +=
+                new System.EventHandler(this.checkBox_ptHasMachine_CheckedChanged);
             // 
             // label_pressVerified
             // 
             this.label_pressVerified.AutoSize = true;
-            this.label_pressVerified.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_pressVerified.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label_pressVerified.Location = new System.Drawing.Point(5, 15);
             this.label_pressVerified.Name = "label_pressVerified";
             this.label_pressVerified.Size = new System.Drawing.Size(144, 20);
@@ -788,24 +792,27 @@ namespace sleepEditPro
             // 
             // comboBox_txVerifiedAT
             // 
-            this.comboBox_txVerifiedAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_txVerifiedAT.Items.AddRange(new object[] {
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20"});
+            this.comboBox_txVerifiedAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.comboBox_txVerifiedAT.Items.AddRange(new object[]
+            {
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20"
+            });
             this.comboBox_txVerifiedAT.Location = new System.Drawing.Point(155, 12);
             this.comboBox_txVerifiedAT.Name = "comboBox_txVerifiedAT";
             this.comboBox_txVerifiedAT.Size = new System.Drawing.Size(54, 28);
@@ -814,7 +821,8 @@ namespace sleepEditPro
             // label_andChangedTo
             // 
             this.label_andChangedTo.AutoSize = true;
-            this.label_andChangedTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_andChangedTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label_andChangedTo.Location = new System.Drawing.Point(215, 15);
             this.label_andChangedTo.Name = "label_andChangedTo";
             this.label_andChangedTo.Size = new System.Drawing.Size(120, 20);
@@ -823,24 +831,27 @@ namespace sleepEditPro
             // 
             // comboBox_txChangedTo
             // 
-            this.comboBox_txChangedTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_txChangedTo.Items.AddRange(new object[] {
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20"});
+            this.comboBox_txChangedTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.comboBox_txChangedTo.Items.AddRange(new object[]
+            {
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20"
+            });
             this.comboBox_txChangedTo.Location = new System.Drawing.Point(341, 12);
             this.comboBox_txChangedTo.Name = "comboBox_txChangedTo";
             this.comboBox_txChangedTo.Size = new System.Drawing.Size(60, 28);
@@ -848,7 +859,8 @@ namespace sleepEditPro
             // 
             // document
             // 
-            this.document.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.document.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.document.Location = new System.Drawing.Point(1374, 453);
             this.document.Name = "document";
             this.document.Size = new System.Drawing.Size(10, 10);
@@ -860,7 +872,8 @@ namespace sleepEditPro
             // 
             this.button_makeNote.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.button_makeNote.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_makeNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_makeNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.button_makeNote.Location = new System.Drawing.Point(733, 419);
             this.button_makeNote.Name = "button_makeNote";
             this.button_makeNote.Size = new System.Drawing.Size(100, 62);
@@ -876,7 +889,8 @@ namespace sleepEditPro
             this.mGoupBoxStudyPerformed.Controls.Add(this.mRadioButtonSplitNight);
             this.mGoupBoxStudyPerformed.Controls.Add(this.mRadioButtonCpapBipapTitrat);
             this.mGoupBoxStudyPerformed.Controls.Add(this.mRadioButtonPsg);
-            this.mGoupBoxStudyPerformed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mGoupBoxStudyPerformed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.mGoupBoxStudyPerformed.Location = new System.Drawing.Point(12, 12);
             this.mGoupBoxStudyPerformed.Name = "mGoupBoxStudyPerformed";
             this.mGoupBoxStudyPerformed.Size = new System.Drawing.Size(320, 161);
@@ -937,7 +951,8 @@ namespace sleepEditPro
             this.mRadioButtonCpapBipapTitrat.TabIndex = 1;
             this.mRadioButtonCpapBipapTitrat.Text = "CPAP/BIPAP Titration";
             this.mRadioButtonCpapBipapTitrat.UseVisualStyleBackColor = true;
-            this.mRadioButtonCpapBipapTitrat.CheckedChanged += new System.EventHandler(this.studyTypeRadio_CheckedChanged);
+            this.mRadioButtonCpapBipapTitrat.CheckedChanged +=
+                new System.EventHandler(this.studyTypeRadio_CheckedChanged);
             // 
             // mRadioButtonPsg
             // 
@@ -958,7 +973,8 @@ namespace sleepEditPro
             this.groupBox1.Controls.Add(this.checkBox_lat);
             this.groupBox1.Controls.Add(this.checkBox_supine);
             this.groupBox1.Controls.Add(this.checkBox_prone);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 181);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(125, 135);
@@ -972,7 +988,8 @@ namespace sleepEditPro
             this.groupBox3.Controls.Add(this.checkBox_modSnor);
             this.groupBox3.Controls.Add(this.checkBox_loudSnor);
             this.groupBox3.Controls.Add(this.checkBox_mildSnor);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.groupBox3.Location = new System.Drawing.Point(152, 182);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(127, 134);
@@ -986,7 +1003,8 @@ namespace sleepEditPro
             this.groupBox4.Controls.Add(this.checkBox_arr);
             this.groupBox4.Controls.Add(this.checkBox_plms);
             this.groupBox4.Controls.Add(this.checkBox_resEvents);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.groupBox4.Location = new System.Drawing.Point(12, 322);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(200, 134);
@@ -999,7 +1017,8 @@ namespace sleepEditPro
             this.groupBox5.AutoSize = true;
             this.groupBox5.Controls.Add(this.checkBoxRemEffect);
             this.groupBox5.Controls.Add(this.checkBoxPositionEffect);
-            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.groupBox5.Location = new System.Drawing.Point(870, 13);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(200, 104);
@@ -1015,7 +1034,8 @@ namespace sleepEditPro
             this.groupBox6.Controls.Add(this.checkBox_ambian);
             this.groupBox6.Controls.Add(this.checkBox_tooLateForCpap);
             this.groupBox6.Controls.Add(this.checkBox_NoCpap);
-            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.groupBox6.Location = new System.Drawing.Point(338, 12);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(428, 189);
@@ -1038,7 +1058,8 @@ namespace sleepEditPro
             this.mCpapBipapInfoGroupBox.Controls.Add(this.label_maskSize);
             this.mCpapBipapInfoGroupBox.Controls.Add(this.comboBox_maskSize);
             this.mCpapBipapInfoGroupBox.Controls.Add(this.label_final);
-            this.mCpapBipapInfoGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mCpapBipapInfoGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.mCpapBipapInfoGroupBox.Location = new System.Drawing.Point(285, 207);
             this.mCpapBipapInfoGroupBox.Name = "mCpapBipapInfoGroupBox";
             this.mCpapBipapInfoGroupBox.Size = new System.Drawing.Size(442, 274);
@@ -1069,7 +1090,8 @@ namespace sleepEditPro
             this.mPanelBipap.Controls.Add(this.comboBox_finalEpap);
             this.mPanelBipap.Controls.Add(this.label_slash2);
             this.mPanelBipap.Controls.Add(this.label_slash1);
-            this.mPanelBipap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mPanelBipap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.mPanelBipap.Location = new System.Drawing.Point(62, 25);
             this.mPanelBipap.Name = "mPanelBipap";
             this.mPanelBipap.Size = new System.Drawing.Size(163, 83);
@@ -1080,7 +1102,8 @@ namespace sleepEditPro
             this.mPanelCpap.AutoSize = true;
             this.mPanelCpap.Controls.Add(this.comboBox_iniCpap);
             this.mPanelCpap.Controls.Add(this.comboBox_finalCpap);
-            this.mPanelCpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mPanelCpap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.mPanelCpap.Location = new System.Drawing.Point(58, 33);
             this.mPanelCpap.Name = "mPanelCpap";
             this.mPanelCpap.Size = new System.Drawing.Size(61, 69);
@@ -1100,7 +1123,7 @@ namespace sleepEditPro
             this.Controls.Add(this.mCpapBipapInfoGroupBox);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button_makeNote);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Name = "TechNote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sleep Note";
@@ -1128,230 +1151,218 @@ namespace sleepEditPro
             this.mPanelCpap.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
+        }
 
-		}
-		#endregion
+        #endregion
 
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		
+        private string getBodyPos()
+        {
+            var strBodyPos = "";
+            for (;;)
+            {
+                if (checkBox_lat.Checked && checkBox_supine.Checked && !checkBox_prone.Checked)
+                {
+                    strBodyPos = strBodyPos + "laterally and supine.";
+                    break;
+                } //endif
+                if (checkBox_lat.Checked && checkBox_prone.Checked && !checkBox_supine.Checked)
+                {
+                    strBodyPos = strBodyPos + "laterally and prone.";
+                    break;
+                } //endif
+                if (checkBox_lat.Checked && !checkBox_supine.Checked && !checkBox_prone.Checked)
+                {
+                    strBodyPos = strBodyPos + "laterally only.";
+                    break;
+                } //endif
+                if (checkBox_prone.Checked && checkBox_supine.Checked && checkBox_lat.Checked)
+                {
+                    strBodyPos = strBodyPos + "in all positions.";
+                    break;
+                } //endif
+                if (checkBox_prone.Checked && checkBox_supine.Checked && !checkBox_lat.Checked)
+                {
+                    strBodyPos = strBodyPos + "prone and supine.";
+                    break;
+                } //endif
+                if (checkBox_prone.Checked)
+                {
+                    strBodyPos = strBodyPos + "prone only.";
+                    break;
+                } //endif
+                strBodyPos = strBodyPos + "supine only.";
+                break;
+            } //endfr
+            return strBodyPos;
+        }
 
-		public delegate void PassControl(object sender);
+        private string getSnor()
+        {
+            var strSnoring = "";
+            for (;;)
+            {
+                if (checkBox_mildSnor.Checked && !checkBox_modSnor.Checked && !checkBox_loudSnor.Checked)
+                {
+                    strSnoring = " Mild " + strSnoring;
+                    break;
+                } //endif
+                if (checkBox_mildSnor.Checked && checkBox_modSnor.Checked && !checkBox_loudSnor.Checked)
+                {
+                    strSnoring = " Mild to moderate " + strSnoring;
+                    break;
+                } //endif
+                if (!checkBox_mildSnor.Checked && !checkBox_modSnor.Checked && checkBox_loudSnor.Checked)
+                {
+                    strSnoring = " Loud " + strSnoring;
+                    break;
+                } //endif
+                if (!checkBox_mildSnor.Checked && checkBox_modSnor.Checked && checkBox_loudSnor.Checked)
+                {
+                    strSnoring = " Moderate to loud " + strSnoring;
+                    break;
+                } //endif
+                if (checkBox_mildSnor.Checked && checkBox_loudSnor.Checked && !checkBox_modSnor.Checked)
+                {
+                    strSnoring = " Mild to loud " + strSnoring;
+                    break;
+                } //endif
+                if (!checkBox_mildSnor.Checked && !checkBox_modSnor.Checked && !checkBox_loudSnor.Checked)
+                {
+                    strSnoring = " No " + strSnoring;
+                    break;
+                } //endif
+                if (checkBox_modSnor.Checked && !checkBox_mildSnor.Checked && !checkBox_loudSnor.Checked)
+                {
+                    strSnoring = " Moderate " + strSnoring;
+                    break;
+                } //endif
+                if (checkBox_modSnor.Checked && checkBox_mildSnor.Checked && checkBox_loudSnor.Checked)
+                {
+                    strSnoring = " Mild to loud " + strSnoring;
+                } //endif
 
-		public PassControl passControl;	
-		
+                break;
+            } //endfr
+            strSnoring += "snoring was heard.";
+            if (mRadioButtonCpapBipapTitrat.Checked)
+                strSnoring = "";
+            return strSnoring;
+        }
 
-		private string getBodyPos()
-		{
-			string strBodyPos="";
-			for ( ; ; ) 
-			{		
-				if ( this.checkBox_lat.Checked && this.checkBox_supine.Checked && !this.checkBox_prone.Checked ) 
-				{
-					strBodyPos = strBodyPos + "laterally and supine.";
-					break;
-				}//endif
-				if ( this.checkBox_lat.Checked && this.checkBox_prone.Checked && !this.checkBox_supine.Checked ) 
-				{
-					strBodyPos = strBodyPos + "laterally and prone.";
-					break;
-				}//endif
-				if ( this.checkBox_lat.Checked && !this.checkBox_supine.Checked && !this.checkBox_prone.Checked) 
-				{
-					strBodyPos = strBodyPos + "laterally only.";
-					break;
-				}//endif
-				if ( this.checkBox_prone.Checked && this.checkBox_supine.Checked && this.checkBox_lat.Checked ) 
-				{
-					strBodyPos = strBodyPos + "in all positions.";
-					break;
-				}//endif
-				if ( this.checkBox_prone.Checked && this.checkBox_supine.Checked && !this.checkBox_lat.Checked) 
-				{
-					strBodyPos = strBodyPos + "prone and supine.";
-					break;
-				}//endif
-				if ( this.checkBox_prone.Checked ) 
-				{
-					strBodyPos = strBodyPos + "prone only.";
-					break;
-				}//endif
-				strBodyPos = strBodyPos + "supine only.";
-				break;		
-			}//endfr
-			return strBodyPos;
-		}
+        private string getArrPlm()
+        {
+            var strArrPlm = "";
+            for (;;)
+            {
+                if (checkBox_arr.Checked && checkBox_plms.Checked)
+                {
+                    strArrPlm = " Arrhythmias and PLM's were noted.";
+                    break;
+                } //endif
+                if (checkBox_arr.Checked && !checkBox_plms.Checked)
+                {
+                    strArrPlm = " Arrhythmias were noted. No PLM's were noted.";
+                    break;
+                } //endif
+                if (checkBox_plms.Checked && !checkBox_arr.Checked)
+                {
+                    strArrPlm = " PLM's were noted. No arrhythmias were noted.";
+                    break;
+                } //endif
+                if (!checkBox_arr.Checked && !checkBox_plms.Checked)
+                {
+                    strArrPlm = " Neither arrhythmias nor PLM's were noted.";
+                    break;
+                } //endif
+            } //endfr
+            return strArrPlm;
+        }
 
-		private string getSnor()
-		{
-			string strSnoring ="";
-			for ( ; ; ) 
-			{
-		
-				if ( this.checkBox_mildSnor.Checked && !this.checkBox_modSnor.Checked && !this.checkBox_loudSnor.Checked ) 
-				{
-					strSnoring = " Mild " + strSnoring;
-					break;
-				}//endif
-				if ( this.checkBox_mildSnor.Checked && this.checkBox_modSnor.Checked && !this.checkBox_loudSnor.Checked ) 
-				{
-					strSnoring = " Mild to moderate " + strSnoring;
-					break;
-				}//endif
-				if ( !this.checkBox_mildSnor.Checked && !this.checkBox_modSnor.Checked && this.checkBox_loudSnor.Checked ) 
-				{
-					strSnoring = " Loud " + strSnoring;
-					break;
-				}//endif
-				if ( !this.checkBox_mildSnor.Checked && this.checkBox_modSnor.Checked && this.checkBox_loudSnor.Checked ) 
-				{
-					strSnoring = " Moderate to loud " + strSnoring;
-					break;
-				}//endif
-				if ( this.checkBox_mildSnor.Checked && this.checkBox_loudSnor.Checked && !this.checkBox_modSnor.Checked ) 
-				{
-					strSnoring = " Mild to loud " + strSnoring;
-					break;
-				}//endif
-				if ( !this.checkBox_mildSnor.Checked && !this.checkBox_modSnor.Checked && !this.checkBox_loudSnor.Checked ) 
-				{
-					strSnoring = " No " + strSnoring;
-					break;
-				}//endif
-				if ( this.checkBox_modSnor.Checked && !this.checkBox_mildSnor.Checked && !this.checkBox_loudSnor.Checked ) 
-				{
-					strSnoring = " Moderate " + strSnoring;
-					break;
-				}//endif
-				if ( this.checkBox_modSnor.Checked && this.checkBox_mildSnor.Checked && this.checkBox_loudSnor.Checked ) 
-				{
-					strSnoring = " Mild to loud " + strSnoring;
-					break;
-				}//endif
-		
-				break;
-			}//endfr
-			strSnoring +="snoring was heard.";
-			if( mRadioButtonCpapBipapTitrat.Checked )
-				strSnoring ="";
-			return strSnoring;
-		}
+        private string getTxInfo()
+        {
+            var strTx = "";
+            if (mRadioButton_cpap.Checked)
+            {
+                strTx += " CPAP was initiated at " + comboBox_iniCpap.Text + " cm H2O and was titrated to ";
+                strTx += comboBox_finalCpap.Text + " cm H2O.";
+            }
+            else
+            {
+                strTx += " BIPAP was initiated at " + comboBox_initIpap.Text + "/";
+                strTx += comboBox_initialEpap.Text + " cm H2O and was increased to ";
+                strTx += comboBox_finalIpap.Text + "/" + comboBox_finalEpap.Text;
+                strTx += " cm H2O.";
+            }
 
-		private string getArrPlm()
-		{
-			string strArrPlm = "";
-			for ( ; ; ) 
-			{		
-				if ( this.checkBox_arr.Checked && this.checkBox_plms.Checked ) 
-				{
-					strArrPlm = " Arrhythmias and PLM's were noted.";
-					break;
-				}//endif
-				if ( this.checkBox_arr.Checked && !this.checkBox_plms.Checked ) 
-				{
-					strArrPlm = " Arrhythmias were noted. No PLM's were noted.";
-					break;
-				}//endif
-				if ( this.checkBox_plms.Checked && !this.checkBox_arr.Checked ) 
-				{
-					strArrPlm = " PLM's were noted. No arrhythmias were noted.";
-					break;
-				}//endif
-				if ( !this.checkBox_arr.Checked && !this.checkBox_plms.Checked ) 
-				{
-					strArrPlm = " Neither arrhythmias nor PLM's were noted.";
-					break;
-				}//endif
-			}//endfr
-			return strArrPlm;
-		}
+            if (comboBox_maskType.Text != "")
+                strTx += " A " + comboBox_maskSize.Text + " " + comboBox_maskType.Text + " mask was used.";
 
-		private string getTxInfo()
-		{
-			string strTx ="";
-			if (this.mRadioButton_cpap.Checked)
-			{
-				strTx += " CPAP was initiated at " + this.comboBox_iniCpap.Text + " cm H2O and was titrated to ";
-				strTx += this.comboBox_finalCpap.Text + " cm H2O.";
-			}
-			else 
-			{
-				strTx += " BIPAP was initiated at " + this.comboBox_initIpap.Text + "/" ;
-				strTx += this.comboBox_initialEpap.Text + " cm H2O and was increased to ";
-				strTx += this.comboBox_finalIpap.Text + "/" + this.comboBox_finalEpap.Text;
-				strTx += " cm H2O.";
-			}
-
-			if (this.comboBox_maskType.Text != "")
-				strTx += " A " + this.comboBox_maskSize.Text + " " + this.comboBox_maskType.Text + " mask was used.";
-
-			if (this.checkBox_chinStrap.Checked)
-				strTx += " A chin strap was used.";
-			if (this.checkBox_humidifer.Checked)
-				strTx += " Heated humidity was used.";
+            if (checkBox_chinStrap.Checked)
+                strTx += " A chin strap was used.";
+            if (checkBox_humidifer.Checked)
+                strTx += " Heated humidity was used.";
 
 
-			return strTx;
-		}
+            return strTx;
+        }
 
-		private string getResInfo()
-		{
-			string str="";
-			if(this.checkBox_resEvents.Checked && !this.mRadioButtonCpapBipapTitrat.Checked) 
-				str += " Respiratory events were observed.";
-			else 
+        private string getResInfo()
+        {
+            var str = "";
+            if (checkBox_resEvents.Checked && !mRadioButtonCpapBipapTitrat.Checked)
+                str += " Respiratory events were observed.";
+            else
             {
                 str += "";
             }
-			return str;
-		}
-		private void button_makeNote_Click(object sender, System.EventArgs e)
-		{
-		
-			string strBodyPos = "The patient slept " + this.getBodyPos();
-			string strSnoring =  this.getSnor();
-			string strResEvents = this.getResInfo();
-			
-			//string cpap = "";
-			string output ="";	
-		
-			if (this.checkBox_ambian.Checked)
-				output += " The patient took 10 mg Ambien as per protocol.";
-			if (this.checkBox_15lpmO2.Checked)
-				output += " The patient was placed on 15 lpm O2 via NRB mask as per protocol.";
-			output += strBodyPos;
-			output += strSnoring;
-			output += strResEvents;			
+            return str;
+        }
 
-			if (this.checkBox_tooLateForCpap.Checked)
-				output += " The patient did not meet criteria for CPAP until too late to begin treatment.";
-			if (this.checkBox_NoCpap.Checked)
-				output += " The patient did not meet split night criteria to initiate CPAP.";
+        private void button_makeNote_Click(object sender, EventArgs e)
+        {
+            var strBodyPos = "The patient slept " + getBodyPos();
+            var strSnoring = getSnor();
+            var strResEvents = getResInfo();
 
-			if (this.mRadioButton_cpap.Checked || this.mRadioButton_bipap.Checked)
-				output += this.getTxInfo();
-			output += this.getArrPlm();
-			if(this.checkBox_ptHasMachine.Checked)
-			{
-				output += " Patient has and brought machine. Pressure verified at ";
-				output += this.comboBox_txVerifiedAT.Text + " cm H2O and changed to ";
-				output += this.comboBox_txChangedTo.Text + " cm H2O.";
-			}
+            //string cpap = "";
+            var output = "";
+
+            if (checkBox_ambian.Checked)
+                output += " The patient took 10 mg Ambien as per protocol.";
+            if (checkBox_15lpmO2.Checked)
+                output += " The patient was placed on 15 lpm O2 via NRB mask as per protocol.";
+            output += strBodyPos;
+            output += strSnoring;
+            output += strResEvents;
+
+            if (checkBox_tooLateForCpap.Checked)
+                output += " The patient did not meet criteria for CPAP until too late to begin treatment.";
+            if (checkBox_NoCpap.Checked)
+                output += " The patient did not meet split night criteria to initiate CPAP.";
+
+            if (mRadioButton_cpap.Checked || mRadioButton_bipap.Checked)
+                output += getTxInfo();
+            output += getArrPlm();
+            if (checkBox_ptHasMachine.Checked)
+            {
+                output += " Patient has and brought machine. Pressure verified at ";
+                output += comboBox_txVerifiedAT.Text + " cm H2O and changed to ";
+                output += comboBox_txChangedTo.Text + " cm H2O.";
+            }
 
             output = getEffects(output);
 
-			this.document.Text = output;//
-            this.document.SelectAll();
-            this.document.Copy();
-            			
-			if (passControl != null)
-			{
-				passControl(output);
-			}
+            document.Text = output; //
+            document.SelectAll();
+            document.Copy();
 
-			this.Close();
-		}
+            if (passControl != null)
+            {
+                passControl(output);
+            }
+
+            Close();
+        }
 
         private string getEffects(string output)
         {
@@ -1362,63 +1373,63 @@ namespace sleepEditPro
             if (checkBoxRemEffect.Checked)
             {
                 output += " A REM effect is noted.";
-            } 
+            }
             return output;
         }
-		private void resetValues()
-		{
-			this.checkBox_supine.Checked=false;
-			this.checkBox_prone.Checked=false;
-			this.checkBox_lat.Checked=false;
-			this.checkBox_loudSnor.Checked=false;
-			this.checkBox_modSnor.Checked=false;
-			this.checkBox_mildSnor.Checked=false;
-			this.mRadioButton_cpap.Checked=false;
-			this.mRadioButton_bipap.Checked=false;
-			this.checkBox_chinStrap.Checked=false;
-			this.checkBox_humidifer.Checked=false;
-			this.checkBox_resEvents.Checked=false;
-			this.checkBox_plms.Checked=false;
-			this.checkBox_arr.Checked=false;
-			this.checkBox_ptHasMachine.Checked=false;
-			this.checkBox_humidifer.Checked=false;
-			this.checkBox_15lpmO2.Checked=false;
-			this.checkBox_tooLateForCpap.Checked=false;
-			this.checkBox_ambian.Checked=false;
-			this.comboBox_iniCpap.Text="";
-			this.comboBox_finalCpap.Text="";
-			this.comboBox_finalEpap.Text="";
-			this.comboBox_finalIpap.Text="";
-			this.comboBox_initialEpap.Text="";
-			this.comboBox_initIpap.Text="";
-			this.comboBox_maskSize.Text="";
-			this.comboBox_maskSize.Text="";
-			this.comboBox_txVerifiedAT.Text="";
-			this.comboBox_txChangedTo.Text="";
-            this.checkBoxRemEffect.Checked = false;
-            this.checkBoxPositionEffect.Checked = false;
 
-		}
+        private void resetValues()
+        {
+            checkBox_supine.Checked = false;
+            checkBox_prone.Checked = false;
+            checkBox_lat.Checked = false;
+            checkBox_loudSnor.Checked = false;
+            checkBox_modSnor.Checked = false;
+            checkBox_mildSnor.Checked = false;
+            mRadioButton_cpap.Checked = false;
+            mRadioButton_bipap.Checked = false;
+            checkBox_chinStrap.Checked = false;
+            checkBox_humidifer.Checked = false;
+            checkBox_resEvents.Checked = false;
+            checkBox_plms.Checked = false;
+            checkBox_arr.Checked = false;
+            checkBox_ptHasMachine.Checked = false;
+            checkBox_humidifer.Checked = false;
+            checkBox_15lpmO2.Checked = false;
+            checkBox_tooLateForCpap.Checked = false;
+            checkBox_ambian.Checked = false;
+            comboBox_iniCpap.Text = "";
+            comboBox_finalCpap.Text = "";
+            comboBox_finalEpap.Text = "";
+            comboBox_finalIpap.Text = "";
+            comboBox_initialEpap.Text = "";
+            comboBox_initIpap.Text = "";
+            comboBox_maskSize.Text = "";
+            comboBox_maskSize.Text = "";
+            comboBox_txVerifiedAT.Text = "";
+            comboBox_txChangedTo.Text = "";
+            checkBoxRemEffect.Checked = false;
+            checkBoxPositionEffect.Checked = false;
+        }
 
 
         private void UpdateSettings(ComboBox cmb, ArrayList list, bool addItem)
         {
             try
             {
-                textInput tx = new textInput();
+                var tx = new textInput();
 
                 if (tx.ShowDialog() == DialogResult.OK)
                 {
                     if (addItem)
                     {
-                        int i = cmb.Items.Add(tx.document.Text);
-                        list.Add((string)tx.document.Text);
+                        var i = cmb.Items.Add(tx.document.Text);
+                        list.Add(tx.document.Text);
                         cmb.SelectedIndex = i;
                     }
                     else //remove item
                     {
                         cmb.Items.Remove(tx.document.Text);
-                        list.Remove((string)tx.document.Text);
+                        list.Remove(tx.document.Text);
                     }
                 }
             }
@@ -1426,35 +1437,33 @@ namespace sleepEditPro
             {
                 MessageBox.Show("Could not update item");
             }
-
         }
 
 
+        private void comboBox_maskType_KeyDown(object sender, KeyEventArgs e)
+        {
+            var index = 0;
+            var cbo = (ComboBox) sender;
+            index = cbo.FindStringExact(cbo.Text);
 
-		private void comboBox_maskType_KeyDown(object sender,System.Windows.Forms.KeyEventArgs e)
-		{
-			int index = 0;
-			ComboBox cbo = (ComboBox)sender;
-			index = cbo.FindStringExact(cbo.Text);
+            // We only want to do something if the enter key was pressed
+            if (e.KeyCode == Keys.Enter)
+            {
+                // FindStringExact searches for the string and is not
+                // case-sensitive, which
+                // is exactly what we need, as Programmer and programmer is the same.
+                // If we find a match we'll move the selection in the ComboBox to
+                // that item.
+                index = cbo.FindStringExact(cbo.Text);
+                if (index < 0) // FindStringExact return -1 if nothing was found.
+                    cbo.Items.Add(cbo.Text);
+                else
+                    cbo.SelectedIndex = index;
 
-			// We only want to do something if the enter key was pressed
-			if (e.KeyCode == Keys.Enter)
-			{
-				// FindStringExact searches for the string and is not
-				// case-sensitive, which
-				// is exactly what we need, as Programmer and programmer is the same.
-				// If we find a match we'll move the selection in the ComboBox to
-				// that item.
-				index = cbo.FindStringExact(cbo.Text);
-				if (index < 0) // FindStringExact return -1 if nothing was found.
-					cbo.Items.Add(cbo.Text);
-				else
-					cbo.SelectedIndex = index;
-
-				// Signal that we've handled the key down event
-				e.Handled = true;
-			}
-		}	
+                // Signal that we've handled the key down event
+                e.Handled = true;
+            }
+        }
 
 
 // 		private void checkBox_cpap_CheckedChanged(object sender, System.EventArgs e)
@@ -1608,22 +1617,22 @@ namespace sleepEditPro
 
         private void maskTypeToolStripMenuItemAdd_Click(object sender, EventArgs e)
         {
-            UpdateSettings(this.comboBox_maskType, sleepEdit.maskType, true);
+            UpdateSettings(comboBox_maskType, sleepEdit.maskType, true);
         }
 
         private void maskTypeToolStripMenuItemRemove_Click(object sender, EventArgs e)
         {
-            UpdateSettings(this.comboBox_maskType, sleepEdit.maskType, false);
+            UpdateSettings(comboBox_maskType, sleepEdit.maskType, false);
         }
 
         private void maskSizeToolStripMenuItemAdd_Click(object sender, EventArgs e)
         {
-            UpdateSettings(this.comboBox_maskSize, sleepEdit.maskSize, true);
+            UpdateSettings(comboBox_maskSize, sleepEdit.maskSize, true);
         }
 
         private void maskSizeToolStripMenuItemRemove_Click(object sender, EventArgs e)
         {
-            UpdateSettings(this.comboBox_maskSize, sleepEdit.maskSize, false);
+            UpdateSettings(comboBox_maskSize, sleepEdit.maskSize, false);
         }
 
         private void studyTypeRadio_CheckedChanged(object sender, EventArgs e)
@@ -1657,7 +1666,7 @@ namespace sleepEditPro
 
         private void checkBox_ptHasMachine_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox_ptHasMachine.Checked && mCpapBipapInfoGroupBox.Visible == true)
+            if (checkBox_ptHasMachine.Checked && mCpapBipapInfoGroupBox.Visible)
             {
                 mPanelPressVerAndChangedTo.Visible = true;
             }
@@ -1667,30 +1676,71 @@ namespace sleepEditPro
             }
         }
 
-    
+        #region variables
 
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem addTechnicianNameToolStripMenuItem;
+        private ToolStripMenuItem addToolStripMenuItem;
+        private ToolStripMenuItem maskTypeToolStripMenuItemAdd;
+        private ToolStripMenuItem maskSizeToolStripMenuItemAdd;
+        private ToolStripMenuItem maskTypeToolStripMenuItemRemove;
+        private ToolStripMenuItem maskSizeToolStripMenuItemRemove;
+        private Button button_makeNote;
+        private CheckBox checkBox_lat;
+        private CheckBox checkBox_prone;
+        private CheckBox checkBox_supine;
+        private CheckBox checkBox_modSnor;
+        private CheckBox checkBox_loudSnor;
+        private CheckBox checkBox_mildSnor;
+        private CheckBox checkBox_plms;
+        private CheckBox checkBox_resEvents;
+        private CheckBox checkBox_arr;
+        private CheckBox checkBoxRemEffect;
+        private CheckBox checkBoxPositionEffect;
+        private CheckBox checkBox_ambian;
+        private CheckBox checkBox_15lpmO2;
+        private CheckBox checkBox_tooLateForCpap;
+        private CheckBox checkBox_NoCpap;
+        private ComboBox comboBox_finalEpap;
+        private ComboBox comboBox_iniCpap;
+        private Label label_Initial;
+        private ComboBox comboBox_finalCpap;
+        private Label label_final;
+        private ComboBox comboBox_initIpap;
+        private ComboBox comboBox_finalIpap;
+        private ComboBox comboBox_initialEpap;
+        private Label label_slash1;
+        private Label label_slash2;
+        private RichTextBox document;
+        private Label label1_maskType;
+        private ComboBox comboBox_maskType;
+        private Label label_maskSize;
+        private ComboBox comboBox_maskSize;
+        private CheckBox checkBox_chinStrap;
+        private CheckBox checkBox_humidifer;
+        private CheckBox checkBox_ptHasMachine;
+        private Label label_pressVerified;
+        private ComboBox comboBox_txVerifiedAT;
+        private Label label_andChangedTo;
+        private ComboBox comboBox_txChangedTo;
+        private GroupBox mGoupBoxStudyPerformed;
+        private RadioButton mRadioButtonSplitNight;
+        private RadioButton mRadioButtonCpapBipapTitrat;
+        private RadioButton mRadioButtonPsg;
+        private GroupBox groupBox1;
+        private GroupBox groupBox3;
+        private GroupBox groupBox4;
+        private GroupBox groupBox5;
+        private GroupBox groupBox6;
+        private RadioButton mRadioButton_bipap;
+        private RadioButton mRadioButton_cpap;
+        private GroupBox mGroupCPAP_BIPAP;
+        private GroupBox mCpapBipapInfoGroupBox;
+        private Panel mPanelBipap;
+        private Panel mPanelCpap;
+        private Panel mPanelPressVerAndChangedTo;
+        private IContainer components;
 
-
-       
-
-       
-
-       
-
-        
-
-      
-		
-
-
-		
-
-		
-
-		
-
-		
-
-		
-	}
+        #endregion
+    }
 }

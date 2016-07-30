@@ -1,25 +1,22 @@
 using System.Collections.Generic;
 using PrelimInterDataManager;
+
 namespace RespirationsComment
 {
     public class Sao2Comment
     {
+        private const float SAO2_NORMAL_LOW = 90.0f;
+        private readonly float mLowestSao2;
+        private string mFileName;
+        private Severity mSao2Severity;
+
         public Sao2Comment(float lowestSao2)
         {
             mLowestSao2 = lowestSao2;
             initializeSao2Severity();
-
         }
-        private const float SAO2_NORMAL_LOW = 90.0f;
-        private string mSao2Results;
-        private Severity mSao2Severity;
-        private readonly float mLowestSao2;
-        private string mFileName;
 
-        public string Sao2Result
-        {
-            get { return mSao2Results; }
-        }
+        public string Sao2Result { get; private set; }
 
 
         private void initializeSao2Severity()
@@ -42,37 +39,34 @@ namespace RespirationsComment
                 mFileName = "normal_spo2_comment.xml";
                 try
                 {
-                    mSao2Results = getResult();
+                    Sao2Result = getResult();
                 }
                 catch
                 {
-                    mSao2Results = "Arterial oxygen saturation remains above "
-                    + mLowestSao2.ToString("####") + "%. ";
+                    Sao2Result = "Arterial oxygen saturation remains above "
+                                 + mLowestSao2.ToString("####") + "%. ";
                 }
-
             }
             else
             {
                 mFileName = "abnormal_spo2_comment.xml";
                 try
                 {
-                    mSao2Results = getResult();
+                    Sao2Result = getResult();
                 }
                 catch
                 {
-                    mSao2Results = "Arterial oxygen desaturation to "
-                    + mLowestSao2.ToString("####") + "% is observed. ";
+                    Sao2Result = "Arterial oxygen desaturation to "
+                                 + mLowestSao2.ToString("####") + "% is observed. ";
                 }
-
             }
         }
 
         private string getResult()
         {
-            List<string> list = new List<string>();
+            var list = new List<string>();
             DataReader.readData(mFileName, ref list);
             return list[0].Replace("[lowest_spo2]", mLowestSao2.ToString("####")) + " ";
         }
-
     }
 }

@@ -1,37 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace PrelimInterDataManager
 {
-
     public class SleepStudyData
     {
-        public SleepStudyData() { }
+        public DemographicData DemographicData { get; set; } = new DemographicData();
 
-        private DemographicData mDemographicData = new DemographicData();
-        private ClinicalData mTotalClinicalData = new ClinicalData();
-        private TreatmentData mTxData = new TreatmentData();
+        public ClinicalData TotalClinicalData { get; set; } = new ClinicalData();
 
-        public PrelimInterDataManager.DemographicData DemographicData
-        {
-            get { return mDemographicData; }
-            set { mDemographicData = value; }
-        }
-
-        public PrelimInterDataManager.ClinicalData TotalClinicalData
-        {
-            get { return mTotalClinicalData; }
-            set { mTotalClinicalData = value; }
-        }
-
-        public PrelimInterDataManager.TreatmentData TxData
-        {
-            get { return mTxData; }
-            set { mTxData = value; }
-        }
+        public TreatmentData TxData { get; set; } = new TreatmentData();
     }
 }
-
-
-

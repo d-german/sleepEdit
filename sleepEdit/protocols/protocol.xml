@@ -1,6 +1,517 @@
-<?xml version="1.0"?><Protocol><Id>-1</Id><LinkId>-1</LinkId><LinkText /><text>Saint Luke's Protocol</text><Section><Id>71</Id><LinkId>-1</LinkId><LinkText /><text>Diagnostic Polysomnogram:</text><SubSection><Id>72</Id><LinkId>-1</LinkId><LinkText /><text>Monitor SpO2 and EKG for Emergency Guideline Interventions (if present, initiate corrective measures, document and contact Medical Director)</text><SubSection><Id>73</Id><LinkId>-1</LinkId><LinkText /><text>SpO2 drops below 50%-GOTO BiPAP Titration</text><SubSection><Id>115</Id><LinkId>106</LinkId><LinkText>BiPAP Titration Polysomnogram:</LinkText><text>PaCO2 &gt; 52 </text></SubSection><SubSection><Id>116</Id><LinkId>93</LinkId><LinkText>CPAP Titration Polysomnogram:</LinkText><text>PaCO2 &lt; 52 </text></SubSection></SubSection><SubSection><Id>74</Id><LinkId>-1</LinkId><LinkText /><text>Recurrent SpO2 desaturation to 70% or less for any 15 minute period</text><SubSection><Id>76</Id><LinkId>93</LinkId><LinkText>CPAP Titration Polysomnogram:</LinkText><text>PaCO2 &lt; 52</text></SubSection><SubSection><Id>75</Id><LinkId>106</LinkId><LinkText>BiPAP Titration Polysomnogram:</LinkText><text>PaCO2 &gt; 52</text></SubSection></SubSection><SubSection><Id>77</Id><LinkId>-1</LinkId><LinkText /><text>Evidence of hypoxic arrhythmias (VTACH &gt; 6 sec or Sinus Pause &gt; 5 sec)</text><SubSection><Id>78</Id><LinkId>93</LinkId><LinkText>CPAP Titration Polysomnogram:</LinkText><text>PaCO2 &lt; 52</text></SubSection><SubSection><Id>79</Id><LinkId>106</LinkId><LinkText>BiPAP Titration Polysomnogram:</LinkText><text>PaCO2 &gt; 52</text></SubSection></SubSection></SubSection><SubSection><Id>80</Id><LinkId>101</LinkId><LinkText>Supplemental Oxygen:</LinkText><text>Monitor SpO2 for baseline changes below 86% (document 30 minutes)</text></SubSection><SubSection><Id>81</Id><LinkId>101</LinkId><LinkText>Supplemental Oxygen:</LinkText><text>PaO2 &lt; 55 </text></SubSection><SubSection><Id>82</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Supine/REM sleep obtained, if not why? </text><SubText /></SubSection><SubSection><Id>83</Id><LinkId>84</LinkId><LinkText>End of Study:</LinkText><text>GOAL: All goals complete:</text></SubSection></Section><Section><Id>103</Id><LinkId>-1</LinkId><LinkText /><text>Split Night Polysomnogram:</text><SubSection><Id>104</Id><LinkId>101</LinkId><LinkText>GOTO Supplemental Oxygen</LinkText><text>Monitor SpO2 for baseline changes below 86% (document 30 minutes)</text></SubSection><SubSection><Id>118</Id><LinkId>101</LinkId><LinkText>GOTO Supplemental Oxygen</LinkText><text>PaO2 &lt; 55. </text></SubSection><SubSection><Id>120</Id><LinkId>-1</LinkId><LinkText /><text>Monitor SpO2 and EKG for Emergency Guideline Interventions (if present, document a minimum of 2 hours of sleep and then initiate corrective measures). 
-Document and contact Medical Director.</text><SubSection><Id>121</Id><LinkId>93</LinkId><LinkText>GOTO CPAP Titration Polysomnogram</LinkText><text>SpO2 drops below 50%</text><SubSection><Id>122</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText><text>PaCO2 &gt; 52</text></SubSection></SubSection><SubSection><Id>124</Id><LinkId>93</LinkId><LinkText>GOTO CPAP Titration Polysomnogram</LinkText><text>Recurrent SpO2 desaturation to 70% or less for any 15 minute period: </text><SubSection><Id>125</Id><LinkId>106</LinkId><LinkText> GOTO BiPAP Titration.</LinkText><text>PaCO2 &gt; 52:</text></SubSection></SubSection><SubSection><Id>126</Id><LinkId>93</LinkId><LinkText>GOTO CPAP Titration Polysomnogram:</LinkText><text>Evidence of hypoxic arrhythmias (VTACH &gt; 6 sec or Sinus Pause &gt; 5 sec) </text><SubSection><Id>127</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText><text>PaCO2 &gt; 52:</text></SubSection></SubSection></SubSection><SubSection><Id>128</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Document a minimum of 2 hours of sleep.</text></SubSection><SubSection><Id>130</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Document a minimum of 40 respiratory events. </text></SubSection><SubSection><Id>131</Id><LinkId>93</LinkId><LinkText>GOTO CPAP Titration Polysomnogram</LinkText><text>GOAL: All goals complete:</text><SubSection><Id>132</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText><text>PaCO2 &gt; 52:</text></SubSection></SubSection></Section><Section><Id>93</Id><LinkId>-1</LinkId><LinkText /><text>CPAP Titration Polysomnogram:</text><SubSection><Id>94</Id><LinkId>-1</LinkId><LinkText /><text>Initiate CPAP at 4 cm H2O minimum for initial titration; at patient's current home setting; or the pressure specified by referring physician/Medical Director.  
-REMOVE O2 IF PaO2 IS &gt; 55 mm Hg</text><SubSection><Id>95</Id><LinkId>111</LinkId><LinkText>Treatment Intolerance</LinkText><text>Patient is intolerant: </text></SubSection><SubSection><Id>96</Id><LinkId>101</LinkId><LinkText>GOTO Supplemental Oxygen</LinkText><text>PaO2 &lt; 55: </text></SubSection><SubSection><Id>97</Id><LinkId>206</LinkId><LinkText>GOTO Hypoventilation </LinkText><text>Monitor SpO2 for baseline changes below 86%:</text></SubSection><SubSection><Id>98</Id><LinkId>105</LinkId><LinkText>Respiratory Event Determination</LinkText><text>Respiratory events are present: </text></SubSection><SubSection><Id>99</Id><LinkId>202</LinkId><LinkText>CPAP Titration</LinkText><text>Snoring heard after apnea is abolished:</text></SubSection></SubSection><SubSection><Id>100</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Supine sleep obtained- If not why?</text><SubText>edit</SubText></SubSection><SubSection><Id>141</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: AHI less than 5 events per hour achieved. If not why?
-</text><SubText /></SubSection><SubSection><Id>142</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Minimum of 1 hour of sleep documented at final pressure. If not why?
-</text><SubText /></SubSection><SubSection><Id>143</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Snoring abolished at cm H2O:</text><SubText /></SubSection><SubSection><Id>144</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Apnea/Hypopnea abolished at cm H2O</text><SubText /></SubSection><SubSection><Id>145</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: SaO2 baseline is maintained above 90%</text></SubSection><SubSection><Id>146</Id><LinkId>84</LinkId><LinkText>GOTO End of Study</LinkText><text>GOAL: All goals complete.</text></SubSection></Section><Section><Id>106</Id><LinkId>-1</LinkId><LinkText /><text>BiPAP Titration Polysomnogram:</text><SubSection><Id>109</Id><LinkId>-1</LinkId><LinkText /><text>Initiate BiPAP at 8/4 cm H2O for initial titration; at patient's current home settings; 
-or pressures specified by referring physician/Medical Director</text><SubSection><Id>147</Id><LinkId>111</LinkId><LinkText>GOTO Treatment Intolerance</LinkText><text>Patient is intolerant.</text></SubSection><SubSection><Id>148</Id><LinkId>101</LinkId><LinkText>GOTO Supplemental Oxygen</LinkText><text>PaO2 &lt; 55 </text></SubSection><SubSection><Id>149</Id><LinkId>208</LinkId><LinkText>BIPAP Titration  (Hypoventilation )</LinkText><text>Monitor SpO2 for baseline changes to 86%</text></SubSection><SubSection><Id>150</Id><LinkId>105</LinkId><LinkText> GOTO Respiratory Event Determination.</LinkText><text>Respiratory events are present</text></SubSection><SubSection><Id>151</Id><LinkId>203</LinkId><LinkText>BIPAP Titration</LinkText><text>Snoring heard after apnea is abolished.</text></SubSection></SubSection><SubSection><Id>152</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Supine sleep obtained. If not why?</text><SubText /></SubSection><SubSection><Id>153</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: AHI less than 5 events per hour achieved.If not why?</text><SubText /></SubSection><SubSection><Id>154</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Minimum of 1 hour of sleep documented at final pressure. If not why?</text><SubText /></SubSection><SubSection><Id>155</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Snoring abolished at - cmH2O</text><SubText /></SubSection><SubSection><Id>156</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Apnea/Hypopnea abolished at -cmH2O</text><SubText /></SubSection><SubSection><Id>157</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: SpO2 baseline is maintained above 90%.</text></SubSection><SubSection><Id>158</Id><LinkId>84</LinkId><LinkText>GOTO End of Study</LinkText><text>GOAL: All goals complete:</text></SubSection></Section><Section><Id>101</Id><LinkId>-1</LinkId><LinkText /><text>Supplemental Oxygen:</text><SubSection><Id>102</Id><LinkId>-1</LinkId><LinkText /><text>Initiate O2 at 2 lpm </text></SubSection><SubSection><Id>163</Id><LinkId>-1</LinkId><LinkText /><text>Increase O2 by 1 lpm, not to exceed 4 lpm to maintain SpO2 above 90%, but less than 93%</text></SubSection><SubSection><Id>164</Id><LinkId>-1</LinkId><LinkText /><text>If PaCO2 &gt; 55 on initial ABG, notify Medical Director re: need for more than 2 lpm O2</text></SubSection><SubSection><Id>165</Id><LinkId>71</LinkId><LinkText>Diagnostic Polysomnogram:</LinkText><text /></SubSection><SubSection><Id>166</Id><LinkId>103</LinkId><LinkText>Split Night Polysomnogram:</LinkText><text /></SubSection><SubSection><Id>167</Id><LinkId>93</LinkId><LinkText>CPAP Titration Polysomnogram:</LinkText><text /></SubSection><SubSection><Id>168</Id><LinkId>106</LinkId><LinkText>BiPAP Titration Polysomnogram:</LinkText><text /></SubSection></Section><Section><Id>105</Id><LinkId>105</LinkId><LinkText /><text>Respiratory Event Determination:</text><SubSection><Id>107</Id><LinkId>-1</LinkId><LinkText /><text>Obstructive Apnea</text><SubSection><Id>171</Id><LinkId>-1</LinkId><LinkText /><text>CPAP Titration</text><SubSection><Id>169</Id><LinkId>93</LinkId><LinkText>return to CPAP Titration Polysomnogram</LinkText><text>increase CPAP by 1 to 2 cm H2O</text></SubSection><SubSection><Id>170</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText><text>if at 20 cm H2O or highest tolerated pressure</text></SubSection></SubSection><SubSection><Id>172</Id><LinkId>-1</LinkId><LinkText /><text>BIPAP Titration</text><SubSection><Id>173</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText><text>increase IPAP and EPAP by 1 to 2 cm H2O </text></SubSection><SubSection><Id>177</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText><text>if Central Apneas do not decrease in duration by a noticeable degree, initiate rate of 4 bpm less that waking rate.</text></SubSection></SubSection></SubSection><SubSection><Id>179</Id><LinkId>-1</LinkId><LinkText /><text>Hypopnea</text><SubSection><Id>180</Id><LinkId>-1</LinkId><LinkText /><text>CPAP Titration</text><SubSection><Id>188</Id><LinkId>93</LinkId><LinkText>return CPAP Titration Polysomnogram</LinkText><text>increase CPAP by 1 to 2 cm H2O</text></SubSection><SubSection><Id>189</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText><text>if at 20 cm H2O</text></SubSection></SubSection><SubSection><Id>187</Id><LinkId>-1</LinkId><LinkText /><text>BIPAP Titration</text><SubSection><Id>190</Id><LinkId>106</LinkId><LinkText>return BiPAP Titration Polysomnogram</LinkText><text>increase IPAP by 1 to 2 cm H2O</text></SubSection><SubSection><Id>192</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText><text>if IPAP at 20 cm H2O, increase EPAP by 1 to 2 cm H2O - return to BiPAP</text></SubSection><SubSection><Id>174</Id><LinkId>175</LinkId><LinkText>GOTO Ventilator</LinkText><text>if at 30/26 cm H2O or highest tolerated pressure</text></SubSection></SubSection></SubSection><SubSection><Id>193</Id><LinkId>-1</LinkId><LinkText /><text>Central Apnea (exclude sleep onset/arousal related events)</text><SubSection><Id>194</Id><LinkId>-1</LinkId><LinkText /><text>CPAP Titration</text><SubSection><Id>196</Id><LinkId>93</LinkId><LinkText>return CPAP Titration Polysomnogram</LinkText><text>increase CPAP by 1 to 2 cm H2O</text></SubSection><SubSection><Id>197</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText><text>if at 12 cm H2O</text></SubSection></SubSection><SubSection><Id>195</Id><LinkId>-1</LinkId><LinkText /><text>BIPAP Titration</text><SubSection><Id>198</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText><text>increase IPAP by 1 to 2 cm H2O</text></SubSection><SubSection><Id>199</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText><text>if Central Apneas do not decrease in duration by a noticeable degree, initiate rate of 4 bpm less that waking rate </text></SubSection><SubSection><Id>200</Id><LinkId>175</LinkId><LinkText>GOTO Ventilator</LinkText><text>if at 30/20 cm H2O or highest tolerated pressure</text></SubSection></SubSection></SubSection><SubSection><Id>201</Id><LinkId>-1</LinkId><LinkText /><text>Snoring (after the elimination of apnea)</text><SubSection><Id>202</Id><LinkId>-1</LinkId><LinkText /><text>CPAP Titration</text><SubSection><Id>204</Id><LinkId>93</LinkId><LinkText>return to CPAP Titration Polysomnogram</LinkText><text>increase CPAP by 1 cm H2O</text></SubSection></SubSection><SubSection><Id>203</Id><LinkId>-1</LinkId><LinkText /><text>BIPAP Titration</text><SubSection><Id>205</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText><text>increase IPAP by 1 cm H2O</text></SubSection></SubSection></SubSection><SubSection><Id>206</Id><LinkId>-1</LinkId><LinkText /><text>Hypoventilation </text><SubSection><Id>207</Id><LinkId>-1</LinkId><LinkText /><text>CPAP Titration</text><SubSection><Id>209</Id><LinkId>93</LinkId><LinkText>return to CPAP Titration Polysomnogram</LinkText><text>increase CPAP by 1 to 2 cm H2O</text></SubSection><SubSection><Id>210</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText><text>if at 12 cm H2O</text></SubSection></SubSection><SubSection><Id>208</Id><LinkId>-1</LinkId><LinkText /><text>BIPAP Titration</text><SubSection><Id>211</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText><text>increase IPAP by 2 cm H2O</text></SubSection><SubSection><Id>212</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText><text>if IPAP at 20 cm H2O, increase EPAP by 1 to 2 cm H2O</text></SubSection><SubSection><Id>213</Id><LinkId>175</LinkId><LinkText>GOTO Ventilator</LinkText><text>if at 30/20 cm H2O or highest tolerated pressure</text></SubSection></SubSection></SubSection></Section><Section><Id>108</Id><LinkId>-1</LinkId><LinkText /><text>Post-Op Polysomnogram:</text><SubSection><Id>110</Id><LinkId>103</LinkId><LinkText>Split Night Polysomnogram:</LinkText><text>Will try CPAP</text></SubSection><SubSection><Id>214</Id><LinkId>71</LinkId><LinkText>Diagnostic Polysomnogram:</LinkText><text>Will NOT try CPAP.</text></SubSection></Section><Section><Id>111</Id><LinkId>-1</LinkId><LinkText /><text>Treatment Intolerance:</text><SubSection><Id>112</Id><LinkId>-1</LinkId><LinkText /><text>Mask Related</text><SubSection><Id>215</Id><LinkId>-1</LinkId><LinkText /><text>Adjust mask and evaluate.</text></SubSection><SubSection><Id>216</Id><LinkId>-1</LinkId><LinkText /><text>change mask size and evaluate, document changes.</text></SubSection><SubSection><Id>217</Id><LinkId>-1</LinkId><LinkText /><text>change mask style and evaluate, document changes.</text></SubSection><SubSection><Id>218</Id><LinkId>-1</LinkId><LinkText /><text>assess for possible pressure related issues</text></SubSection><SubSection><Id>219</Id><LinkId>220</LinkId><LinkText>GOTO Pressure Related</LinkText><text>mask related issues unsuccessful </text></SubSection></SubSection><SubSection><Id>220</Id><LinkId>-1</LinkId><LinkText /><text>Pressure Related</text><SubSection><Id>221</Id><LinkId>-1</LinkId><LinkText /><text>decrease pressure to previously tolerated level, then ramp up after patient returns to sleep (repeat up to 3 times).</text></SubSection><SubSection><Id>222</Id><LinkId>-1</LinkId><LinkText /><text>add humidity.</text></SubSection><SubSection><Id>223</Id><LinkId>-1</LinkId><LinkText /><text>assess for possible mask related issues</text></SubSection><SubSection><Id>224</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText><text>if repeated ramping has been performed using CPAP, change to BiPAP</text></SubSection><SubSection><Id>225</Id><LinkId>112</LinkId><LinkText>Mask Related</LinkText><text>pressure related issues unsuccessful.</text></SubSection></SubSection><SubSection><Id>226</Id><LinkId>227</LinkId><LinkText>CPAP/BIPAP Failure</LinkText><text>Patient intolerant despite corrective measures and refuses further PAP treatment.</text></SubSection><SubSection><Id>229</Id><LinkId>93</LinkId><LinkText>Return to CPAP Titration Polysomnogram</LinkText><text /></SubSection><SubSection><Id>230</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText><text /></SubSection></Section><Section><Id>113</Id><LinkId>-1</LinkId><LinkText /><text>Oral Appliance Protocol:</text><SubSection><Id>231</Id><LinkId>-1</LinkId><LinkText /><text>If adjustable device, monitor for 30 minutes of SLEEP.</text></SubSection><SubSection><Id>232</Id><LinkId>-1</LinkId><LinkText /><text>If AHI is greater than 5:</text><SubSection><Id>233</Id><LinkId>-1</LinkId><LinkText /><text>Wake patient and request they make 2 TURNS of the screw.</text></SubSection><SubSection><Id>234</Id><LinkId>93</LinkId><LinkText>GOTO CPAP Titration Polysomnogram</LinkText><text>If 3 TURNS have been performed or patient begins to complain of pain.</text></SubSection></SubSection><SubSection><Id>235</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Minimum of 1 hour of sleep documented at final adjustment. If not why?</text><SubText /></SubSection><SubSection><Id>236</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: AHI less than 5 events per hour achieved. If not why?</text><SubText /></SubSection><SubSection><Id>237</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: SaO2 baseline is maintained above 90%.</text></SubSection><SubSection><Id>238</Id><LinkId>84</LinkId><LinkText>GOTO End of Study</LinkText><text>GOAL: All goals complete</text></SubSection></Section><Section><Id>175</Id><LinkId>-1</LinkId><LinkText /><text>Ventilator:</text><SubSection><Id>176</Id><LinkId>-1</LinkId><LinkText /><text>See sheet</text></SubSection></Section><Section><Id>227</Id><LinkId>-1</LinkId><LinkText /><text>CPAP/BIPAP Failure:</text><SubSection><Id>228</Id><LinkId>-1</LinkId><LinkText /><text>Resume respiratory event documentation</text></SubSection><SubSection><Id>239</Id><LinkId>-1</LinkId><LinkText /><text>Resume current home oxygen therapy (if applicable)</text></SubSection><SubSection><Id>240</Id><LinkId>84</LinkId><LinkText>End of Study</LinkText><text>GOAL: Respiratory related desaturations remain above 80%.</text></SubSection><SubSection><Id>241</Id><LinkId>84</LinkId><LinkText>GOTO End of Study</LinkText><text>GOAL: Desaturations observed below 80%, initiate O2 at 2 lpm </text></SubSection></Section><Section><Id>84</Id><LinkId>-1</LinkId><LinkText /><text>End of Study:</text><SubSection><Id>85</Id><LinkId>-1</LinkId><LinkText /><text>Patient request termination prior to 06:00 a.m.</text></SubSection><SubSection><Id>87</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: minimum study time of 7 hours (adult) / 8 hours (children) achieved.</text></SubSection><SubSection><Id>88</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: if on O2 with PaO2 &lt; 55, obtain a.m. ABG.</text></SubSection><SubSection><Id>89</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: end of study occurs after 06:00 a.m.</text></SubSection><SubSection><Id>91</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: if on BiPAP with PaCO2 &gt; 52, obtain a.m. ABG.</text></SubSection><SubSection><Id>92</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: minimum of 1 hour documentation at final treatment level.</text></SubSection></Section></Protocol>
+<?xml version="1.0"?>
+
+<Protocol>
+  <Id>-1</Id><LinkId>-1</LinkId><LinkText /><text>Saint Luke's Protocol</text>
+  <Section>
+    <Id>71</Id><LinkId>-1</LinkId><LinkText /><text>Diagnostic Polysomnogram:</text>
+    <SubSection>
+      <Id>72</Id><LinkId>-1</LinkId><LinkText />
+      <text>Monitor SpO2 and EKG for Emergency Guideline Interventions (if present, initiate corrective measures, document and contact Medical Director)</text>
+      <SubSection>
+        <Id>73</Id><LinkId>-1</LinkId><LinkText /><text>SpO2 drops below 50%-GOTO BiPAP Titration</text>
+        <SubSection>
+          <Id>115</Id><LinkId>106</LinkId><LinkText>BiPAP Titration Polysomnogram:</LinkText>
+          <text>PaCO2 &gt; 52 </text>
+        </SubSection>
+        <SubSection>
+          <Id>116</Id><LinkId>93</LinkId><LinkText>CPAP Titration Polysomnogram:</LinkText><text>PaCO2 &lt; 52 </text>
+        </SubSection>
+      </SubSection>
+      <SubSection>
+        <Id>74</Id><LinkId>-1</LinkId><LinkText />
+        <text>Recurrent SpO2 desaturation to 70% or less for any 15 minute period</text>
+        <SubSection>
+          <Id>76</Id><LinkId>93</LinkId><LinkText>CPAP Titration Polysomnogram:</LinkText><text>PaCO2 &lt; 52</text>
+        </SubSection>
+        <SubSection>
+          <Id>75</Id><LinkId>106</LinkId><LinkText>BiPAP Titration Polysomnogram:</LinkText><text>PaCO2 &gt; 52</text>
+        </SubSection>
+      </SubSection>
+      <SubSection>
+        <Id>77</Id><LinkId>-1</LinkId><LinkText />
+        <text>Evidence of hypoxic arrhythmias (VTACH &gt; 6 sec or Sinus Pause &gt; 5 sec)</text>
+        <SubSection>
+          <Id>78</Id><LinkId>93</LinkId><LinkText>CPAP Titration Polysomnogram:</LinkText><text>PaCO2 &lt; 52</text>
+        </SubSection>
+        <SubSection>
+          <Id>79</Id><LinkId>106</LinkId><LinkText>BiPAP Titration Polysomnogram:</LinkText><text>PaCO2 &gt; 52</text>
+        </SubSection>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <Id>80</Id><LinkId>101</LinkId><LinkText>Supplemental Oxygen:</LinkText>
+      <text>Monitor SpO2 for baseline changes below 86% (document 30 minutes)</text>
+    </SubSection>
+    <SubSection>
+      <Id>81</Id><LinkId>101</LinkId><LinkText>Supplemental Oxygen:</LinkText><text>PaO2 &lt; 55 </text>
+    </SubSection>
+    <SubSection>
+      <Id>82</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Supine/REM sleep obtained, if not why? </text><SubText />
+    </SubSection>
+    <SubSection>
+      <Id>83</Id><LinkId>84</LinkId><LinkText>End of Study:</LinkText><text>GOAL: All goals complete:</text>
+    </SubSection>
+  </Section>
+  <Section>
+    <Id>103</Id><LinkId>-1</LinkId><LinkText /><text>Split Night Polysomnogram:</text>
+    <SubSection>
+      <Id>104</Id><LinkId>101</LinkId><LinkText>GOTO Supplemental Oxygen</LinkText>
+      <text>Monitor SpO2 for baseline changes below 86% (document 30 minutes)</text>
+    </SubSection>
+    <SubSection>
+      <Id>118</Id><LinkId>101</LinkId><LinkText>GOTO Supplemental Oxygen</LinkText><text>PaO2 &lt; 55. </text>
+    </SubSection>
+    <SubSection>
+      <Id>120</Id><LinkId>-1</LinkId><LinkText />
+      <text>
+        Monitor SpO2 and EKG for Emergency Guideline Interventions (if present, document a minimum of 2 hours of sleep and then initiate corrective measures).
+        Document and contact Medical Director.
+      </text>
+      <SubSection>
+        <Id>121</Id><LinkId>93</LinkId><LinkText>GOTO CPAP Titration Polysomnogram</LinkText>
+        <text>SpO2 drops below 50%</text>
+        <SubSection>
+          <Id>122</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText>
+          <text>PaCO2 &gt; 52</text>
+        </SubSection>
+      </SubSection>
+      <SubSection>
+        <Id>124</Id><LinkId>93</LinkId><LinkText>GOTO CPAP Titration Polysomnogram</LinkText>
+        <text>Recurrent SpO2 desaturation to 70% or less for any 15 minute period: </text>
+        <SubSection>
+          <Id>125</Id><LinkId>106</LinkId><LinkText> GOTO BiPAP Titration.</LinkText><text>PaCO2 &gt; 52:</text>
+        </SubSection>
+      </SubSection>
+      <SubSection>
+        <Id>126</Id><LinkId>93</LinkId><LinkText>GOTO CPAP Titration Polysomnogram:</LinkText>
+        <text>Evidence of hypoxic arrhythmias (VTACH &gt; 6 sec or Sinus Pause &gt; 5 sec) </text>
+        <SubSection>
+          <Id>127</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText>
+          <text>PaCO2 &gt; 52:</text>
+        </SubSection>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <Id>128</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Document a minimum of 2 hours of sleep.</text>
+    </SubSection>
+    <SubSection>
+      <Id>130</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Document a minimum of 40 respiratory events. </text>
+    </SubSection>
+    <SubSection>
+      <Id>131</Id><LinkId>93</LinkId><LinkText>GOTO CPAP Titration Polysomnogram</LinkText>
+      <text>GOAL: All goals complete:</text>
+      <SubSection>
+        <Id>132</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText>
+        <text>PaCO2 &gt; 52:</text>
+      </SubSection>
+    </SubSection>
+  </Section>
+  <Section>
+    <Id>93</Id><LinkId>-1</LinkId><LinkText /><text>CPAP Titration Polysomnogram:</text>
+    <SubSection>
+      <Id>94</Id><LinkId>-1</LinkId><LinkText />
+      <text>
+        Initiate CPAP at 4 cm H2O minimum for initial titration; at patient's current home setting; or the pressure specified by referring physician/Medical Director.
+        REMOVE O2 IF PaO2 IS &gt; 55 mm Hg
+      </text>
+      <SubSection>
+        <Id>95</Id><LinkId>111</LinkId><LinkText>Treatment Intolerance</LinkText><text>Patient is intolerant: </text>
+      </SubSection>
+      <SubSection>
+        <Id>96</Id><LinkId>101</LinkId><LinkText>GOTO Supplemental Oxygen</LinkText><text>PaO2 &lt; 55: </text>
+      </SubSection>
+      <SubSection>
+        <Id>97</Id><LinkId>206</LinkId><LinkText>GOTO Hypoventilation </LinkText>
+        <text>Monitor SpO2 for baseline changes below 86%:</text>
+      </SubSection>
+      <SubSection>
+        <Id>98</Id><LinkId>105</LinkId><LinkText>Respiratory Event Determination</LinkText>
+        <text>Respiratory events are present: </text>
+      </SubSection>
+      <SubSection>
+        <Id>99</Id><LinkId>202</LinkId><LinkText>CPAP Titration</LinkText>
+        <text>Snoring heard after apnea is abolished:</text>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <Id>100</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Supine sleep obtained- If not why?</text>
+      <SubText>edit</SubText>
+    </SubSection>
+    <SubSection>
+      <Id>141</Id><LinkId>-1</LinkId><LinkText />
+      <text>
+        GOAL: AHI less than 5 events per hour achieved. If not why?
+      </text>
+      <SubText />
+    </SubSection>
+    <SubSection>
+      <Id>142</Id><LinkId>-1</LinkId><LinkText />
+      <text>
+        GOAL: Minimum of 1 hour of sleep documented at final pressure. If not why?
+      </text>
+      <SubText />
+    </SubSection>
+    <SubSection>
+      <Id>143</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Snoring abolished at cm H2O:</text><SubText />
+    </SubSection>
+    <SubSection>
+      <Id>144</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Apnea/Hypopnea abolished at cm H2O</text><SubText />
+    </SubSection>
+    <SubSection>
+      <Id>145</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: SaO2 baseline is maintained above 90%</text>
+    </SubSection>
+    <SubSection>
+      <Id>146</Id><LinkId>84</LinkId><LinkText>GOTO End of Study</LinkText><text>GOAL: All goals complete.</text>
+    </SubSection>
+  </Section>
+  <Section>
+    <Id>106</Id><LinkId>-1</LinkId><LinkText /><text>BiPAP Titration Polysomnogram:</text>
+    <SubSection>
+      <Id>109</Id><LinkId>-1</LinkId><LinkText />
+      <text>
+        Initiate BiPAP at 8/4 cm H2O for initial titration; at patient's current home settings;
+        or pressures specified by referring physician/Medical Director
+      </text>
+      <SubSection>
+        <Id>147</Id><LinkId>111</LinkId><LinkText>GOTO Treatment Intolerance</LinkText>
+        <text>Patient is intolerant.</text>
+      </SubSection>
+      <SubSection>
+        <Id>148</Id><LinkId>101</LinkId><LinkText>GOTO Supplemental Oxygen</LinkText><text>PaO2 &lt; 55 </text>
+      </SubSection>
+      <SubSection>
+        <Id>149</Id><LinkId>208</LinkId><LinkText>BIPAP Titration  (Hypoventilation )</LinkText>
+        <text>Monitor SpO2 for baseline changes to 86%</text>
+      </SubSection>
+      <SubSection>
+        <Id>150</Id><LinkId>105</LinkId><LinkText> GOTO Respiratory Event Determination.</LinkText>
+        <text>Respiratory events are present</text>
+      </SubSection>
+      <SubSection>
+        <Id>151</Id><LinkId>203</LinkId><LinkText>BIPAP Titration</LinkText>
+        <text>Snoring heard after apnea is abolished.</text>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <Id>152</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Supine sleep obtained. If not why?</text><SubText />
+    </SubSection>
+    <SubSection>
+      <Id>153</Id><LinkId>-1</LinkId><LinkText />
+      <text>GOAL: AHI less than 5 events per hour achieved.If not why?</text><SubText />
+    </SubSection>
+    <SubSection>
+      <Id>154</Id><LinkId>-1</LinkId><LinkText />
+      <text>GOAL: Minimum of 1 hour of sleep documented at final pressure. If not why?</text><SubText />
+    </SubSection>
+    <SubSection>
+      <Id>155</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Snoring abolished at - cmH2O</text><SubText />
+    </SubSection>
+    <SubSection>
+      <Id>156</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: Apnea/Hypopnea abolished at -cmH2O</text><SubText />
+    </SubSection>
+    <SubSection>
+      <Id>157</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: SpO2 baseline is maintained above 90%.</text>
+    </SubSection>
+    <SubSection>
+      <Id>158</Id><LinkId>84</LinkId><LinkText>GOTO End of Study</LinkText><text>GOAL: All goals complete:</text>
+    </SubSection>
+  </Section>
+  <Section>
+    <Id>101</Id><LinkId>-1</LinkId><LinkText /><text>Supplemental Oxygen:</text>
+    <SubSection>
+      <Id>102</Id><LinkId>-1</LinkId><LinkText /><text>Initiate O2 at 2 lpm </text>
+    </SubSection>
+    <SubSection>
+      <Id>163</Id><LinkId>-1</LinkId><LinkText />
+      <text>Increase O2 by 1 lpm, not to exceed 4 lpm to maintain SpO2 above 90%, but less than 93%</text>
+    </SubSection>
+    <SubSection>
+      <Id>164</Id><LinkId>-1</LinkId><LinkText />
+      <text>If PaCO2 &gt; 55 on initial ABG, notify Medical Director re: need for more than 2 lpm O2</text>
+    </SubSection>
+    <SubSection>
+      <Id>165</Id><LinkId>71</LinkId><LinkText>Diagnostic Polysomnogram:</LinkText><text />
+    </SubSection>
+    <SubSection>
+      <Id>166</Id><LinkId>103</LinkId><LinkText>Split Night Polysomnogram:</LinkText><text />
+    </SubSection>
+    <SubSection>
+      <Id>167</Id><LinkId>93</LinkId><LinkText>CPAP Titration Polysomnogram:</LinkText><text />
+    </SubSection>
+    <SubSection>
+      <Id>168</Id><LinkId>106</LinkId><LinkText>BiPAP Titration Polysomnogram:</LinkText><text />
+    </SubSection>
+  </Section>
+  <Section>
+    <Id>105</Id><LinkId>105</LinkId><LinkText /><text>Respiratory Event Determination:</text>
+    <SubSection>
+      <Id>107</Id><LinkId>-1</LinkId><LinkText /><text>Obstructive Apnea</text>
+      <SubSection>
+        <Id>171</Id><LinkId>-1</LinkId><LinkText /><text>CPAP Titration</text>
+        <SubSection>
+          <Id>169</Id><LinkId>93</LinkId><LinkText>return to CPAP Titration Polysomnogram</LinkText>
+          <text>increase CPAP by 1 to 2 cm H2O</text>
+        </SubSection>
+        <SubSection>
+          <Id>170</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText>
+          <text>if at 20 cm H2O or highest tolerated pressure</text>
+        </SubSection>
+      </SubSection>
+      <SubSection>
+        <Id>172</Id><LinkId>-1</LinkId><LinkText /><text>BIPAP Titration</text>
+        <SubSection>
+          <Id>173</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText>
+          <text>increase IPAP and EPAP by 1 to 2 cm H2O </text>
+        </SubSection>
+        <SubSection>
+          <Id>177</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText>
+          <text>if Central Apneas do not decrease in duration by a noticeable degree, initiate rate of 4 bpm less that waking rate.</text>
+        </SubSection>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <Id>179</Id><LinkId>-1</LinkId><LinkText /><text>Hypopnea</text>
+      <SubSection>
+        <Id>180</Id><LinkId>-1</LinkId><LinkText /><text>CPAP Titration</text>
+        <SubSection>
+          <Id>188</Id><LinkId>93</LinkId><LinkText>return CPAP Titration Polysomnogram</LinkText>
+          <text>increase CPAP by 1 to 2 cm H2O</text>
+        </SubSection>
+        <SubSection>
+          <Id>189</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText>
+          <text>if at 20 cm H2O</text>
+        </SubSection>
+      </SubSection>
+      <SubSection>
+        <Id>187</Id><LinkId>-1</LinkId><LinkText /><text>BIPAP Titration</text>
+        <SubSection>
+          <Id>190</Id><LinkId>106</LinkId><LinkText>return BiPAP Titration Polysomnogram</LinkText>
+          <text>increase IPAP by 1 to 2 cm H2O</text>
+        </SubSection>
+        <SubSection>
+          <Id>192</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText>
+          <text>if IPAP at 20 cm H2O, increase EPAP by 1 to 2 cm H2O - return to BiPAP</text>
+        </SubSection>
+        <SubSection>
+          <Id>174</Id><LinkId>175</LinkId><LinkText>GOTO Ventilator</LinkText>
+          <text>if at 30/26 cm H2O or highest tolerated pressure</text>
+        </SubSection>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <Id>193</Id><LinkId>-1</LinkId><LinkText />
+      <text>Central Apnea (exclude sleep onset/arousal related events)</text>
+      <SubSection>
+        <Id>194</Id><LinkId>-1</LinkId><LinkText /><text>CPAP Titration</text>
+        <SubSection>
+          <Id>196</Id><LinkId>93</LinkId><LinkText>return CPAP Titration Polysomnogram</LinkText>
+          <text>increase CPAP by 1 to 2 cm H2O</text>
+        </SubSection>
+        <SubSection>
+          <Id>197</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText>
+          <text>if at 12 cm H2O</text>
+        </SubSection>
+      </SubSection>
+      <SubSection>
+        <Id>195</Id><LinkId>-1</LinkId><LinkText /><text>BIPAP Titration</text>
+        <SubSection>
+          <Id>198</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText>
+          <text>increase IPAP by 1 to 2 cm H2O</text>
+        </SubSection>
+        <SubSection>
+          <Id>199</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText>
+          <text>if Central Apneas do not decrease in duration by a noticeable degree, initiate rate of 4 bpm less that waking rate </text>
+        </SubSection>
+        <SubSection>
+          <Id>200</Id><LinkId>175</LinkId><LinkText>GOTO Ventilator</LinkText>
+          <text>if at 30/20 cm H2O or highest tolerated pressure</text>
+        </SubSection>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <Id>201</Id><LinkId>-1</LinkId><LinkText /><text>Snoring (after the elimination of apnea)</text>
+      <SubSection>
+        <Id>202</Id><LinkId>-1</LinkId><LinkText /><text>CPAP Titration</text>
+        <SubSection>
+          <Id>204</Id><LinkId>93</LinkId><LinkText>return to CPAP Titration Polysomnogram</LinkText>
+          <text>increase CPAP by 1 cm H2O</text>
+        </SubSection>
+      </SubSection>
+      <SubSection>
+        <Id>203</Id><LinkId>-1</LinkId><LinkText /><text>BIPAP Titration</text>
+        <SubSection>
+          <Id>205</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText>
+          <text>increase IPAP by 1 cm H2O</text>
+        </SubSection>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <Id>206</Id><LinkId>-1</LinkId><LinkText /><text>Hypoventilation </text>
+      <SubSection>
+        <Id>207</Id><LinkId>-1</LinkId><LinkText /><text>CPAP Titration</text>
+        <SubSection>
+          <Id>209</Id><LinkId>93</LinkId><LinkText>return to CPAP Titration Polysomnogram</LinkText>
+          <text>increase CPAP by 1 to 2 cm H2O</text>
+        </SubSection>
+        <SubSection>
+          <Id>210</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText>
+          <text>if at 12 cm H2O</text>
+        </SubSection>
+      </SubSection>
+      <SubSection>
+        <Id>208</Id><LinkId>-1</LinkId><LinkText /><text>BIPAP Titration</text>
+        <SubSection>
+          <Id>211</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText>
+          <text>increase IPAP by 2 cm H2O</text>
+        </SubSection>
+        <SubSection>
+          <Id>212</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText>
+          <text>if IPAP at 20 cm H2O, increase EPAP by 1 to 2 cm H2O</text>
+        </SubSection>
+        <SubSection>
+          <Id>213</Id><LinkId>175</LinkId><LinkText>GOTO Ventilator</LinkText>
+          <text>if at 30/20 cm H2O or highest tolerated pressure</text>
+        </SubSection>
+      </SubSection>
+    </SubSection>
+  </Section>
+  <Section>
+    <Id>108</Id><LinkId>-1</LinkId><LinkText /><text>Post-Op Polysomnogram:</text>
+    <SubSection>
+      <Id>110</Id><LinkId>103</LinkId><LinkText>Split Night Polysomnogram:</LinkText><text>Will try CPAP</text>
+    </SubSection>
+    <SubSection>
+      <Id>214</Id><LinkId>71</LinkId><LinkText>Diagnostic Polysomnogram:</LinkText><text>Will NOT try CPAP.</text>
+    </SubSection>
+  </Section>
+  <Section>
+    <Id>111</Id><LinkId>-1</LinkId><LinkText /><text>Treatment Intolerance:</text>
+    <SubSection>
+      <Id>112</Id><LinkId>-1</LinkId><LinkText /><text>Mask Related</text>
+      <SubSection>
+        <Id>215</Id><LinkId>-1</LinkId><LinkText /><text>Adjust mask and evaluate.</text>
+      </SubSection>
+      <SubSection>
+        <Id>216</Id><LinkId>-1</LinkId><LinkText /><text>change mask size and evaluate, document changes.</text>
+      </SubSection>
+      <SubSection>
+        <Id>217</Id><LinkId>-1</LinkId><LinkText /><text>change mask style and evaluate, document changes.</text>
+      </SubSection>
+      <SubSection>
+        <Id>218</Id><LinkId>-1</LinkId><LinkText /><text>assess for possible pressure related issues</text>
+      </SubSection>
+      <SubSection>
+        <Id>219</Id><LinkId>220</LinkId><LinkText>GOTO Pressure Related</LinkText>
+        <text>mask related issues unsuccessful </text>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <Id>220</Id><LinkId>-1</LinkId><LinkText /><text>Pressure Related</text>
+      <SubSection>
+        <Id>221</Id><LinkId>-1</LinkId><LinkText />
+        <text>decrease pressure to previously tolerated level, then ramp up after patient returns to sleep (repeat up to 3 times).</text>
+      </SubSection>
+      <SubSection>
+        <Id>222</Id><LinkId>-1</LinkId><LinkText /><text>add humidity.</text>
+      </SubSection>
+      <SubSection>
+        <Id>223</Id><LinkId>-1</LinkId><LinkText /><text>assess for possible mask related issues</text>
+      </SubSection>
+      <SubSection>
+        <Id>224</Id><LinkId>106</LinkId><LinkText>GOTO BiPAP Titration Polysomnogram</LinkText>
+        <text>if repeated ramping has been performed using CPAP, change to BiPAP</text>
+      </SubSection>
+      <SubSection>
+        <Id>225</Id><LinkId>112</LinkId><LinkText>Mask Related</LinkText>
+        <text>pressure related issues unsuccessful.</text>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <Id>226</Id><LinkId>227</LinkId><LinkText>CPAP/BIPAP Failure</LinkText>
+      <text>Patient intolerant despite corrective measures and refuses further PAP treatment.</text>
+    </SubSection>
+    <SubSection>
+      <Id>229</Id><LinkId>93</LinkId><LinkText>Return to CPAP Titration Polysomnogram</LinkText><text />
+    </SubSection>
+    <SubSection>
+      <Id>230</Id><LinkId>106</LinkId><LinkText>return to BiPAP Titration Polysomnogram</LinkText><text />
+    </SubSection>
+  </Section>
+  <Section>
+    <Id>113</Id><LinkId>-1</LinkId><LinkText /><text>Oral Appliance Protocol:</text>
+    <SubSection>
+      <Id>231</Id><LinkId>-1</LinkId><LinkText /><text>If adjustable device, monitor for 30 minutes of SLEEP.</text>
+    </SubSection>
+    <SubSection>
+      <Id>232</Id><LinkId>-1</LinkId><LinkText /><text>If AHI is greater than 5:</text>
+      <SubSection>
+        <Id>233</Id><LinkId>-1</LinkId><LinkText />
+        <text>Wake patient and request they make 2 TURNS of the screw.</text>
+      </SubSection>
+      <SubSection>
+        <Id>234</Id><LinkId>93</LinkId><LinkText>GOTO CPAP Titration Polysomnogram</LinkText>
+        <text>If 3 TURNS have been performed or patient begins to complain of pain.</text>
+      </SubSection>
+    </SubSection>
+    <SubSection>
+      <Id>235</Id><LinkId>-1</LinkId><LinkText />
+      <text>GOAL: Minimum of 1 hour of sleep documented at final adjustment. If not why?</text><SubText />
+    </SubSection>
+    <SubSection>
+      <Id>236</Id><LinkId>-1</LinkId><LinkText />
+      <text>GOAL: AHI less than 5 events per hour achieved. If not why?</text><SubText />
+    </SubSection>
+    <SubSection>
+      <Id>237</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: SaO2 baseline is maintained above 90%.</text>
+    </SubSection>
+    <SubSection>
+      <Id>238</Id><LinkId>84</LinkId><LinkText>GOTO End of Study</LinkText><text>GOAL: All goals complete</text>
+    </SubSection>
+  </Section>
+  <Section>
+    <Id>175</Id><LinkId>-1</LinkId><LinkText /><text>Ventilator:</text>
+    <SubSection>
+      <Id>176</Id><LinkId>-1</LinkId><LinkText /><text>See sheet</text>
+    </SubSection>
+  </Section>
+  <Section>
+    <Id>227</Id><LinkId>-1</LinkId><LinkText /><text>CPAP/BIPAP Failure:</text>
+    <SubSection>
+      <Id>228</Id><LinkId>-1</LinkId><LinkText /><text>Resume respiratory event documentation</text>
+    </SubSection>
+    <SubSection>
+      <Id>239</Id><LinkId>-1</LinkId><LinkText /><text>Resume current home oxygen therapy (if applicable)</text>
+    </SubSection>
+    <SubSection>
+      <Id>240</Id><LinkId>84</LinkId><LinkText>End of Study</LinkText>
+      <text>GOAL: Respiratory related desaturations remain above 80%.</text>
+    </SubSection>
+    <SubSection>
+      <Id>241</Id><LinkId>84</LinkId><LinkText>GOTO End of Study</LinkText>
+      <text>GOAL: Desaturations observed below 80%, initiate O2 at 2 lpm </text>
+    </SubSection>
+  </Section>
+  <Section>
+    <Id>84</Id><LinkId>-1</LinkId><LinkText /><text>End of Study:</text>
+    <SubSection>
+      <Id>85</Id><LinkId>-1</LinkId><LinkText /><text>Patient request termination prior to 06:00 a.m.</text>
+    </SubSection>
+    <SubSection>
+      <Id>87</Id><LinkId>-1</LinkId><LinkText />
+      <text>GOAL: minimum study time of 7 hours (adult) / 8 hours (children) achieved.</text>
+    </SubSection>
+    <SubSection>
+      <Id>88</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: if on O2 with PaO2 &lt; 55, obtain a.m. ABG.</text>
+    </SubSection>
+    <SubSection>
+      <Id>89</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: end of study occurs after 06:00 a.m.</text>
+    </SubSection>
+    <SubSection>
+      <Id>91</Id><LinkId>-1</LinkId><LinkText /><text>GOAL: if on BiPAP with PaCO2 &gt; 52, obtain a.m. ABG.</text>
+    </SubSection>
+    <SubSection>
+      <Id>92</Id><LinkId>-1</LinkId><LinkText />
+      <text>GOAL: minimum of 1 hour documentation at final treatment level.</text>
+    </SubSection>
+  </Section>
+</Protocol>

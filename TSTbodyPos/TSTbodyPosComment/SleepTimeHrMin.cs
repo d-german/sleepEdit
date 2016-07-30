@@ -1,29 +1,23 @@
+using System;
+
 namespace TSTbodyPosComment
 {
     public class HoursAndMinutes
     {
-
-        enum Quantity : short
-        {
-            Zero,
-            Single,
-            Multiple
-        }
         private const int NUM_RESULTS = 9;
         private const short HOUR = 3; //(short)Quantity.Multiple+1;
         private const short MIN = 3; //(short)Quantity.Multiple+1;
 
-        static short[,] m_ResultTable = new short[HOUR, MIN];
-        static string[] m_ResultsString = new string[NUM_RESULTS];
-        private int m_Hours = 0;
-        private int m_Minutes = 0;
+        private static readonly short[,] m_ResultTable = new short[HOUR, MIN];
+        private static readonly string[] m_ResultsString = new string[NUM_RESULTS];
         private Quantity m_HourQuantity = Quantity.Zero;
+        private int m_Hours;
         private Quantity m_MinuteQuantity = Quantity.Zero;
+        private int m_Minutes;
 
 
         public HoursAndMinutes()
         {
-
             initializeResultsTable();
             //processQuantities();
         }
@@ -56,18 +50,19 @@ namespace TSTbodyPosComment
                     break;
             }
         }
+
         private static void initializeResultsTable()
         {
             //                    Hour                  Minute
-            m_ResultTable[(short)Quantity.Zero, (short)Quantity.Zero] = 0;
-            m_ResultTable[(short)Quantity.Zero, (short)Quantity.Single] = 1;
-            m_ResultTable[(short)Quantity.Zero, (short)Quantity.Multiple] = 2;
-            m_ResultTable[(short)Quantity.Single, (short)Quantity.Zero] = 3;
-            m_ResultTable[(short)Quantity.Single, (short)Quantity.Single] = 4;
-            m_ResultTable[(short)Quantity.Single, (short)Quantity.Multiple] = 5;
-            m_ResultTable[(short)Quantity.Multiple, (short)Quantity.Zero] = 6;
-            m_ResultTable[(short)Quantity.Multiple, (short)Quantity.Single] = 7;
-            m_ResultTable[(short)Quantity.Multiple, (short)Quantity.Multiple] = 8;
+            m_ResultTable[(short) Quantity.Zero, (short) Quantity.Zero] = 0;
+            m_ResultTable[(short) Quantity.Zero, (short) Quantity.Single] = 1;
+            m_ResultTable[(short) Quantity.Zero, (short) Quantity.Multiple] = 2;
+            m_ResultTable[(short) Quantity.Single, (short) Quantity.Zero] = 3;
+            m_ResultTable[(short) Quantity.Single, (short) Quantity.Single] = 4;
+            m_ResultTable[(short) Quantity.Single, (short) Quantity.Multiple] = 5;
+            m_ResultTable[(short) Quantity.Multiple, (short) Quantity.Zero] = 6;
+            m_ResultTable[(short) Quantity.Multiple, (short) Quantity.Single] = 7;
+            m_ResultTable[(short) Quantity.Multiple, (short) Quantity.Multiple] = 8;
 
             m_ResultsString[0] = ""; // no sleep
             m_ResultsString[1] = "1 minute";
@@ -84,15 +79,15 @@ namespace TSTbodyPosComment
         {
             cnvrtMinsToHrsMins(out m_Minutes, out m_Hours, totalMinutes);
             processQuantities();
-            string resultStr = "";
-            int result = 0;
+            var resultStr = "";
+            var result = 0;
 
-            result = m_ResultTable[(short)m_HourQuantity, (short)m_MinuteQuantity];
+            result = m_ResultTable[(short) m_HourQuantity, (short) m_MinuteQuantity];
 
             resultStr = m_ResultsString[result];
 
-            string hourStr = m_Hours.ToString();
-            string minStr = m_Minutes.ToString();
+            var hourStr = m_Hours.ToString();
+            var minStr = m_Minutes.ToString();
 
             resultStr = resultStr.Replace("<HR>", hourStr);
             resultStr = resultStr.Replace("<MIN>", minStr);
@@ -101,10 +96,9 @@ namespace TSTbodyPosComment
 
         private void cnvrtMinsToHrsMins(out int minutes, out int hours, double totalMinutes)
         {
-
-            double tempValue = System.Math.Round(totalMinutes, 1, System.MidpointRounding.AwayFromZero);
-            tempValue = System.Math.Round(tempValue, 0, System.MidpointRounding.AwayFromZero);
-            minutes = (int)tempValue;
+            var tempValue = Math.Round(totalMinutes, 1, MidpointRounding.AwayFromZero);
+            tempValue = Math.Round(tempValue, 0, MidpointRounding.AwayFromZero);
+            minutes = (int) tempValue;
             hours = 0;
             // Be sure to initialize to 0
 
@@ -125,6 +119,11 @@ namespace TSTbodyPosComment
             }
         }
 
-
+        private enum Quantity : short
+        {
+            Zero,
+            Single,
+            Multiple
+        }
     }
 }

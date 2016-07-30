@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Default>
   <Result spo2="normal">
     Arterial oxygen saturation remains above [lowest_spo2]%.
   </Result>
 </Default>
-

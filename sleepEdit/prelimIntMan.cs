@@ -1,120 +1,120 @@
 using System;
-using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace sleepEditPro
 {
     /// <summary>
-    /// Summary description for prelimIntMan.
+    ///     Summary description for prelimIntMan.
     /// </summary>
-    public class prelimIntMan : System.Windows.Forms.Form
+    public class prelimIntMan : Form
     {
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label41;
-        public System.Windows.Forms.TextBox textBox_TST;
-        public System.Windows.Forms.TextBox textBox_wakeTst;
-        public System.Windows.Forms.TextBox textBox_s1tst;
-        public System.Windows.Forms.TextBox textBox_s2Tst;
-        public System.Windows.Forms.TextBox textBox_swsTst;
-        public System.Windows.Forms.TextBox textBox_remTst;
-        public System.Windows.Forms.TextBox textBox_sleepEff;
-        public System.Windows.Forms.TextBox textBox_remLat;
-        public System.Windows.Forms.TextBox textBox_slpLat;
-        public System.Windows.Forms.TextBox textBox_plmArrIdx;
-        public System.Windows.Forms.TextBox textBox_plmIdx;
-        public System.Windows.Forms.TextBox textBox_PsgTST;
-        public System.Windows.Forms.TextBox textBox_psgRem;
-        public System.Windows.Forms.TextBox textBox_psgTotRdi;
-        public System.Windows.Forms.TextBox textBox_PsgRemRdi;
-        public System.Windows.Forms.TextBox textBox_psgSupRdi;
-        public System.Windows.Forms.TextBox textBox_psgLatRdi;
-        public System.Windows.Forms.TextBox textBox_psgLowSpo2;
-        public System.Windows.Forms.TextBox textBox_psgAvgSpo2;
-        public System.Windows.Forms.TextBox textBox_psgSupTime;
-        public System.Windows.Forms.TextBox textBox_PsgLatTime;
-        public System.Windows.Forms.TextBox textBox_diagAvgSpo2;
-        public System.Windows.Forms.TextBox textBox_diagLowSpo2;
-        public System.Windows.Forms.TextBox textBox_diagLatRdi;
-        public System.Windows.Forms.TextBox textBox_diagSupRdi;
-        public System.Windows.Forms.TextBox textBox_diagRemRdi;
-        public System.Windows.Forms.TextBox textBox_diagTotRdi;
-        public System.Windows.Forms.TextBox textBox_diagRemTime;
-        public System.Windows.Forms.TextBox textBox_diagLatTime;
-        public System.Windows.Forms.TextBox textBox_diagSupTime;
-        public System.Windows.Forms.TextBox textBox_diagTst;
-        public System.Windows.Forms.TextBox textBox_finalAvgSpo2;
-        public System.Windows.Forms.TextBox textBox_finalLatSpo2;
-        public System.Windows.Forms.TextBox textBox_finalLatRdi;
-        public System.Windows.Forms.TextBox textBox_finalSupRdi;
-        public System.Windows.Forms.TextBox textBox_finalRdi;
-        public System.Windows.Forms.TextBox textBox_finalTotRdi;
-        public System.Windows.Forms.TextBox textBox_finalRemTime;
-        public System.Windows.Forms.TextBox textBox_finalLatTime;
-        public System.Windows.Forms.TextBox textBox_finalSupTime;
-        public System.Windows.Forms.TextBox textBox_finalTst;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label42;
-        public System.Windows.Forms.TextBox textBox_PtAge;
-        private System.Windows.Forms.GroupBox groupBox5;
-        public System.Windows.Forms.RadioButton radioButton_Psgonly;
-        public System.Windows.Forms.RadioButton radioButton_splitstudy;
-        public System.Windows.Forms.RadioButton radioButton_titration;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label44;
-        public System.Windows.Forms.TextBox textBox_FinalTx;
-        private System.Windows.Forms.GroupBox groupBox_psg;
-        private System.Windows.Forms.GroupBox groupBox_diag;
-        private System.Windows.Forms.GroupBox groupBox_tx;
-        private System.Windows.Forms.ContextMenu contextMenu_all;
-        private System.Windows.Forms.MenuItem menuItem1;
-        private System.Windows.Forms.MenuItem menuItem2;
+        private Button button1;
+
         /// <summary>
-        /// Required designer variable.
+        ///     Required designer variable.
         /// </summary>
-        private System.ComponentModel.Container components = null;
+        private readonly Container components = null;
+
+        private ContextMenu contextMenu_all;
+        private GroupBox groupBox_diag;
+        private GroupBox groupBox_psg;
+        private GroupBox groupBox_tx;
+        private GroupBox groupBox1;
+        private GroupBox groupBox5;
+        private Label label1;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label2;
+        private Label label20;
+        private Label label21;
+        private Label label22;
+        private Label label23;
+        private Label label24;
+        private Label label25;
+        private Label label26;
+        private Label label27;
+        private Label label28;
+        private Label label29;
+        private Label label3;
+        private Label label30;
+        private Label label31;
+        private Label label32;
+        private Label label33;
+        private Label label34;
+        private Label label35;
+        private Label label36;
+        private Label label37;
+        private Label label38;
+        private Label label39;
+        private Label label4;
+        private Label label40;
+        private Label label41;
+        private Label label42;
+        private Label label43;
+        private Label label44;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private MenuItem menuItem1;
+        private MenuItem menuItem2;
+        public RadioButton radioButton_Psgonly;
+        public RadioButton radioButton_splitstudy;
+        public RadioButton radioButton_titration;
+        public TextBox textBox_diagAvgSpo2;
+        public TextBox textBox_diagLatRdi;
+        public TextBox textBox_diagLatTime;
+        public TextBox textBox_diagLowSpo2;
+        public TextBox textBox_diagRemRdi;
+        public TextBox textBox_diagRemTime;
+        public TextBox textBox_diagSupRdi;
+        public TextBox textBox_diagSupTime;
+        public TextBox textBox_diagTotRdi;
+        public TextBox textBox_diagTst;
+        public TextBox textBox_finalAvgSpo2;
+        public TextBox textBox_finalLatRdi;
+        public TextBox textBox_finalLatSpo2;
+        public TextBox textBox_finalLatTime;
+        public TextBox textBox_finalRdi;
+        public TextBox textBox_finalRemTime;
+        public TextBox textBox_finalSupRdi;
+        public TextBox textBox_finalSupTime;
+        public TextBox textBox_finalTotRdi;
+        public TextBox textBox_finalTst;
+        public TextBox textBox_FinalTx;
+        public TextBox textBox_plmArrIdx;
+        public TextBox textBox_plmIdx;
+        public TextBox textBox_psgAvgSpo2;
+        public TextBox textBox_psgLatRdi;
+        public TextBox textBox_PsgLatTime;
+        public TextBox textBox_psgLowSpo2;
+        public TextBox textBox_psgRem;
+        public TextBox textBox_PsgRemRdi;
+        public TextBox textBox_psgSupRdi;
+        public TextBox textBox_psgSupTime;
+        public TextBox textBox_psgTotRdi;
+        public TextBox textBox_PsgTST;
+        public TextBox textBox_PtAge;
+        public TextBox textBox_remLat;
+        public TextBox textBox_remTst;
+        public TextBox textBox_s1tst;
+        public TextBox textBox_s2Tst;
+        public TextBox textBox_sleepEff;
+        public TextBox textBox_slpLat;
+        public TextBox textBox_swsTst;
+        public TextBox textBox_TST;
+        public TextBox textBox_wakeTst;
 
         public prelimIntMan()
         {
@@ -129,7 +129,7 @@ namespace sleepEditPro
         }
 
         /// <summary>
-        /// Clean up any resources being used.
+        ///     Clean up any resources being used.
         /// </summary>
         protected override void Dispose(bool disposing)
         {
@@ -144,9 +144,10 @@ namespace sleepEditPro
         }
 
         #region Windows Form Designer generated code
+
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        ///     Required method for Designer support - do not modify
+        ///     the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -258,8 +259,10 @@ namespace sleepEditPro
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.label42);
             this.groupBox1.Controls.Add(this.textBox_PtAge);
@@ -303,8 +306,10 @@ namespace sleepEditPro
             // 
             // textBox_PtAge
             // 
-            this.textBox_PtAge.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_PtAge.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_PtAge.Location = new System.Drawing.Point(224, 21);
             this.textBox_PtAge.Name = "textBox_PtAge";
             this.textBox_PtAge.Size = new System.Drawing.Size(62, 26);
@@ -332,8 +337,10 @@ namespace sleepEditPro
             // 
             // textBox_plmArrIdx
             // 
-            this.textBox_plmArrIdx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_plmArrIdx.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_plmArrIdx.Location = new System.Drawing.Point(224, 327);
             this.textBox_plmArrIdx.Name = "textBox_plmArrIdx";
             this.textBox_plmArrIdx.Size = new System.Drawing.Size(62, 26);
@@ -342,8 +349,10 @@ namespace sleepEditPro
             // 
             // textBox_plmIdx
             // 
-            this.textBox_plmIdx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_plmIdx.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_plmIdx.Location = new System.Drawing.Point(224, 296);
             this.textBox_plmIdx.Name = "textBox_plmIdx";
             this.textBox_plmIdx.Size = new System.Drawing.Size(62, 26);
@@ -380,19 +389,24 @@ namespace sleepEditPro
             // 
             // textBox_sleepEff
             // 
-            this.textBox_sleepEff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_sleepEff.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_sleepEff.Location = new System.Drawing.Point(224, 267);
             this.textBox_sleepEff.Name = "textBox_sleepEff";
             this.textBox_sleepEff.Size = new System.Drawing.Size(62, 26);
             this.textBox_sleepEff.TabIndex = 14;
             this.textBox_sleepEff.Text = "73.2";
-            this.textBox_sleepEff.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_sleepEff.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // textBox_remLat
             // 
-            this.textBox_remLat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_remLat.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_remLat.Location = new System.Drawing.Point(224, 235);
             this.textBox_remLat.Name = "textBox_remLat";
             this.textBox_remLat.Size = new System.Drawing.Size(62, 26);
@@ -402,8 +416,10 @@ namespace sleepEditPro
             // 
             // textBox_slpLat
             // 
-            this.textBox_slpLat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_slpLat.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_slpLat.Location = new System.Drawing.Point(224, 203);
             this.textBox_slpLat.Name = "textBox_slpLat";
             this.textBox_slpLat.Size = new System.Drawing.Size(62, 26);
@@ -467,8 +483,10 @@ namespace sleepEditPro
             // 
             // textBox_remTst
             // 
-            this.textBox_remTst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_remTst.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_remTst.Location = new System.Drawing.Point(224, 177);
             this.textBox_remTst.Name = "textBox_remTst";
             this.textBox_remTst.Size = new System.Drawing.Size(62, 26);
@@ -478,8 +496,10 @@ namespace sleepEditPro
             // 
             // textBox_swsTst
             // 
-            this.textBox_swsTst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_swsTst.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_swsTst.Location = new System.Drawing.Point(224, 151);
             this.textBox_swsTst.Name = "textBox_swsTst";
             this.textBox_swsTst.Size = new System.Drawing.Size(62, 26);
@@ -489,8 +509,10 @@ namespace sleepEditPro
             // 
             // textBox_s2Tst
             // 
-            this.textBox_s2Tst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_s2Tst.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_s2Tst.Location = new System.Drawing.Point(224, 125);
             this.textBox_s2Tst.Name = "textBox_s2Tst";
             this.textBox_s2Tst.Size = new System.Drawing.Size(62, 26);
@@ -500,8 +522,10 @@ namespace sleepEditPro
             // 
             // textBox_s1tst
             // 
-            this.textBox_s1tst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_s1tst.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_s1tst.Location = new System.Drawing.Point(224, 99);
             this.textBox_s1tst.Name = "textBox_s1tst";
             this.textBox_s1tst.Size = new System.Drawing.Size(62, 26);
@@ -511,19 +535,24 @@ namespace sleepEditPro
             // 
             // textBox_wakeTst
             // 
-            this.textBox_wakeTst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_wakeTst.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_wakeTst.Location = new System.Drawing.Point(224, 73);
             this.textBox_wakeTst.Name = "textBox_wakeTst";
             this.textBox_wakeTst.Size = new System.Drawing.Size(62, 26);
             this.textBox_wakeTst.TabIndex = 1;
             this.textBox_wakeTst.Text = "18";
-            this.textBox_wakeTst.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_wakeTst.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // textBox_TST
             // 
-            this.textBox_TST.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_TST.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_TST.Location = new System.Drawing.Point(224, 47);
             this.textBox_TST.Name = "textBox_TST";
             this.textBox_TST.Size = new System.Drawing.Size(62, 26);
@@ -563,15 +592,18 @@ namespace sleepEditPro
             // 
             // textBox_psgAvgSpo2
             // 
-            this.textBox_psgAvgSpo2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_psgAvgSpo2.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_psgAvgSpo2.Location = new System.Drawing.Point(174, 247);
             this.textBox_psgAvgSpo2.Name = "textBox_psgAvgSpo2";
             this.textBox_psgAvgSpo2.Size = new System.Drawing.Size(55, 26);
             this.textBox_psgAvgSpo2.TabIndex = 19;
             this.textBox_psgAvgSpo2.Text = "0.0";
             this.textBox_psgAvgSpo2.WordWrap = false;
-            this.textBox_psgAvgSpo2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_psgAvgSpo2.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label21
             // 
@@ -584,15 +616,18 @@ namespace sleepEditPro
             // 
             // textBox_psgLowSpo2
             // 
-            this.textBox_psgLowSpo2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_psgLowSpo2.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_psgLowSpo2.Location = new System.Drawing.Point(174, 224);
             this.textBox_psgLowSpo2.Name = "textBox_psgLowSpo2";
             this.textBox_psgLowSpo2.Size = new System.Drawing.Size(55, 26);
             this.textBox_psgLowSpo2.TabIndex = 17;
             this.textBox_psgLowSpo2.Text = "0.0";
             this.textBox_psgLowSpo2.WordWrap = false;
-            this.textBox_psgLowSpo2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_psgLowSpo2.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label20
             // 
@@ -605,15 +640,18 @@ namespace sleepEditPro
             // 
             // textBox_psgLatRdi
             // 
-            this.textBox_psgLatRdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_psgLatRdi.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_psgLatRdi.Location = new System.Drawing.Point(174, 203);
             this.textBox_psgLatRdi.Name = "textBox_psgLatRdi";
             this.textBox_psgLatRdi.Size = new System.Drawing.Size(55, 26);
             this.textBox_psgLatRdi.TabIndex = 15;
             this.textBox_psgLatRdi.Text = "0.0";
             this.textBox_psgLatRdi.WordWrap = false;
-            this.textBox_psgLatRdi.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_psgLatRdi.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label19
             // 
@@ -626,15 +664,18 @@ namespace sleepEditPro
             // 
             // textBox_psgSupRdi
             // 
-            this.textBox_psgSupRdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_psgSupRdi.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_psgSupRdi.Location = new System.Drawing.Point(174, 177);
             this.textBox_psgSupRdi.Name = "textBox_psgSupRdi";
             this.textBox_psgSupRdi.Size = new System.Drawing.Size(55, 26);
             this.textBox_psgSupRdi.TabIndex = 13;
             this.textBox_psgSupRdi.Text = "0.0";
             this.textBox_psgSupRdi.WordWrap = false;
-            this.textBox_psgSupRdi.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_psgSupRdi.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label18
             // 
@@ -647,15 +688,18 @@ namespace sleepEditPro
             // 
             // textBox_PsgRemRdi
             // 
-            this.textBox_PsgRemRdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_PsgRemRdi.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_PsgRemRdi.Location = new System.Drawing.Point(174, 153);
             this.textBox_PsgRemRdi.Name = "textBox_PsgRemRdi";
             this.textBox_PsgRemRdi.Size = new System.Drawing.Size(55, 26);
             this.textBox_PsgRemRdi.TabIndex = 11;
             this.textBox_PsgRemRdi.Text = "0.0";
             this.textBox_PsgRemRdi.WordWrap = false;
-            this.textBox_PsgRemRdi.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_PsgRemRdi.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label17
             // 
@@ -668,15 +712,18 @@ namespace sleepEditPro
             // 
             // textBox_psgTotRdi
             // 
-            this.textBox_psgTotRdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_psgTotRdi.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_psgTotRdi.Location = new System.Drawing.Point(174, 130);
             this.textBox_psgTotRdi.Name = "textBox_psgTotRdi";
             this.textBox_psgTotRdi.Size = new System.Drawing.Size(55, 26);
             this.textBox_psgTotRdi.TabIndex = 9;
             this.textBox_psgTotRdi.Text = "0.0";
             this.textBox_psgTotRdi.WordWrap = false;
-            this.textBox_psgTotRdi.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_psgTotRdi.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label16
             // 
@@ -689,8 +736,10 @@ namespace sleepEditPro
             // 
             // textBox_psgRem
             // 
-            this.textBox_psgRem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_psgRem.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_psgRem.Location = new System.Drawing.Point(174, 104);
             this.textBox_psgRem.Name = "textBox_psgRem";
             this.textBox_psgRem.Size = new System.Drawing.Size(55, 26);
@@ -710,15 +759,18 @@ namespace sleepEditPro
             // 
             // textBox_PsgLatTime
             // 
-            this.textBox_PsgLatTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_PsgLatTime.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_PsgLatTime.Location = new System.Drawing.Point(174, 78);
             this.textBox_PsgLatTime.Name = "textBox_PsgLatTime";
             this.textBox_PsgLatTime.Size = new System.Drawing.Size(55, 26);
             this.textBox_PsgLatTime.TabIndex = 5;
             this.textBox_PsgLatTime.Text = "0.0";
             this.textBox_PsgLatTime.WordWrap = false;
-            this.textBox_PsgLatTime.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_PsgLatTime.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label14
             // 
@@ -731,15 +783,18 @@ namespace sleepEditPro
             // 
             // textBox_psgSupTime
             // 
-            this.textBox_psgSupTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_psgSupTime.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_psgSupTime.Location = new System.Drawing.Point(174, 52);
             this.textBox_psgSupTime.Name = "textBox_psgSupTime";
             this.textBox_psgSupTime.Size = new System.Drawing.Size(55, 26);
             this.textBox_psgSupTime.TabIndex = 3;
             this.textBox_psgSupTime.Text = "0.0";
             this.textBox_psgSupTime.WordWrap = false;
-            this.textBox_psgSupTime.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_psgSupTime.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label13
             // 
@@ -752,8 +807,10 @@ namespace sleepEditPro
             // 
             // textBox_PsgTST
             // 
-            this.textBox_PsgTST.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_PsgTST.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_PsgTST.Location = new System.Drawing.Point(174, 26);
             this.textBox_PsgTST.Name = "textBox_PsgTST";
             this.textBox_PsgTST.Size = new System.Drawing.Size(55, 26);
@@ -802,14 +859,17 @@ namespace sleepEditPro
             // 
             // textBox_diagAvgSpo2
             // 
-            this.textBox_diagAvgSpo2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_diagAvgSpo2.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_diagAvgSpo2.Location = new System.Drawing.Point(205, 250);
             this.textBox_diagAvgSpo2.Name = "textBox_diagAvgSpo2";
             this.textBox_diagAvgSpo2.Size = new System.Drawing.Size(55, 26);
             this.textBox_diagAvgSpo2.TabIndex = 19;
             this.textBox_diagAvgSpo2.Text = "94";
-            this.textBox_diagAvgSpo2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_diagAvgSpo2.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label22
             // 
@@ -822,14 +882,17 @@ namespace sleepEditPro
             // 
             // textBox_diagLowSpo2
             // 
-            this.textBox_diagLowSpo2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_diagLowSpo2.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_diagLowSpo2.Location = new System.Drawing.Point(205, 224);
             this.textBox_diagLowSpo2.Name = "textBox_diagLowSpo2";
             this.textBox_diagLowSpo2.Size = new System.Drawing.Size(55, 26);
             this.textBox_diagLowSpo2.TabIndex = 17;
             this.textBox_diagLowSpo2.Text = "76";
-            this.textBox_diagLowSpo2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_diagLowSpo2.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label23
             // 
@@ -842,14 +905,17 @@ namespace sleepEditPro
             // 
             // textBox_diagLatRdi
             // 
-            this.textBox_diagLatRdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_diagLatRdi.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_diagLatRdi.Location = new System.Drawing.Point(205, 200);
             this.textBox_diagLatRdi.Name = "textBox_diagLatRdi";
             this.textBox_diagLatRdi.Size = new System.Drawing.Size(55, 26);
             this.textBox_diagLatRdi.TabIndex = 15;
             this.textBox_diagLatRdi.Text = "24";
-            this.textBox_diagLatRdi.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_diagLatRdi.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label24
             // 
@@ -862,14 +928,17 @@ namespace sleepEditPro
             // 
             // textBox_diagSupRdi
             // 
-            this.textBox_diagSupRdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_diagSupRdi.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_diagSupRdi.Location = new System.Drawing.Point(205, 174);
             this.textBox_diagSupRdi.Name = "textBox_diagSupRdi";
             this.textBox_diagSupRdi.Size = new System.Drawing.Size(55, 26);
             this.textBox_diagSupRdi.TabIndex = 13;
             this.textBox_diagSupRdi.Text = "83";
-            this.textBox_diagSupRdi.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_diagSupRdi.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label25
             // 
@@ -882,14 +951,17 @@ namespace sleepEditPro
             // 
             // textBox_diagRemRdi
             // 
-            this.textBox_diagRemRdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_diagRemRdi.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_diagRemRdi.Location = new System.Drawing.Point(205, 153);
             this.textBox_diagRemRdi.Name = "textBox_diagRemRdi";
             this.textBox_diagRemRdi.Size = new System.Drawing.Size(55, 26);
             this.textBox_diagRemRdi.TabIndex = 11;
             this.textBox_diagRemRdi.Text = "120";
-            this.textBox_diagRemRdi.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_diagRemRdi.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label26
             // 
@@ -902,14 +974,17 @@ namespace sleepEditPro
             // 
             // textBox_diagTotRdi
             // 
-            this.textBox_diagTotRdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_diagTotRdi.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_diagTotRdi.Location = new System.Drawing.Point(205, 125);
             this.textBox_diagTotRdi.Name = "textBox_diagTotRdi";
             this.textBox_diagTotRdi.Size = new System.Drawing.Size(55, 26);
             this.textBox_diagTotRdi.TabIndex = 9;
             this.textBox_diagTotRdi.Text = "39";
-            this.textBox_diagTotRdi.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_diagTotRdi.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label27
             // 
@@ -922,14 +997,17 @@ namespace sleepEditPro
             // 
             // textBox_diagRemTime
             // 
-            this.textBox_diagRemTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_diagRemTime.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_diagRemTime.Location = new System.Drawing.Point(205, 97);
             this.textBox_diagRemTime.Name = "textBox_diagRemTime";
             this.textBox_diagRemTime.Size = new System.Drawing.Size(55, 26);
             this.textBox_diagRemTime.TabIndex = 7;
             this.textBox_diagRemTime.Text = "6.0";
-            this.textBox_diagRemTime.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_diagRemTime.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label28
             // 
@@ -942,14 +1020,17 @@ namespace sleepEditPro
             // 
             // textBox_diagLatTime
             // 
-            this.textBox_diagLatTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_diagLatTime.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_diagLatTime.Location = new System.Drawing.Point(205, 72);
             this.textBox_diagLatTime.Name = "textBox_diagLatTime";
             this.textBox_diagLatTime.Size = new System.Drawing.Size(55, 26);
             this.textBox_diagLatTime.TabIndex = 5;
             this.textBox_diagLatTime.Text = "126.0";
-            this.textBox_diagLatTime.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_diagLatTime.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label29
             // 
@@ -962,14 +1043,17 @@ namespace sleepEditPro
             // 
             // textBox_diagSupTime
             // 
-            this.textBox_diagSupTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_diagSupTime.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_diagSupTime.Location = new System.Drawing.Point(205, 47);
             this.textBox_diagSupTime.Name = "textBox_diagSupTime";
             this.textBox_diagSupTime.Size = new System.Drawing.Size(55, 26);
             this.textBox_diagSupTime.TabIndex = 3;
             this.textBox_diagSupTime.Text = "29.5";
-            this.textBox_diagSupTime.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_diagSupTime.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label30
             // 
@@ -982,14 +1066,17 @@ namespace sleepEditPro
             // 
             // textBox_diagTst
             // 
-            this.textBox_diagTst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_diagTst.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_diagTst.Location = new System.Drawing.Point(205, 21);
             this.textBox_diagTst.Name = "textBox_diagTst";
             this.textBox_diagTst.Size = new System.Drawing.Size(55, 26);
             this.textBox_diagTst.TabIndex = 1;
             this.textBox_diagTst.Text = "155.5";
-            this.textBox_diagTst.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_diagTst.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label31
             // 
@@ -1034,7 +1121,9 @@ namespace sleepEditPro
             // 
             // label44
             // 
-            this.label44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label44.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label44.AutoSize = true;
             this.label44.Location = new System.Drawing.Point(156, 31);
             this.label44.Name = "label44";
@@ -1060,14 +1149,17 @@ namespace sleepEditPro
             // 
             // textBox_finalAvgSpo2
             // 
-            this.textBox_finalAvgSpo2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_finalAvgSpo2.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_finalAvgSpo2.Location = new System.Drawing.Point(200, 293);
             this.textBox_finalAvgSpo2.Name = "textBox_finalAvgSpo2";
             this.textBox_finalAvgSpo2.Size = new System.Drawing.Size(55, 26);
             this.textBox_finalAvgSpo2.TabIndex = 19;
             this.textBox_finalAvgSpo2.Text = "96";
-            this.textBox_finalAvgSpo2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_finalAvgSpo2.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label32
             // 
@@ -1080,14 +1172,17 @@ namespace sleepEditPro
             // 
             // textBox_finalLatSpo2
             // 
-            this.textBox_finalLatSpo2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_finalLatSpo2.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_finalLatSpo2.Location = new System.Drawing.Point(200, 268);
             this.textBox_finalLatSpo2.Name = "textBox_finalLatSpo2";
             this.textBox_finalLatSpo2.Size = new System.Drawing.Size(55, 26);
             this.textBox_finalLatSpo2.TabIndex = 17;
             this.textBox_finalLatSpo2.Text = "88";
-            this.textBox_finalLatSpo2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_finalLatSpo2.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label33
             // 
@@ -1100,14 +1195,17 @@ namespace sleepEditPro
             // 
             // textBox_finalLatRdi
             // 
-            this.textBox_finalLatRdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_finalLatRdi.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_finalLatRdi.Location = new System.Drawing.Point(200, 242);
             this.textBox_finalLatRdi.Name = "textBox_finalLatRdi";
             this.textBox_finalLatRdi.Size = new System.Drawing.Size(55, 26);
             this.textBox_finalLatRdi.TabIndex = 15;
             this.textBox_finalLatRdi.Text = "0";
-            this.textBox_finalLatRdi.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_finalLatRdi.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label34
             // 
@@ -1120,14 +1218,17 @@ namespace sleepEditPro
             // 
             // textBox_finalSupRdi
             // 
-            this.textBox_finalSupRdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_finalSupRdi.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_finalSupRdi.Location = new System.Drawing.Point(200, 219);
             this.textBox_finalSupRdi.Name = "textBox_finalSupRdi";
             this.textBox_finalSupRdi.Size = new System.Drawing.Size(55, 26);
             this.textBox_finalSupRdi.TabIndex = 13;
             this.textBox_finalSupRdi.Text = "10.8";
-            this.textBox_finalSupRdi.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_finalSupRdi.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label35
             // 
@@ -1140,14 +1241,17 @@ namespace sleepEditPro
             // 
             // textBox_finalRdi
             // 
-            this.textBox_finalRdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_finalRdi.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_finalRdi.Location = new System.Drawing.Point(200, 192);
             this.textBox_finalRdi.Name = "textBox_finalRdi";
             this.textBox_finalRdi.Size = new System.Drawing.Size(55, 26);
             this.textBox_finalRdi.TabIndex = 11;
             this.textBox_finalRdi.Text = "0";
-            this.textBox_finalRdi.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_finalRdi.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label36
             // 
@@ -1160,14 +1264,17 @@ namespace sleepEditPro
             // 
             // textBox_finalTotRdi
             // 
-            this.textBox_finalTotRdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_finalTotRdi.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_finalTotRdi.Location = new System.Drawing.Point(200, 165);
             this.textBox_finalTotRdi.Name = "textBox_finalTotRdi";
             this.textBox_finalTotRdi.Size = new System.Drawing.Size(55, 26);
             this.textBox_finalTotRdi.TabIndex = 9;
             this.textBox_finalTotRdi.Text = "2";
-            this.textBox_finalTotRdi.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_finalTotRdi.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label37
             // 
@@ -1180,14 +1287,17 @@ namespace sleepEditPro
             // 
             // textBox_finalRemTime
             // 
-            this.textBox_finalRemTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_finalRemTime.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_finalRemTime.Location = new System.Drawing.Point(200, 140);
             this.textBox_finalRemTime.Name = "textBox_finalRemTime";
             this.textBox_finalRemTime.Size = new System.Drawing.Size(55, 26);
             this.textBox_finalRemTime.TabIndex = 7;
             this.textBox_finalRemTime.Text = "19.5";
-            this.textBox_finalRemTime.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_finalRemTime.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label38
             // 
@@ -1200,14 +1310,17 @@ namespace sleepEditPro
             // 
             // textBox_finalLatTime
             // 
-            this.textBox_finalLatTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_finalLatTime.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_finalLatTime.Location = new System.Drawing.Point(200, 114);
             this.textBox_finalLatTime.Name = "textBox_finalLatTime";
             this.textBox_finalLatTime.Size = new System.Drawing.Size(55, 26);
             this.textBox_finalLatTime.TabIndex = 5;
             this.textBox_finalLatTime.Text = "51.5";
-            this.textBox_finalLatTime.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_finalLatTime.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label39
             // 
@@ -1220,14 +1333,17 @@ namespace sleepEditPro
             // 
             // textBox_finalSupTime
             // 
-            this.textBox_finalSupTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_finalSupTime.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_finalSupTime.Location = new System.Drawing.Point(200, 88);
             this.textBox_finalSupTime.Name = "textBox_finalSupTime";
             this.textBox_finalSupTime.Size = new System.Drawing.Size(55, 26);
             this.textBox_finalSupTime.TabIndex = 3;
             this.textBox_finalSupTime.Text = "11.1";
-            this.textBox_finalSupTime.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_finalSupTime.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label40
             // 
@@ -1240,14 +1356,17 @@ namespace sleepEditPro
             // 
             // textBox_finalTst
             // 
-            this.textBox_finalTst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_finalTst.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_finalTst.Location = new System.Drawing.Point(200, 62);
             this.textBox_finalTst.Name = "textBox_finalTst";
             this.textBox_finalTst.Size = new System.Drawing.Size(55, 26);
             this.textBox_finalTst.TabIndex = 1;
             this.textBox_finalTst.Text = "62.5";
-            this.textBox_finalTst.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
+            this.textBox_finalTst.Validating +=
+                new System.ComponentModel.CancelEventHandler(this.textBox_float_Validating);
             // 
             // label41
             // 
@@ -1260,7 +1379,9 @@ namespace sleepEditPro
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Anchor =
+                ((System.Windows.Forms.AnchorStyles)
+                    ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.Location = new System.Drawing.Point(818, 439);
             this.button1.Name = "button1";
@@ -1290,7 +1411,8 @@ namespace sleepEditPro
             this.radioButton_titration.Size = new System.Drawing.Size(181, 24);
             this.radioButton_titration.TabIndex = 2;
             this.radioButton_titration.Text = "CPAP/BIPAP Titration";
-            this.radioButton_titration.CheckedChanged += new System.EventHandler(this.radioButton_studyType_CheckedChanged);
+            this.radioButton_titration.CheckedChanged +=
+                new System.EventHandler(this.radioButton_studyType_CheckedChanged);
             // 
             // radioButton_splitstudy
             // 
@@ -1302,7 +1424,8 @@ namespace sleepEditPro
             this.radioButton_splitstudy.TabIndex = 1;
             this.radioButton_splitstudy.TabStop = true;
             this.radioButton_splitstudy.Text = "Split Study";
-            this.radioButton_splitstudy.CheckedChanged += new System.EventHandler(this.radioButton_studyType_CheckedChanged);
+            this.radioButton_splitstudy.CheckedChanged +=
+                new System.EventHandler(this.radioButton_studyType_CheckedChanged);
             // 
             // radioButton_Psgonly
             // 
@@ -1316,14 +1439,18 @@ namespace sleepEditPro
             // 
             // contextMenu_all
             // 
-            this.contextMenu_all.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem1});
+            this.contextMenu_all.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem1
+            });
             // 
             // menuItem1
             // 
             this.menuItem1.Index = 0;
-            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem2});
+            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+            {
+                this.menuItem2
+            });
             this.menuItem1.Text = "Reset";
             // 
             // menuItem2
@@ -1345,7 +1472,8 @@ namespace sleepEditPro
             this.Controls.Add(this.groupBox_diag);
             this.Controls.Add(this.groupBox_psg);
             this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.Name = "prelimIntMan";
             this.Text = "Enter Data";
             this.groupBox1.ResumeLayout(false);
@@ -1360,14 +1488,14 @@ namespace sleepEditPro
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
         #endregion
 
         public bool ValidTextBoxFloat(string valueStr, out string errorMessage)
         {
-            string pattern = @"^([0-9])?([0-9])?[0-9](\.[0-9])?$";
-            bool isMatched = Regex.IsMatch(valueStr, pattern);
+            var pattern = @"^([0-9])?([0-9])?[0-9](\.[0-9])?$";
+            var isMatched = Regex.IsMatch(valueStr, pattern);
             if (isMatched)
             {
                 errorMessage = "";
@@ -1375,15 +1503,13 @@ namespace sleepEditPro
             }
             errorMessage = "Invalid Value!";
             return false;
-
-
         }
 
-        private void textBox_float_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void textBox_float_Validating(object sender, CancelEventArgs e)
         {
-            TextBox tb = (TextBox)sender;
+            var tb = (TextBox) sender;
             string errorMsg;
-            if (!this.ValidTextBoxFloat(tb.Text, out errorMsg))
+            if (!ValidTextBoxFloat(tb.Text, out errorMsg))
             {
                 errorMsg = tb.Text + " " + errorMsg;
                 e.Cancel = true;
@@ -1392,32 +1518,30 @@ namespace sleepEditPro
             }
         }
 
-        private void radioButton_studyType_CheckedChanged(object sender, System.EventArgs e)
+        private void radioButton_studyType_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.radioButton_Psgonly.Checked)
+            if (radioButton_Psgonly.Checked)
             {
-                this.groupBox_tx.Visible = false;
-                this.groupBox_diag.Visible = false;
-                this.groupBox_psg.Visible = true;
+                groupBox_tx.Visible = false;
+                groupBox_diag.Visible = false;
+                groupBox_psg.Visible = true;
             }
-            if (this.radioButton_splitstudy.Checked)
+            if (radioButton_splitstudy.Checked)
             {
-                this.groupBox_psg.Visible = false;
-                this.groupBox_tx.Visible = true;
-                this.groupBox_diag.Visible = true;
+                groupBox_psg.Visible = false;
+                groupBox_tx.Visible = true;
+                groupBox_diag.Visible = true;
             }
-            if (this.radioButton_titration.Checked)
+            if (radioButton_titration.Checked)
             {
-                this.groupBox_psg.Visible = false;
-                this.groupBox_diag.Visible = false;
-                this.groupBox_tx.Visible = true;
+                groupBox_psg.Visible = false;
+                groupBox_diag.Visible = false;
+                groupBox_tx.Visible = true;
             }
-
         }
 
-        private void menuItem2_Click(object sender, System.EventArgs e)
+        private void menuItem2_Click(object sender, EventArgs e)
         {
-
             textBox_TST.Text = "0.0";
             textBox_wakeTst.Text = "0.0";
             textBox_s1tst.Text = "0.0";
@@ -1459,23 +1583,10 @@ namespace sleepEditPro
             textBox_finalLatTime.Text = "0.0";
             textBox_finalSupTime.Text = "0.0";
             textBox_finalTst.Text = "0.0";
-
-
-
         }
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
         }
-
-
-
-
-
-
-
-
-
     }
 }

@@ -1,36 +1,23 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PrelimInterDataManager
 {
     public class TreatmentData
     {
-        public TreatmentData() { }
+        private List<ClinicalData> mTXData;
 
-        String mTreatmentType = null; // CPAP, BIPAP, Oxygen
-        String mUnit = null; // cmH2O, lpm O2
-        List<ClinicalData> mTXData = null;
+        public string TreatmentType { get; set; } = null;
 
-        public System.String TreatmentType
-        {
-            get { return mTreatmentType; }
-            set { mTreatmentType = value; }
-        }
+        public string Unit { get; set; } = null;
 
-        public System.String Unit
-        {
-            get { return mUnit; }
-            set { mUnit = value; }
-        }
         public List<ClinicalData> getTxData()
         {
-            if (mTXData == null){
+            if (mTXData == null)
+            {
                 mTXData = new List<ClinicalData>();
             }
 
             return mTXData;
         }
     }
-
 }

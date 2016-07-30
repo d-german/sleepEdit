@@ -1,60 +1,60 @@
 using System;
-using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace sleepEditPro
 {
-	/// <summary>
-	/// Summary description for about.
-	/// </summary>
-	public class about : System.Windows.Forms.Form
-	{
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button okButton;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.Container components = null;
+    /// <summary>
+    ///     Summary description for about.
+    /// </summary>
+    public class about : Form
+    {
+        /// <summary>
+        ///     Required designer variable.
+        /// </summary>
+        private readonly Container components = null;
 
-		public about()
-		{
-			//
-			// Required for Windows Form Designer support
-			//
-			InitializeComponent();
-			this.AcceptButton = this.okButton;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Button okButton;
 
-			//
-			// TODO: Add any constructor code after InitializeComponent call
-			//
-		}
+        public about()
+        {
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
+            AcceptButton = okButton;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		protected override void Dispose( bool disposing )
-		{
-			if( disposing )
-			{
-				if(components != null)
-				{
-					components.Dispose();
-				}
-			}
-			base.Dispose( disposing );
-		}
+            //
+            // TODO: Add any constructor code after InitializeComponent call
+            //
+        }
 
-		#region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        /// <summary>
+        ///     Clean up any resources being used.
+        /// </summary>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///     Required method for Designer support - do not modify
+        ///     the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.label1 = new System.Windows.Forms.Label();
             this.okButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,7 +63,8 @@ namespace sleepEditPro
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label1.Location = new System.Drawing.Point(20, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(293, 56);
@@ -73,7 +74,8 @@ namespace sleepEditPro
             // okButton
             // 
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.okButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.okButton.Location = new System.Drawing.Point(333, 194);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(63, 42);
@@ -82,7 +84,8 @@ namespace sleepEditPro
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label2.Location = new System.Drawing.Point(20, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(293, 41);
@@ -109,13 +112,12 @@ namespace sleepEditPro
             this.Name = "about";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
+        }
 
-		}
-		#endregion
+        #endregion
 
-		private void label3_Click(object sender, System.EventArgs e)
-		{
-		
-		}
-	}
+        private void label3_Click(object sender, EventArgs e)
+        {
+        }
+    }
 }

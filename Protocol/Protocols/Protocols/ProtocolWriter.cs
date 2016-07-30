@@ -1,23 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Xml;
 
 namespace Protocols
 {
-
     public class ProtocolWriter
     {
+        private readonly ProtocolNode mTreeNode;
 
-        private XmlTextWriter mWriter;
-        private ProtocolNode mTreeNode;
-       
+        private readonly XmlTextWriter mWriter;
+
 
         public ProtocolWriter(ProtocolNode node, string path)
         {
             mTreeNode = node;
 
-            mWriter = new XmlTextWriter(/*@"F:\protocol_idtest.xml"*/path, null);
+            mWriter = new XmlTextWriter( /*@"F:\protocol_idtest.xml"*/path, null);
             writeProtocol();
         }
 
@@ -44,7 +40,7 @@ namespace Protocols
                 mWriter.WriteEndElement(); //section
             }
 
-            mWriter.WriteEndElement();//"Protocol"
+            mWriter.WriteEndElement(); //"Protocol"
             mWriter.WriteEndDocument();
             mWriter.Flush();
             mWriter.Close();
@@ -52,7 +48,7 @@ namespace Protocols
 
         private void _writeNode(ProtocolNode node)
         {
-            if ((node != null))
+            if (node != null)
             {
                 writeNode(node);
 
@@ -88,7 +84,7 @@ namespace Protocols
 
             if (node.Element.SubTextList.Count > 0)
             {
-                foreach (string str in node.Element.SubTextList)
+                foreach (var str in node.Element.SubTextList)
                 {
                     mWriter.WriteStartElement("SubText");
                     mWriter.WriteValue(str);
@@ -96,8 +92,5 @@ namespace Protocols
                 }
             }
         }
-
-
-
     }
 }

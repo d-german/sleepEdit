@@ -1,10 +1,9 @@
-
 namespace SleepArch
 {
     public enum Stage1
     {
         Normal,
-        Increased,
+        Increased
     }
 
     public enum Stage2
@@ -22,6 +21,7 @@ namespace SleepArch
         Increased,
         Decreased
     }
+
     public enum REM
     {
         Absent,
@@ -29,17 +29,18 @@ namespace SleepArch
         Increased,
         Decreased
     }
+
     public class SleepArchitecture
     {
         protected SleepStageAnalysis TheAnalysis;
-        public SleepArchitecture(
-                int AgeInYears,
-                double Stage1percent,
-                double Stage2percent,
-                double SWSpercent,
-                double REMpercent)
-        {
 
+        public SleepArchitecture(
+            int AgeInYears,
+            double Stage1percent,
+            double Stage2percent,
+            double SWSpercent,
+            double REMpercent)
+        {
             getAnalysis(AgeInYears, Stage1percent, Stage2percent, SWSpercent, REMpercent);
         }
 
@@ -52,31 +53,27 @@ namespace SleepArch
         {
             if (AgeInYears < 18)
             {
-                this.TheAnalysis =
+                TheAnalysis =
                     new SleepStageAnalysisChild(
-                    Stage1percent,
-                    Stage2percent,
-                    SWSpercent,
-                    REMpercent);
+                        Stage1percent,
+                        Stage2percent,
+                        SWSpercent,
+                        REMpercent);
             }
             else
             {
-                this.TheAnalysis =
+                TheAnalysis =
                     new SleepStageAnalysisAdult(
-                    Stage1percent,
-                    Stage2percent,
-                    SWSpercent,
-                    REMpercent);
+                        Stage1percent,
+                        Stage2percent,
+                        SWSpercent,
+                        REMpercent);
             }
         }
 
         public string GetResults()
         {
-            return this.TheAnalysis.Results;
-
+            return TheAnalysis.Results;
         }
-
-
     }
 }
-

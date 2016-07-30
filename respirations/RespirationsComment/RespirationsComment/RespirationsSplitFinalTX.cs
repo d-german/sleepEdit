@@ -1,13 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
-
 namespace RespirationsComment
 {
     public class RespirationsSplitFinalTX : Respirations
     {
-
         public RespirationsSplitFinalTX(
             float TotalSleepTime,
             float SupineSleepTime,
@@ -42,7 +36,8 @@ namespace RespirationsComment
 
         protected override void loadNormalSeverityValues()
         {
-            load_Results("split_final_tx_normal_respirations_with_positional_or_rem_effect.xml", ref mNormalSeverityResults, mNormalResultsDelegate);
+            load_Results("split_final_tx_normal_respirations_with_positional_or_rem_effect.xml",
+                ref mNormalSeverityResults, mNormalResultsDelegate);
         }
 
 
@@ -74,22 +69,24 @@ namespace RespirationsComment
 
         protected override void loadAbnormalDefaultValues()
         {
-            mAbnormalSeverityResults[(int)Severity.Normal] // not used
-            = "";
+            mAbnormalSeverityResults[(int) Severity.Normal] // not used
+                = "";
 
-            mAbnormalSeverityResults[(int)Severity.Mild]
-            = "Despite [TX_TYPE] at [TX] cm H2O mild sleep apnea/hypopnea persists with [RDI] events per hour of sleep. ";
+            mAbnormalSeverityResults[(int) Severity.Mild]
+                =
+                "Despite [TX_TYPE] at [TX] cm H2O mild sleep apnea/hypopnea persists with [RDI] events per hour of sleep. ";
 
-            mAbnormalSeverityResults[(int)Severity.Moderate]
-            = "Despite [TX_TYPE] at [TX] cm H2O moderate sleep apnea/hypopnea persists with [RDI] events per hour of sleep. ";
+            mAbnormalSeverityResults[(int) Severity.Moderate]
+                =
+                "Despite [TX_TYPE] at [TX] cm H2O moderate sleep apnea/hypopnea persists with [RDI] events per hour of sleep. ";
 
-            mAbnormalSeverityResults[(int)Severity.ModerateSevere]
-            = "Despite [TX_TYPE] at [TX] cm H2O moderate severe sleep apnea/hypopnea persists with [RDI] events per hour of sleep. ";
+            mAbnormalSeverityResults[(int) Severity.ModerateSevere]
+                =
+                "Despite [TX_TYPE] at [TX] cm H2O moderate severe sleep apnea/hypopnea persists with [RDI] events per hour of sleep. ";
 
-            mAbnormalSeverityResults[(int)Severity.Severe]
-            = "Despite [TX_TYPE] at [TX] cm H2O severe sleep apnea/hypopnea persists with [RDI] events per hour of sleep. ";
-
+            mAbnormalSeverityResults[(int) Severity.Severe]
+                =
+                "Despite [TX_TYPE] at [TX] cm H2O severe sleep apnea/hypopnea persists with [RDI] events per hour of sleep. ";
         }
-
     }
 }

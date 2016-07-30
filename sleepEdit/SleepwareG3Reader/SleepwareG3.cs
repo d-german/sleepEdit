@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
+
 [assembly: InternalsVisibleTo("SleepEditTest")]
 
 #endregion
@@ -19,6 +20,14 @@ namespace SleepwareG3Reader
     public class SleepwareG3
     {
         private readonly Dictionary<int, G3Data> _data = new Dictionary<int, G3Data>();
+
+
+        public SleepwareG3(string path)
+        {
+            LoadFile(path);
+            LoadData();
+        }
+
         public string PatientAge { get; private set; }
         public string SleepLatency { get; private set; }
         public string REMLatency { get; private set; }
@@ -30,13 +39,6 @@ namespace SleepwareG3Reader
         public string PercentN3 { get; private set; }
         public string PLMIndex { get; set; }
         public string PLMArousalIndex { get; set; }
-
-
-        public SleepwareG3(string path)
-        {
-            LoadFile(path);
-            LoadData();
-        }
 
         private void LoadData()
         {

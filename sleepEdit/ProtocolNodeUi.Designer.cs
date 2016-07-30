@@ -28,9 +28,9 @@ namespace sleepEdit
         /// </summary>
         private void InitializeComponent()
         {
-            this.mCheckBox = new System.Windows.Forms.CheckBox();
+            this.CheckBox = new System.Windows.Forms.CheckBox();
             this.mComboBox = new System.Windows.Forms.ComboBox();
-            this.mLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.LinkLabel = new System.Windows.Forms.LinkLabel();
             this.mDepthlabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1.SuspendLayout();
@@ -38,13 +38,13 @@ namespace sleepEdit
             // 
             // mCheckBox
             // 
-            this.mCheckBox.AutoSize = true;
-            this.mCheckBox.Location = new System.Drawing.Point(44, 3);
-            this.mCheckBox.Name = "mCheckBox";
-            this.mCheckBox.Size = new System.Drawing.Size(106, 24);
-            this.mCheckBox.TabIndex = 1;
-            this.mCheckBox.Text = "checkBox1";
-            this.mCheckBox.UseVisualStyleBackColor = true;
+            this.CheckBox.AutoSize = true;
+            this.CheckBox.Location = new System.Drawing.Point(44, 3);
+            this.CheckBox.Name = "CheckBox";
+            this.CheckBox.Size = new System.Drawing.Size(106, 24);
+            this.CheckBox.TabIndex = 1;
+            this.CheckBox.Text = "checkBox1";
+            this.CheckBox.UseVisualStyleBackColor = true;
             // 
             // mComboBox
             // 
@@ -56,13 +56,13 @@ namespace sleepEdit
             // 
             // mLinkLabel
             // 
-            this.mLinkLabel.AutoSize = true;
-            this.mLinkLabel.Location = new System.Drawing.Point(283, 0);
-            this.mLinkLabel.Name = "mLinkLabel";
-            this.mLinkLabel.Size = new System.Drawing.Size(90, 20);
-            this.mLinkLabel.TabIndex = 0;
-            this.mLinkLabel.TabStop = true;
-            this.mLinkLabel.Text = "mLinkLabel";
+            this.LinkLabel.AutoSize = true;
+            this.LinkLabel.Location = new System.Drawing.Point(283, 0);
+            this.LinkLabel.Name = "LinkLabel";
+            this.LinkLabel.Size = new System.Drawing.Size(90, 20);
+            this.LinkLabel.TabIndex = 0;
+            this.LinkLabel.TabStop = true;
+            this.LinkLabel.Text = "mLinkLabel";
             // 
             // mDepthlabel
             // 
@@ -75,9 +75,9 @@ namespace sleepEdit
             // 
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.mDepthlabel);
-            this.flowLayoutPanel1.Controls.Add(this.mCheckBox);
+            this.flowLayoutPanel1.Controls.Add(this.CheckBox);
             this.flowLayoutPanel1.Controls.Add(this.mComboBox);
-            this.flowLayoutPanel1.Controls.Add(this.mLinkLabel);
+            this.flowLayoutPanel1.Controls.Add(this.LinkLabel);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -106,9 +106,7 @@ namespace sleepEdit
 
         #endregion
 
-        private System.Windows.Forms.CheckBox mCheckBox;
         private System.Windows.Forms.ComboBox mComboBox;
-        private System.Windows.Forms.LinkLabel mLinkLabel;
         private System.Windows.Forms.Label mDepthlabel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }

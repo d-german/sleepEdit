@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using PrelimInterDataManager;
 
@@ -6,34 +5,47 @@ namespace TSTbodyPosComment
 {
     public class TSTbodyPos
     {
-        private string mFileName;
-        public TSTbodyPos(double tst, double psgSup) 
+        private readonly string mDiagnosticSleep = "";
+        private readonly string mDiagnosticSupine = "";
+        private readonly string mFileName;
+        private string mFinalTxSleep = "";
+        private string mFinalTxSleepSupine = "";
+
+        private readonly HoursAndMinutes mSleepTime = new HoursAndMinutes();
+        private string mTotalSleep = ""; // [TotalSleep]
+        private readonly string mTotalSleepSupine = "";
+        private string mTxType = "";
+        private string mTxValue = "";
+
+        public TSTbodyPos(double tst, double psgSup)
         {
             mFileName = "diagnostic_TST_BodyPos_comment.xml";
             try
             {
-                mResult = getResult();
-            }
-            catch 
-            {
-                mResult = "The patient slept [TotalSleep]; [SupineSleep] supine.";	
-            }
-           
-            totalSleep(tst);
-            mTotalSleepSupine = mSleepTime.getSleepTime(psgSup);
-            mResult = mResult.Replace("[SupineSleep]", mTotalSleepSupine);
-        }
-
-        public TSTbodyPos(double tst, double diagTst, double diagSup, double finalTxTst, double finalTxSup, string txType, string txValue) 
-        {    
-            mFileName = "split_night_TST_BodyPos_comment.xml";
-            try
-            {
-                mResult = getResult();
+                Result = getResult();
             }
             catch
             {
-                mResult = "The patient slept [TotalSleep]; [diagTotalSleep] while documenting sleep apnea/hypopnea ([DiagSupineSleep] supine) and [finalTxSleep] while using [TX_TYPE] at [TX] ([finalTxSupine] supine).";
+                Result = "The patient slept [TotalSleep]; [SupineSleep] supine.";
+            }
+
+            totalSleep(tst);
+            mTotalSleepSupine = mSleepTime.getSleepTime(psgSup);
+            Result = Result.Replace("[SupineSleep]", mTotalSleepSupine);
+        }
+
+        public TSTbodyPos(double tst, double diagTst, double diagSup, double finalTxTst, double finalTxSup,
+            string txType, string txValue)
+        {
+            mFileName = "split_night_TST_BodyPos_comment.xml";
+            try
+            {
+                Result = getResult();
+            }
+            catch
+            {
+                Result =
+                    "The patient slept [TotalSleep]; [diagTotalSleep] while documenting sleep apnea/hypopnea ([DiagSupineSleep] supine) and [finalTxSleep] while using [TX_TYPE] at [TX] ([finalTxSupine] supine).";
             }
             totalSleep(tst);
             tx(finalTxTst, finalTxSup, txType, txValue);
@@ -41,63 +53,51 @@ namespace TSTbodyPosComment
             mDiagnosticSleep = mSleepTime.getSleepTime(diagTst);
             mDiagnosticSupine = mSleepTime.getSleepTime(diagSup);
 
-            mResult = mResult.Replace("[diagTotalSleep]", mDiagnosticSleep);
-            mResult = mResult.Replace("[DiagSupineSleep]", mDiagnosticSupine);            
+            Result = Result.Replace("[diagTotalSleep]", mDiagnosticSleep);
+            Result = Result.Replace("[DiagSupineSleep]", mDiagnosticSupine);
         }
-        
-        public TSTbodyPos(double tst, double finalTxTst, double finalTxSup, string txType, string txValue) 
-        {            
+
+        public TSTbodyPos(double tst, double finalTxTst, double finalTxSup, string txType, string txValue)
+        {
             mFileName = "tx_titration_TST_BodyPos_comment.xml";
             try
             {
-                mResult = getResult();
+                Result = getResult();
             }
             catch
             {
-                mResult = "The patient slept [TotalSleep] while titrating [TX_TYPE]; [finalTxSleep] while using [TX_TYPE] at [TX] ([finalTxSupine] supine).";
+                Result =
+                    "The patient slept [TotalSleep] while titrating [TX_TYPE]; [finalTxSleep] while using [TX_TYPE] at [TX] ([finalTxSupine] supine).";
             }
             totalSleep(tst);
             tx(finalTxTst, finalTxSup, txType, txValue);
-        }     
-        
-        private HoursAndMinutes mSleepTime = new HoursAndMinutes();
-        private string mTxType = "";
-        private string mTxValue = "";
-        private string mTotalSleep = ""; // [TotalSleep]
-        private string mTotalSleepSupine = "";
-        private string mDiagnosticSleep = "";
-        private string mDiagnosticSupine = "";
-        private string mFinalTxSleep = "";
-        private string mFinalTxSleepSupine = "";
-        private string mResult = "";
-        public string Result
-        {
-            get { return mResult; }
-            set { mResult = value; }
         }
+
+        public string Result { get; set; } = "";
+
         private void totalSleep(double tst)
         {
             mTotalSleep = mSleepTime.getSleepTime(tst);
-            mResult = mResult.Replace("[TotalSleep]", mTotalSleep);
+            Result = Result.Replace("[TotalSleep]", mTotalSleep);
         }
+
         private void tx(double finalTxTst, double finalTxSup, string txType, string txValue)
         {
             mTxType = txType;
             mTxValue = txValue;
             mFinalTxSleep = mSleepTime.getSleepTime(finalTxTst);
             mFinalTxSleepSupine = mSleepTime.getSleepTime(finalTxSup);
-            mResult = mResult.Replace("[TX_TYPE]", mTxType);
-            mResult = mResult.Replace("[TX]", mTxValue);
-            mResult = mResult.Replace("[finalTxSleep]", mFinalTxSleep);
-            mResult = mResult.Replace("[finalTxSupine]", mFinalTxSleepSupine);
+            Result = Result.Replace("[TX_TYPE]", mTxType);
+            Result = Result.Replace("[TX]", mTxValue);
+            Result = Result.Replace("[finalTxSleep]", mFinalTxSleep);
+            Result = Result.Replace("[finalTxSupine]", mFinalTxSleepSupine);
         }
 
         private string getResult()
         {
-            List<string> list = new List<string>();
+            var list = new List<string>();
             DataReader.readData(mFileName, ref list);
             return list[0] + " ";
-            
         }
     }
 }

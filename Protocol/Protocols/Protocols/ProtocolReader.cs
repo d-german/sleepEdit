@@ -1,19 +1,15 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Xml;
 
 namespace Protocols
 {
-
-
     public class ProtocolReader
     {
-        private ProtocolNode mProtocolNode;
+        private readonly string mPath;
+        private readonly ProtocolNode mProtocolNode;
         private XmlReader mReader;
+        private readonly XmlReaderSettings mSettings = new XmlReaderSettings();
         private XmlReader mSubReader;
-        XmlReaderSettings mSettings = new XmlReaderSettings();
-        private string mPath;
 
         public ProtocolReader(ProtocolNode node, string path)
         {
@@ -38,7 +34,7 @@ namespace Protocols
             {
                 if (isSection(mReader))
                 {
-                    XmlReader secReader = mReader.ReadSubtree();
+                    var secReader = mReader.ReadSubtree();
 
                     sectionNode = getNode();
                     sectionNode.IsSection = true;
@@ -55,12 +51,13 @@ namespace Protocols
             mSubReader.Close();
         }
 
-        private void _processSubNodes(XmlReader reader, XmlReader dataReader, ProtocolNode parentNode, ProtocolNode childNode)
+        private void _processSubNodes(XmlReader reader, XmlReader dataReader, ProtocolNode parentNode,
+            ProtocolNode childNode)
         {
             if (reader.ReadToDescendant("SubSection"))
             {
                 // printNode(reader);
-                ProtocolNode descendantNode = getNode();
+                var descendantNode = getNode();
                 ReadNode(dataReader, descendantNode);
                 childNode.Nodes.Add(descendantNode);
                 _processSubNodes(reader, dataReader, childNode, descendantNode);
@@ -68,7 +65,7 @@ namespace Protocols
             if (reader.ReadToNextSibling("SubSection"))
             {
                 //printNode(reader);
-                ProtocolNode siblingNode = getNode();
+                var siblingNode = getNode();
                 ReadNode(dataReader, siblingNode);
                 parentNode.Nodes.Add(siblingNode);
                 _processSubNodes(reader, dataReader, parentNode, siblingNode);
@@ -81,16 +78,18 @@ namespace Protocols
 
             if (reader.LocalName.Equals("Id"))
             {
-	            int id = int.Parse(reader.ReadString());
+                var id = int.Parse(reader.ReadString());
                 if (id == -1)
                 {
                     id = UniqueId.GetId();
                     node.Id = id;
-                } else {
+                }
+                else
+                {
                     node.Id = id;
                 }
-                
-	            reader.Read();
+
+                reader.Read();
             }
 
             if (reader.LocalName.Equals("LinkId"))
@@ -104,7 +103,7 @@ namespace Protocols
                 node.LinkText = reader.ReadString();
                 reader.Read();
             }
-            
+
             readTextNode(reader, node);
 
             if (reader.LocalName.Equals("SubText"))
@@ -117,7 +116,6 @@ namespace Protocols
                     reader.Read();
                 }
             }
-
         }
 
         private static void readTextNode(XmlReader reader, ProtocolNode node)
@@ -129,6 +127,7 @@ namespace Protocols
                 reader.Read();
             }
         }
+
         private bool isSection(XmlReader reader)
         {
             return reader.NodeType == XmlNodeType.Element && reader.LocalName.Equals("Section");
@@ -136,27 +135,27 @@ namespace Protocols
 
         private ProtocolNode getNode()
         {
-            ProtocolNode node = new ProtocolNode();
+            var node = new ProtocolNode();
             return node;
         }
 
         private void PrintNode(XmlReader reader)
         {
-            string str = "";
-            for (int i = 0; i < reader.Depth; i++)
+            var str = "";
+            for (var i = 0; i < reader.Depth; i++)
             {
                 str += "\t";
             }
-            System.Console.WriteLine(
+            Console.WriteLine(
                 str +
-                reader.NodeType.ToString()
+                reader.NodeType
                 + " "
-                + reader.LocalName.ToString()
+                + reader.LocalName
                 + " "
-                + reader.Value.ToString()
+                + reader.Value
                 + " Depth: "
-                + mReader.Depth.ToString()
+                + mReader.Depth
                 );
         }
-    };
+    }
 }

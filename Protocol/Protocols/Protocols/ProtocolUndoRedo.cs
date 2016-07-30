@@ -1,78 +1,57 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Protocols
 {
     public class UndoManager
     {
-        public void Invoke(IProtocolNodeCmd cmd)
-        {
-            cmd.Execute();
-        }
-        private static Stack<IProtocolNodeCmd> mUndoStack = new Stack<IProtocolNodeCmd>();
-        public static Stack<IProtocolNodeCmd> UndoStack
-        {
-            get { return UndoManager.mUndoStack; }
-        }
-        private static Stack<IProtocolNodeCmd> mRedoStack = new Stack<IProtocolNodeCmd>();
+        public static Stack<IProtocolNodeCmd> UndoStack { get; } = new Stack<IProtocolNodeCmd>();
 
-        public static Stack<IProtocolNodeCmd> RedoStack
-        {
-            get { return UndoManager.mRedoStack; }
-        }
+        public static Stack<IProtocolNodeCmd> RedoStack { get; } = new Stack<IProtocolNodeCmd>();
 
         public static bool CanUndo
         {
             get { return UndoStack.Count > 0; }
-            
         }
+
         public static bool CanRedo
         {
             get { return RedoStack.Count > 0; }
-           
         }
-    };
 
-    abstract public class ProtocolNodeCmd : IProtocolNodeCmd
+        public void Invoke(IProtocolNodeCmd cmd)
+        {
+            cmd.Execute();
+        }
+    }
+
+    public abstract class ProtocolNodeCmd : IProtocolNodeCmd
     {
-        public ProtocolNodeCmd()
-        {
-        }
-        abstract public void Execute();
-        abstract public void UndoExecute();
+        public ProtocolNode Parent { get; set; }
 
-        private ProtocolNode mParent;
-        public Protocols.ProtocolNode Parent
-        {
-            get { return mParent; }
-            set { mParent = value; }
-        }
-        private ProtocolNode mChild;
-        public Protocols.ProtocolNode Child
-        {
-            get { return mChild; }
-            set { mChild = value; }
-        }
-    };
+        public ProtocolNode Child { get; set; }
+
+        public abstract void Execute();
+        public abstract void UndoExecute();
+    }
 
     public class AddCmd : ProtocolNodeCmd
     {
         public AddCmd(ProtocolNode parent, ProtocolNode child)
         {
-            base.Parent = parent;
-            base.Child = child;
+            Parent = parent;
+            Child = child;
         }
+
         public override void Execute()
         {
-            int id = UniqueId.GetId();
+            var id = UniqueId.GetId();
             Child.Id = id;
-            Parent.Nodes.Add(Child);           
-            UndoManager.UndoStack.Push(this);           
+            Parent.Nodes.Add(Child);
+            UndoManager.UndoStack.Push(this);
         }
 
         public override void UndoExecute()
-        {           
+        {
             Parent.Nodes.Remove(Child);
             UndoManager.RedoStack.Push(this);
         }
@@ -80,32 +59,35 @@ namespace Protocols
 
     public class RemoveCmd : ProtocolNodeCmd
     {
+        private readonly List<ProtocolNode> mList;
+        private readonly int mOriginalId;
+
         public RemoveCmd(ProtocolNode parent, ProtocolNode child, List<ProtocolNode> list)
         {
-            base.Parent = parent;
-            base.Child = child;
+            Parent = parent;
+            Child = child;
             mOriginalId = child.Id;
             mList = list;
         }
-        private List<ProtocolNode> mList;
-        private int mOriginalId; 
+
         public override void Execute()
         {
             if (mList != null)
             {
-                foreach (ProtocolNode node in mList)
+                foreach (var node in mList)
                 {
                     node.LinkId = -1;
                 }
             }
             Parent.Nodes.Remove(Child);
-            UndoManager.UndoStack.Push(this);           
+            UndoManager.UndoStack.Push(this);
         }
+
         public override void UndoExecute()
-        { 
+        {
             if (mList != null)
             {
-                foreach(ProtocolNode node in mList)
+                foreach (var node in mList)
                 {
                     node.LinkId = mOriginalId;
                 }
@@ -117,34 +99,36 @@ namespace Protocols
 
     public class NudgeUpCmd : ProtocolNodeCmd
     {
+        private readonly ProtocolNode mCurrentNode;
+        private int mOriginalIndex;
+
         public NudgeUpCmd(ProtocolNode currentNode)
         {
             mCurrentNode = currentNode;
         }
-        private int mOriginalIndex = 0;
-        private ProtocolNode mCurrentNode = null;
+
         public override void Execute()
         {
             if (mCurrentNode.PrevNode != null)
             {
-                ProtocolNode parent = (ProtocolNode)mCurrentNode.Parent;
+                var parent = (ProtocolNode) mCurrentNode.Parent;
                 mOriginalIndex = mCurrentNode.Index;
-                int index =  mCurrentNode.PrevNode.Index;
+                var index = mCurrentNode.PrevNode.Index;
                 mCurrentNode.Remove();
                 parent.Nodes.Insert(index, mCurrentNode);
                 UndoManager.UndoStack.Push(this);
             }
-
-
         }
+
         public override void UndoExecute()
         {
-            ProtocolNode parent = (ProtocolNode) mCurrentNode.Parent;
+            var parent = (ProtocolNode) mCurrentNode.Parent;
             mCurrentNode.Remove();
             parent.Nodes.Insert(mOriginalIndex, mCurrentNode);
             UndoManager.RedoStack.Push(this);
         }
     }
+
 //     public class SetLinkCmd : ProtocolNodeCmd
 //     {
 //        public SetLinkCmd( ProtocolNode currentNode, int id )
@@ -170,81 +154,68 @@ namespace Protocols
 //     }
     public class NudgeDownCmd : ProtocolNodeCmd
     {
+        private readonly ProtocolNode mCurrentNode;
+        private int mOriginalIndex;
+
         public NudgeDownCmd(ProtocolNode currentNode)
         {
             mCurrentNode = currentNode;
         }
-        private int mOriginalIndex =0;
-        private ProtocolNode mCurrentNode = null;
+
         public override void Execute()
-        {           
+        {
             if (mCurrentNode.NextNode != null)
             {
-                ProtocolNode parent = (ProtocolNode)mCurrentNode.Parent;
+                var parent = (ProtocolNode) mCurrentNode.Parent;
                 mOriginalIndex = mCurrentNode.Index;
-                int index =  mCurrentNode.NextNode.Index;
+                var index = mCurrentNode.NextNode.Index;
                 mCurrentNode.Remove();
                 parent.Nodes.Insert(index, mCurrentNode);
                 UndoManager.UndoStack.Push(this);
             }
-            
-            
         }
+
         public override void UndoExecute()
         {
-            ProtocolNode parent = (ProtocolNode) mCurrentNode.Parent;
+            var parent = (ProtocolNode) mCurrentNode.Parent;
             mCurrentNode.Remove();
             parent.Nodes.Insert(mOriginalIndex, mCurrentNode);
-           
+
             UndoManager.RedoStack.Push(this);
         }
-
-
     }
 
     public class MoveCmd : ProtocolNodeCmd
     {
         public MoveCmd(ProtocolNode source, ProtocolNode parent, ProtocolNode child)
         {
-            mSource = source;
-            mSourceParent = (ProtocolNode)source.Parent;
-            mIndex = mSourceParent.Nodes.IndexOf(mSource);
-            base.Parent = parent;
-            base.Child = child;
+            Source = source;
+            SourceParent = (ProtocolNode) source.Parent;
+            Index = SourceParent.Nodes.IndexOf(Source);
+            Parent = parent;
+            Child = child;
         }
-        private ProtocolNode mSource;
-        private ProtocolNode mSourceParent;
-        private int mIndex = 0;
-        public int Index
-        {
-            get { return mIndex; }
-            set { mIndex = value; }
-        }
-        public ProtocolNode SourceParent
-        {
-            get { return mSourceParent; }
-            set { mSourceParent = value; }
-        }
-        public Protocols.ProtocolNode Source
-        {
-            get { return mSource; }
-            set { mSource = value; }
-        }
+
+        public int Index { get; set; }
+
+        public ProtocolNode SourceParent { get; set; }
+
+        public ProtocolNode Source { get; set; }
 
         public override void Execute()
         {
-            Parent.Nodes.AddRange(new /*System.Windows.Forms.TreeNode*/ProtocolNode[] { Child });
-            Parent.ExpandAll();            
-            if (mSource != null && mSource.Parent !=null)
+            Parent.Nodes.AddRange(new /*System.Windows.Forms.TreeNode*/[] {Child});
+            Parent.ExpandAll();
+            if (Source != null && Source.Parent != null)
             {
-	            mSource.Parent.Nodes.Remove(mSource);
-	            UndoManager.UndoStack.Push(this); 
+                Source.Parent.Nodes.Remove(Source);
+                UndoManager.UndoStack.Push(this);
             }
-          
         }
+
         public override void UndoExecute()
-        {            
-            SourceParent.Nodes.Insert(Index, Source);           
+        {
+            SourceParent.Nodes.Insert(Index, Source);
             Parent.Nodes.Remove(Child);
             UndoManager.RedoStack.Push(this);
         }
@@ -252,7 +223,6 @@ namespace Protocols
 
     public class UndoCmd : ProtocolNodeCmd
     {
-        public UndoCmd() { }
         public override void Execute()
         {
             if (UndoManager.UndoStack.Count > 0)
@@ -269,16 +239,14 @@ namespace Protocols
 
     public class RedoCmd : ProtocolNodeCmd
     {
-        public RedoCmd(){}
-
         public override void Execute()
         {
-            if (UndoManager.RedoStack.Count >0)
-            {              
-               	UndoManager.RedoStack.Pop().Execute();              
+            if (UndoManager.RedoStack.Count > 0)
+            {
+                UndoManager.RedoStack.Pop().Execute();
             }
-
         }
+
         public override void UndoExecute()
         {
             //throw new Exception("The method or operation is not implemented.");

@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Default>
   <Result value="0" N1="Normal" N3="Absent" R="Absent">
     Sleep architecture demonstrates an absence of stage R sleep and stage N3 sleep.
@@ -128,4 +129,3 @@
     Sleep architecture is fragmented with an increase in light (stage N1) sleep and a decrease in slow wave and stage R sleep sleep.
   </Result>
 </Default>
-

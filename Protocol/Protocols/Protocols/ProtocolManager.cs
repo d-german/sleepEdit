@@ -1,12 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
 
 namespace Protocols
 {
     public class ProtocolManager
     {
+        public static string DefaultPath;
 
         public static void Save(ProtocolNode node)
         {
@@ -22,7 +21,6 @@ namespace Protocols
         public static void Load(ProtocolNode node)
         {
             new ProtocolReader(node, DefaultPath);
-
         }
 
         public static void Load(ProtocolNode node, string path)
@@ -30,8 +28,6 @@ namespace Protocols
             DefaultPath = path;
             new ProtocolReader(node, DefaultPath);
         }
-
-        public static string DefaultPath;
 
         public static bool IsValidPath(string path)
         {
@@ -43,7 +39,6 @@ namespace Protocols
                     streamReader.Close();
                     return true;
                 }
-
             }
             catch
             {
@@ -52,18 +47,15 @@ namespace Protocols
                     streamReader.Close();
                 }
                 return false;
-
             }
         }
-
     }
 
     public class UniqueId
     {
-        static public int GetId()
+        public static int GetId()
         {
             return Guid.NewGuid().GetHashCode();
         }
-
     }
 }

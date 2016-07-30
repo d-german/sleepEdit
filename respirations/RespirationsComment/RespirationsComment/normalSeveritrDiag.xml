@@ -1,6 +1,7 @@
 <?xml version='1.0'?>
+
 <NormalSeverityDiag>
-  <Result id="0" >
+  <Result id="0">
     <Effect>true</Effect>
     <plurality>Zero</plurality>
     <value>
@@ -33,5 +34,3 @@
     <value>Respirations are within normal limits with [RDI] events per hour of sleep.</value>
   </Result>
 </NormalSeverityDiag>
-
-
