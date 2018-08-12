@@ -16,14 +16,9 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>sleepEdit</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>sleepEditPro.sleepEdit</StartupObject>
-    <ManifestCertificateThumbprint>876EBD333B9058E6B645DC8C18A387F0EF98BB36</ManifestCertificateThumbprint>
-    <ManifestKeyFile>sleepEdit_TemporaryKey.pfx</ManifestKeyFile>
-    <GenerateManifests>false</GenerateManifests>
-    <SignManifests>true</SignManifests>
+    <StartupObject>sleepEditPro.sleepEdit</StartupObject>   
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>sleepEdit.snk</AssemblyOriginatorKeyFile>
+   
     <TargetZone>LocalIntranet</TargetZone>
     <FileUpgradeFlags>
     </FileUpgradeFlags>

@@ -80,9 +80,6 @@
     </Compile>
     <None Include="PrelimInterResultsEditorUi.snk" />
     <BaseApplicationManifest Include="Properties\app.manifest" />
-    <None Include="PrelimInterResultsEditorUi_1_TemporaryKey.pfx" />
-    <None Include="PrelimInterResultsEditorUi_2_TemporaryKey.pfx" />
-    <None Include="PrelimInterResultsEditorUi_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
